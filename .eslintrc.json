@@ -1,3 +1,53 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "next", 
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "mantine",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier", "@typescript-eslint", "react", "testing-library", "jest"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  
+  "rules": { 
+    "react/react-in-jsx-scope": ["off"],
+    "prettier/prettier": "warn",
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/no-cycle": "error"
+  },
+  "overrides": [
+      {
+        "files": [
+          "*.ts", "*.tsx"
+        ],
+        "rules": {
+          "no-undef": "off"
+        }
+      },
+    {
+      "files": [
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:testing-library/react"
+      ]
+    }
+  ]
 }
