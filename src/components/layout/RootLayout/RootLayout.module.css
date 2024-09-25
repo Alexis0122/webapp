@@ -1,0 +1,18 @@
+.paper {
+  width: 100%;
+  min-width: 0;
+  height: calc(110vh - 90px);
+  --paper-radius: none;
+
+  background: hsla(167, 31%, 50%, 1);
+  background: -webkit-linear-gradient(0deg, hsla(167, 31%, 50%, 1) 0%, hsla(168, 80%, 27%, 1) 51%, hsla(167, 31%, 57%, 1) 100%);
+  background: -moz-linear-gradient(0deg, hsla(167, 31%, 50%, 1) 0%, hsla(168, 80%, 27%, 1) 51%, hsla(167, 31%, 57%, 1) 100%);
+  background: linear-gradient(0deg, hsla(167, 31%, 50%, 1) 0%, hsla(168, 80%, 27%, 1) 51%, hsla(167, 31%, 57%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#58A796", endColorstr="#0E7E67", GradientType=1 );
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  padding: 30px 0;
+}
