@@ -72,7 +72,7 @@ features
 1. Clone the repository:
 
    ```bash
-   git clone git@ssh.dev.azure.com:v3/mdtx/Gestion%20Pagos%20-%20PAGAMEX/WebApp
+   git clone
    cd web
    ```
 
