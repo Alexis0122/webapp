@@ -1,10 +1,11 @@
-import { Text } from "@mantine/core";
-import React from "react";
-
+import { Text } from '@mantine/core'
+import React from 'react'
+import { CampaignCard } from '@/features/Main/campaignLanding/CampaignCard'
 export const CampaignLanding = () => {
-  return(
+  return (
     <>
-      <Text>Aqui pueden probar</Text>
+      {/* <Text>Aqui pueden probar</Text> */}
+      <CampaignCard />
     </>
   )
 }

@@ -1,0 +1,35 @@
+/* CampaignCard.module.css */
+.card {
+  background-color: #f27243;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; /* Center items for consistent alignment */
+  height: 100%;
+}
+
+.leftText {
+  text-align: left;
+  padding-left: 200px;
+}
+
+.centeredTitle {
+  text-align: center;
+}
+
+.group {
+  width: 350px; /* Set width for button group */
+  padding: 0 20px; /* Padding for the group */
+}
+
+.button {
+  margin-top: var(--margin-top, 0); /* Allow margin-top to be set via CSS variables */
+  background-color: #065242;
+  overflow: hidden; /* Prevent overflow */
+  max-width: 100%; /* Ensure button does not exceed container width */
+}
+
+.feesText {
+  text-align: center;
+  margin-top: 10px; /* Margin for spacing */
+}
