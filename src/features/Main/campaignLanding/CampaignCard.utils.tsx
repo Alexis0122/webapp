@@ -23,9 +23,9 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
   buttonText,
   fees,
   letter,
-  marginB = 300,
+  marginB = 280,
   marginT = 0,
-  sizeT = '25px',
+  sizeT = '35px',
   width = '400px', // Default width
   height = '468px',
   paddingL = '170px'
@@ -63,6 +63,10 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
           {buttonText}
         </Button>
       </Group>
+      <div style={{ marginTop:'10px', width: '120%', margin: '0', padding: '0' }}>
+  <hr style={{ border: '0.3px solid black', width: '120%', margin: '0' }} />
+</div>
+
       <Text className={styles.feesText} size='xs'>
         {fees}
       </Text>

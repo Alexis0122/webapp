@@ -26,9 +26,9 @@ export const CampaignCard = () => {
             letter={'B'}
             sizeT={'40px'}
             marginB={10}
-            marginT={320}
+            marginT={310}
             width='443px' // Set a custom width for the middle card
-            height='509px'
+            height='529px'
             paddingL='150px'
           />
         </Grid.Col>
