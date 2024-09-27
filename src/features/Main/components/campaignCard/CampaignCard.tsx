@@ -14,7 +14,6 @@ export const CampaignCard = () => {
             buttonText='Starts Now'
             fees='Fees Free; 5% of funds raised from reservations'
             letter={'A'}
-            
           />
         </Grid.Col>
         <Grid.Col span={4} style={{ padding: '10px 15px 0px 0px' }}>
@@ -39,7 +38,6 @@ export const CampaignCard = () => {
             buttonText='Learn More'
             fees='Fees 5%-8%; 4-5% of funds raised + transaction fees'
             letter={'C'}
-            
           />
         </Grid.Col>
       </Grid>
