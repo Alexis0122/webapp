@@ -14,6 +14,7 @@ interface CampaignCardItemProps {
   sizeT?: string // Font size for title
   width?: string // Custom width prop
   height?: string // Custom height prop
+  paddingL?: string
 }
 
 const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
@@ -22,11 +23,12 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
   buttonText,
   fees,
   letter,
-  marginB,
+  marginB = 300,
   marginT = 0,
   sizeT = '25px',
-  width = '350px', // Default width
-  height = '500px'
+  width = '400px', // Default width
+  height = '468px',
+  paddingL = '170px'
 }) => {
   return (
     <Card
@@ -42,7 +44,7 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
           size='xs'
           fw='700'
           className={styles.leftText} // Use leftText class
-          style={{ marginBottom: marginB }} // Keep marginB as a prop
+          style={{ marginBottom: marginB, paddingLeft: paddingL }} // Keep marginB as a prop
         >
           {letter}. {subtitle}
         </Text>
@@ -55,7 +57,7 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
           variant='filled'
           fullWidth
           className={styles.button} // Use button class
-          size='md'
+          size='xl'
           style={{ marginTop: marginT }} // Use centeredTitle class
         >
           {buttonText}
