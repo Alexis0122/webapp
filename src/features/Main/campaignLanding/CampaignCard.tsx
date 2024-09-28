@@ -1,7 +1,7 @@
 // CampaignCard.tsx
 import React from 'react'
 import { Grid, Container } from '@mantine/core'
-import CampaignCardItem from './CampaignCard.utils'
+import { CampaignCardItem } from './CampaignCard.utils'
 
 export const CampaignCard = () => {
   return (

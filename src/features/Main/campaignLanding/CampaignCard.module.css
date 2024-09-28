@@ -28,8 +28,14 @@
   overflow: hidden; /* Prevent overflow */
   max-width: 100%; /* Ensure button does not exceed container width */
 }
+.customDivider {
+  border-color: black !important; /* Sobreescribir cualquier estilo previo */
+  border-width: 1.5px !important; /* Personalizar grosor */
+}
+
 
 .feesText {
   text-align: center;
-  margin-top: 10px; /* Margin for spacing */
+  /* margin-top: 1px; Margin for spacing */
 }
+

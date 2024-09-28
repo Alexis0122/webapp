@@ -1,7 +1,8 @@
 // CampaignCardItem.tsx
 import React from 'react'
-import { Card, Text, Button, Group } from '@mantine/core'
+import { Card, Text, Button, Group, Divider, Box } from '@mantine/core'
 import styles from './CampaignCard.module.css' // Import the CSS module
+import { IconSearch } from '@tabler/icons-react'
 
 interface CampaignCardItemProps {
   title: string
@@ -17,13 +18,13 @@ interface CampaignCardItemProps {
   paddingL?: string
 }
 
-const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
+export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
   title,
   subtitle,
   buttonText,
   fees,
   letter,
-  marginB = 280,
+  marginB = 260,
   marginT = 0,
   sizeT = '35px',
   width = '400px', // Default width
@@ -52,20 +53,28 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
       <Text w={700} size={sizeT} fw='700' className={styles.centeredTitle}>
         {title}
       </Text>
-      <Group justify='center' className={styles.group}>
+      <Group justify='center' pb= '8px' className={styles.group}>
         <Button
           variant='filled'
           fullWidth
-          className={styles.button} // Use button class
+          className={styles.button}
           size='xl'
-          style={{ marginTop: marginT }} // Use centeredTitle class
+          style={{ marginTop: marginT }}
         >
           {buttonText}
         </Button>
       </Group>
-      <div style={{ marginTop:'10px', width: '120%', margin: '0', padding: '0' }}>
-  <hr style={{ border: '0.3px solid black', width: '120%', margin: '0' }} />
-</div>
+      <div style={{ width: '100%' }}>
+        {' '}
+
+        <Divider
+          orientation='horizontal'
+          color='black'
+          pb= '5px'
+          style={{ borderColor: 'black', borderWidth: '0.7px',  }} // Asegurar color y grosor
+          labelPosition='center'
+                 />
+      </div>
 
       <Text className={styles.feesText} size='xs'>
         {fees}
@@ -73,5 +82,3 @@ const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
     </Card>
   )
 }
-
-export default CampaignCardItem
