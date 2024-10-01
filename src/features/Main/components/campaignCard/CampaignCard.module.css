@@ -6,40 +6,43 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-sizing: border-box; /* Incluye padding en el tamaño total */
-}
-.container{
-
+  box-sizing: border-box;
+  width: 400px; /* Valor predeterminado */
+  height: 468px; /* Valor predeterminado */
 }
 
 .leftText {
   text-align: left;
-  width: 100%; /* Ocupa todo el ancho disponible */
+  width: 100%;
+  margin-bottom: 260px; /* Valor predeterminado eliminado de props */
+  padding-left: 170px; /* Valor predeterminado eliminado de props */
 }
 
 .centeredTitle {
   text-align: center;
   margin-bottom: 10px;
+  font-size: 35px; /* Tamaño de fuente predeterminado */
 }
 
 .group {
-  width: 100%; /* Ocupa todo el ancho disponible */
+  width: 100%;
 }
 
 .button {
-  margin-top: var(--margin-top, 0); /* Permite establecer margin-top mediante variables CSS */
+  margin-top: 0; /* Valor predeterminado para `margin-top` */
   background-color: #065242;
-  overflow: hidden; /* Previene el desbordamiento */
-  max-width: 100%; /* Asegura que el botón no exceda el ancho del contenedor */
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .customDivider {
-  border-color: black !important; /* Sobrescribe cualquier estilo previo */
-  border-width: 1.5px !important; /* Personaliza el grosor */
+  border-color: black !important;
+  border-width: 1.5px !important;
 }
 
 .feesText {
   text-align: center;
-  margin-top: 10px; /* Margin para espaciado */
+  margin-top: 10px;
 }
 
+/* Añadir más estilos según sea necesario */
