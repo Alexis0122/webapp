@@ -19,7 +19,7 @@ export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
   letter,
 }) => {
   return (
-    <Container className={styles.container}>
+    <Container>
       <Card shadow="md" radius="md" className={styles.card}>
         {letter && (
           <Text w={700} size="xs" fw="700" className={styles.leftText}>

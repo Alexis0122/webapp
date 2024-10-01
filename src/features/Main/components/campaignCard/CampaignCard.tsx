@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from '@mantine/core';
 import { CampaignCardItem } from './CampaignCard.utils';
 import { Carousel } from '@mantine/carousel';
 import '@mantine/carousel/styles.css';
 import classes from './CampaignCard.module.css';
+import styles from './CampaignCard.module.css';
 
 export const CampaignCard = () => {
+  const [activeSlide, setActiveSlide] = useState(1); // Estado para rastrear el slide activo
+
   return (
-    // Contenedor que centra el Carousel
     <Container
+    className={styles.Container}
       style={{
-        display: 'flex', // Flexbox para centrar
-        justifyContent: 'center', // Centra horizontalmente
-        alignItems: 'center', // Centra verticalmente
-        minHeight: '100vh', // Ocupa el 100% del alto de la pantalla
-        width: '100vw', // Ocupa el 100% del ancho de la pantalla
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        width: '100vw',
       }}
     >
       <Carousel
@@ -22,74 +25,71 @@ export const CampaignCard = () => {
         align="center"
         dragFree
         loop
-        slideSize="25%" // Ajusta el tamaño de cada slide a un 25% del contenedor
+        slideSize="25%"
         withIndicators
         initialSlide={1}
-        slideGap="md" // Cambia el espacio entre los slides a `md`
+        slideGap="md"
         controlsOffset="xl"
         controlSize={50}
-        
-        styles={{
-          container: {
-            width: '1350px', // Asegura que el carrusel use el 100% del contenedor
-          },
-        }}
+        onSlideChange={(index) => setActiveSlide(index)} // Actualiza el slide activo
+        styles={{ container: { width: '1300px', height:'700px' } }}
       >
-        {/* Slide 1 */}
-        <Carousel.Slide style={{ padding: '30px 0' }}>
-          <CampaignCardItem
-            title='Pre-Launch'
-            subtitle='Build Anticipation'
-            buttonText='Starts Now'
-            fees='Fees Free; 5% of funds raised from reservations'
-            letter='A'
-          />
-        </Carousel.Slide>
-
-        {/* Slide 2 */}
-        <Carousel.Slide style={{ padding: '30px 0' }}>
-          <CampaignCardItem
-            title='Crowdfunding'
-            subtitle='Raise Funds'
-            buttonText='Start Your Campaign'
-            fees='Fees 5%-8%; 4-5% of funds raised + transaction fees'
-            letter='B'
-          />
-        </Carousel.Slide>
-
-        {/* Slide 3 */}
-        <Carousel.Slide style={{ padding: '30px 0' }}>
-          <CampaignCardItem
-            title='Learn More'
-            subtitle='Explore Opportunities'
-            buttonText='Learn More'
-            fees='Fees 5%-8%; 4-5% of funds raised + transaction fees'
-            letter='C'
-          />
-        </Carousel.Slide>
-
-        {/* Slide 4 */}
-        <Carousel.Slide style={{ padding: '30px 0' }}>
-          <CampaignCardItem
-            title='Learn More'
-            subtitle='Explore Opportunities'
-            buttonText='Learn More'
-            fees='Fees 5%-8%; 4-5% of funds raised + transaction fees'
-            letter='C'
-          />
-        </Carousel.Slide>
-
-        {/* Slide 5 */}
-        <Carousel.Slide style={{ padding: '30px 0' }}>
-          <CampaignCardItem
-            title='Learn More'
-            subtitle='Explore Opportunities'
-            buttonText='Learn More'
-            fees='Fees 5%-8%; 4-5% of funds raised + transaction fees'
-            letter='C'
-          />
-        </Carousel.Slide>
+        {/* Mapear slides para simplificar */}
+        {slides.map((slide, index) => (
+          <Carousel.Slide
+            key={index}
+            className={
+              index === activeSlide ? classes.activeSlide : classes.inactiveSlide
+            } // Añadir clases dinámicas
+          >
+            <CampaignCardItem
+              title={slide.title}
+              subtitle={slide.subtitle}
+              buttonText={slide.buttonText}
+              fees={slide.fees}
+              letter={slide.letter}
+            />
+          </Carousel.Slide>
+        ))}
       </Carousel>
     </Container>
   );
 };
+
+const slides = [
+  {
+    title: 'Pre-Launch',
+    subtitle: 'Build Anticipation',
+    buttonText: 'Starts Now',
+    fees: 'Fees Free; 5% of funds raised from reservations',
+    letter: 'A',
+  },
+  {
+    title: 'Crowdfunding',
+    subtitle: 'Raise Funds',
+    buttonText: 'Start Your Campaign',
+    fees: 'Fees 5%-8%; 4-5% of funds raised + transaction fees',
+    letter: 'B',
+  },
+  {
+    title: 'Learn More',
+    subtitle: 'Explore Opportunities',
+    buttonText: 'Learn More',
+    fees: 'Fees 5%-8%; 4-5% of funds raised + transaction fees',
+    letter: 'C',
+  },
+  {
+    title: 'Crowdfunding',
+    subtitle: 'Raise Funds',
+    buttonText: 'Start Your Campaign',
+    fees: 'Fees 5%-8%; 4-5% of funds raised + transaction fees',
+    letter: 'B',
+  },
+  {
+    title: 'Learn More',
+    subtitle: 'Explore Opportunities',
+    buttonText: 'Learn More',
+    fees: 'Fees 5%-8%; 4-5% of funds raised + transaction fees',
+    letter: 'C',
+  },
+];

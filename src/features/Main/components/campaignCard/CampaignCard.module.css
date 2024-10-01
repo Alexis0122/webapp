@@ -9,19 +9,22 @@
   box-sizing: border-box;
   width: 400px; /* Valor predeterminado */
   height: 468px; /* Valor predeterminado */
+  transition: width 0.7s ease, height 0.7s ease; /* Transiciones para animación */
+}
+.Container {
+  padding-top: 300px;
+
 }
 
 .leftText {
   text-align: left;
   width: 100%;
-  margin-bottom: 260px; /* Valor predeterminado eliminado de props */
-  padding-left: 170px; /* Valor predeterminado eliminado de props */
 }
 
 .centeredTitle {
   text-align: center;
   margin-bottom: 10px;
-  font-size: 35px; /* Tamaño de fuente predeterminado */
+  font-size: 35px;
 }
 
 .group {
@@ -29,7 +32,7 @@
 }
 
 .button {
-  margin-top: 0; /* Valor predeterminado para `margin-top` */
+  margin-top: 0;
   background-color: #065242;
   overflow: hidden;
   max-width: 100%;
@@ -45,4 +48,16 @@
   margin-top: 10px;
 }
 
-/* Añadir más estilos según sea necesario */
+/* Nueva clase para el slide activo */
+.activeSlide .card {
+  width: 400px; /* Incremento de 100px en ancho */
+  height: 568px; /* Incremento de 100px en alto */
+  padding-top: 0px;
+
+}
+
+/* Clase para los slides inactivos (opcional si quieres aplicar otros estilos) */
+.inactiveSlide .card {
+  width: 400px;
+  height: 468px;
+}
