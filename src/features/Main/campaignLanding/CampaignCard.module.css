@@ -1,41 +1,45 @@
 /* CampaignCard.module.css */
+
 .card {
   background-color: #f27243;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center; /* Center items for consistent alignment */
-  height: 100%;
+  align-items: center;
+  box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+.container{
+
 }
 
 .leftText {
   text-align: left;
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
 
 .centeredTitle {
   text-align: center;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .group {
-  width: 350px; /* Set width for button group */
-  padding: 0 20px; /* Padding for the group */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
 
 .button {
-  margin-top: var(--margin-top, 0); /* Allow margin-top to be set via CSS variables */
+  margin-top: var(--margin-top, 0); /* Permite establecer margin-top mediante variables CSS */
   background-color: #065242;
-  overflow: hidden; /* Prevent overflow */
-  max-width: 100%; /* Ensure button does not exceed container width */
-}
-.customDivider {
-  border-color: black !important; /* Sobreescribir cualquier estilo previo */
-  border-width: 1.5px !important; /* Personalizar grosor */
+  overflow: hidden; /* Previene el desbordamiento */
+  max-width: 100%; /* Asegura que el botón no exceda el ancho del contenedor */
 }
 
+.customDivider {
+  border-color: black !important; /* Sobrescribe cualquier estilo previo */
+  border-width: 1.5px !important; /* Personaliza el grosor */
+}
 
 .feesText {
   text-align: center;
-  /* margin-top: 1px; Margin for spacing */
+  margin-top: 10px; /* Margin para espaciado */
 }
 

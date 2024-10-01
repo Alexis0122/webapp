@@ -1,6 +1,6 @@
 // CampaignCardItem.tsx
 import React from 'react'
-import { Card, Text, Button, Group, Divider, Box } from '@mantine/core'
+import { Card, Text, Button, Group, Divider, Box, Container } from '@mantine/core'
 import styles from './CampaignCard.module.css' // Import the CSS module
 import { IconSearch } from '@tabler/icons-react'
 
@@ -32,9 +32,9 @@ export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
   paddingL = '170px'
 }) => {
   return (
+    <Container className={styles.container}>
     <Card
       shadow='md'
-      padding='lg'
       radius='md'
       className={styles.card} // Use the card class from CSS
       style={{ width, height }} // Set width and height
@@ -80,5 +80,6 @@ export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
         {fees}
       </Text>
     </Card>
+    </Container>
   )
 }
