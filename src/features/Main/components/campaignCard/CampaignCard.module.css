@@ -1,5 +1,4 @@
-/* CampaignCard.module.css */
-
+/* Estilos del card */
 .card {
   background-color: #f27243;
   display: flex;
@@ -7,14 +6,13 @@
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  width: 400px; /* Valor predeterminado */
-  height: 468px; /* Valor predeterminado */
-  transition: width 0.7s ease, height 0.7s ease; /* Transiciones para animación */
+  width: 390px;
+  height: 468px; /* Asegúrate de que haya suficiente altura */
+  margin-top: 30px;
+  transition: width 0.5s ease, height 0.5s ease;
+  /* Elimina o ajusta overflow si está configurado */
 }
-.Container {
-  padding-top: 300px;
 
-}
 
 .leftText {
   text-align: left;
@@ -24,7 +22,8 @@
 .centeredTitle {
   text-align: center;
   margin-bottom: 10px;
-  font-size: 35px;
+  transition: font-size 0.5s ease; /* Transición suave para el margin-top */
+  
 }
 
 .group {
@@ -36,6 +35,8 @@
   background-color: #065242;
   overflow: hidden;
   max-width: 100%;
+  transition: margin-top 0.5s ease; /* Transición suave para el margin-top */
+
 }
 
 .customDivider {
@@ -50,14 +51,14 @@
 
 /* Nueva clase para el slide activo */
 .activeSlide .card {
-  width: 400px; /* Incremento de 100px en ancho */
-  height: 568px; /* Incremento de 100px en alto */
-  padding-top: 0px;
-
+  margin-top: 0px;
+  width: 420px; /* Incremento de 20px en ancho */
+  height: 540px; /* Incremento de 100px en alto */
+  transition: width 0.5s ease, height 0.5s ease; /* Ajuste de velocidad */
 }
 
-/* Clase para los slides inactivos (opcional si quieres aplicar otros estilos) */
+/* Clase para los slides inactivos */
 .inactiveSlide .card {
-  width: 400px;
+  width: 390px;
   height: 468px;
 }
