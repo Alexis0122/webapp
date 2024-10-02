@@ -19,7 +19,7 @@
 .centeredTitle {
   text-align: center;
   margin-bottom: 10px;
-  transition: font-size 0.5s ease; /* Transición suave para el margin-top */
+  transition: font-size 0.7s ease; /* Transición suave para el margin-top */
   
 }
 
@@ -47,15 +47,13 @@
   text-align: center;
   margin-top: 10px;
 }
-/* CampaignCard.module.css */
 
-/* CampaignCard.module.css */
 
 /* Estilos para la tarjeta activa */
 .activeSlide {
   transform: scale(1.1); /* Aumentar el tamaño del slide activo */
   z-index: 10; /* Traer la tarjeta activa al frente */
-  transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
+  /* transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease; */
 }
 
 /* Estilos para las tarjetas inactivas */
@@ -63,7 +61,7 @@
   opacity: 0.7; /* Reducir opacidad de slides inactivos */
   transform: scale(0.95); /* Reducir tamaño de slides inactivos */
   z-index: 1; /* Asegurarse de que las tarjetas inactivas estén detrás */
-  transition: transform 0.3s ease, opacity 0.3s ease, z-index 0.3s ease;
+  /* transition: transform 0.3s ease, opacity 0.3s ease, z-index 0.3s ease; */
 }
 
 /* Responsividad para ajustar dimensiones */
