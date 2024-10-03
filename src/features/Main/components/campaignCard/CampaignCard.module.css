@@ -1,0 +1,195 @@
+/* CampaignCard.module.css */
+
+.container {
+  width: 100%;
+
+  display: flex; /* Utiliza flexbox para centrar el contenedor */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;
+}
+
+/* Estilos del Carousel */
+.carousel {
+  width: 100%;
+}
+
+/* Estilos para diferentes tamaños de pantalla */
+@media (min-width: 600px) {
+  .carousel {
+    width: 75%; /* Ancho para pantallas medianas */
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel {
+    width: 79%;
+  }
+}
+
+/* Estilos del card */
+.card {
+  background-color: #f27243;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
+  width: 400px; /* Ancho por defecto */
+  height: auto; /* Alto por defecto */
+  overflow: hidden; /* Ajusta el overflow */
+}
+
+/* Estilos para diferentes tamaños de pantalla */
+@media (max-width: 599px) {
+  .card {
+    margin-left: 15%;
+    width: 300px;
+    height: auto;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .card {
+    width: 400px;
+    height: auto;
+  }
+}
+
+/* Estilos del texto alineado a la izquierda */
+.leftText {
+  text-align: left;
+  width: 100%;
+  padding-left: 170px; /* Valor por defecto */
+}
+
+/* Responsividad para el .leftText */
+@media (max-width: 599px) {
+  .leftText {
+    padding-left: 209px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .leftText {
+    padding-left: 170px;
+  }
+}
+
+/* Estilos del título centrado */
+.centeredTitle {
+  text-align: center;
+  margin-bottom: 10px;
+  transition:
+    font-size 0.7s ease,
+    transform 0.7s ease; /* Smooth transition */
+  font-size: 40px; /* Default font size */
+}
+
+/* Estilo para el título activo */
+.activeTitle {
+  font-size: 45px; /* Larger font size when active */
+  transform: scale(1.1); /* Scale effect */
+}
+
+/* Responsividad para el .centeredTitle */
+@media (max-width: 599px) {
+  .centeredTitle {
+    font-size: 20px;
+    
+  }
+
+  .activeTitle {
+    font-size: 30px; /* Adjusted size for mobile when active */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .centeredTitle {
+    font-size: 40px;
+  }
+
+  .activeTitle {
+    font-size: 50px; /* Adjusted size for medium screens when active */
+  }
+}
+
+/* Estilos del grupo de botones */
+.group {
+  width: 100%;
+}
+
+/* Estilos del botón */
+.button {
+  margin-top: 240px; /* Margen superior por defecto */
+  background-color: #065242;
+  width: 550px;
+  height: 60px;
+  overflow: hidden;
+  max-width: 100%;
+  transition: margin-top 0.5s ease; /* Transición suave para el margin-top */
+  font-size: 30px; /* Tamaño de fuente por defecto */
+}
+
+/* Responsividad para el .button */
+@media (max-width: 599px) {
+  .button {
+    height: 40px;
+    font-size: 20px; /* Tamaño de fuente para pantallas pequeñas */
+    margin-top: 140px; /* Margen superior para pantallas pequeñas */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .button {
+    height: 60px;
+    font-size: 30px;
+    margin-top: 240px;
+  }
+}
+
+/* Divider personalizado */
+.customDivider {
+  border-color: black !important;
+  border-width: 1.5px !important;
+}
+
+/* Estilos del texto de fees */
+.feesText {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Estilos para la tarjeta activa */
+.activeSlide {
+  width: 450px; /* Ancho 20px más grande que la tarjeta inactiva */
+  height: auto; /* Alto 20px más grande que la tarjeta inactiva */
+  z-index: 10; /* Traer la tarjeta activa al frente */
+  opacity: 1; /* Opacidad completa */
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    z-index 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Estilos para las tarjetas inactivas */
+.inactiveSlide {
+  width: 430px; /* Ancho por defecto */
+  height: auto; /* Alto por defecto */
+  z-index: 1; /* Asegurarse de que las tarjetas inactivas estén detrás */
+  opacity: 0.7; /* Reducir opacidad de slides inactivos */
+}
+
+/* Responsividad para ajustar dimensiones del componente */
+@media (max-width: 599px) {
+  .inactiveSlide,
+  .activeSlide {
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease,
+      z-index 0.5s ease;
+  }
+}
