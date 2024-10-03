@@ -2,7 +2,7 @@
 
 .container {
   width: 100%;
-  
+
   display: flex; /* Utiliza flexbox para centrar el contenedor */
   justify-content: center; /* Centrado horizontal */
   align-items: center;
@@ -11,13 +11,10 @@
 /* Estilos del Carousel */
 .carousel {
   width: 100%;
-        /* Width por defecto */
-
 }
 
-
 /* Estilos para diferentes tamaños de pantalla */
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .carousel {
     width: 75%; /* Ancho para pantallas medianas */
   }
@@ -25,7 +22,7 @@
 
 @media (min-width: 1024px) {
   .carousel {
-    width: 79%; 
+    width: 79%;
   }
 }
 
@@ -34,27 +31,30 @@
   background-color: #f27243;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-top: 30px;
-  transition: width 0.5s ease, height 0.5s ease;
-  width: 430px; /* Ancho por defecto */
-  height: 530px; /* Alto por defecto */
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
+  width: 400px; /* Ancho por defecto */
+  height: auto; /* Alto por defecto */
   overflow: hidden; /* Ajusta el overflow */
 }
 
 /* Estilos para diferentes tamaños de pantalla */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .card {
+    margin-left: 15%;
     width: 300px;
-    height: 420px;
+    height: auto;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .card {
-    width: 430px;
-    height: 550px;
+    width: 400px;
+    height: auto;
   }
 }
 
@@ -62,17 +62,17 @@
 .leftText {
   text-align: left;
   width: 100%;
-  padding-left: 150px; /* Valor por defecto */
+  padding-left: 170px; /* Valor por defecto */
 }
 
 /* Responsividad para el .leftText */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .leftText {
-    padding-left: 230px;
+    padding-left: 209px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .leftText {
     padding-left: 170px;
   }
@@ -82,28 +82,31 @@
 .centeredTitle {
   text-align: center;
   margin-bottom: 10px;
-  transition: font-size 0.7s ease, transform 0.7s ease; /* Smooth transition */
+  transition:
+    font-size 0.7s ease,
+    transform 0.7s ease; /* Smooth transition */
   font-size: 40px; /* Default font size */
 }
 
 /* Estilo para el título activo */
 .activeTitle {
-  font-size: 50px; /* Larger font size when active */
+  font-size: 45px; /* Larger font size when active */
   transform: scale(1.1); /* Scale effect */
 }
 
 /* Responsividad para el .centeredTitle */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .centeredTitle {
-    font-size: 30px;
+    font-size: 20px;
+    
   }
 
   .activeTitle {
-    font-size: 40px; /* Adjusted size for mobile when active */
+    font-size: 30px; /* Adjusted size for mobile when active */
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .centeredTitle {
     font-size: 40px;
   }
@@ -112,8 +115,6 @@
     font-size: 50px; /* Adjusted size for medium screens when active */
   }
 }
-
-
 
 /* Estilos del grupo de botones */
 .group {
@@ -133,7 +134,7 @@
 }
 
 /* Responsividad para el .button */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .button {
     height: 40px;
     font-size: 20px; /* Tamaño de fuente para pantallas pequeñas */
@@ -141,7 +142,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .button {
     height: 60px;
     font-size: 30px;
@@ -163,23 +164,32 @@
 
 /* Estilos para la tarjeta activa */
 .activeSlide {
-  transform: scale(1.1); /* Aumentar el tamaño del slide activo */
+  width: 450px; /* Ancho 20px más grande que la tarjeta inactiva */
+  height: auto; /* Alto 20px más grande que la tarjeta inactiva */
   z-index: 10; /* Traer la tarjeta activa al frente */
-  transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1; /* Opacidad completa */
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    z-index 0.3s ease,
+    opacity 0.3s ease;
 }
 
 /* Estilos para las tarjetas inactivas */
 .inactiveSlide {
-  opacity: 0.7; /* Reducir opacidad de slides inactivos */
-  transform: scale(0.95); /* Reducir tamaño de slides inactivos */
+  width: 430px; /* Ancho por defecto */
+  height: auto; /* Alto por defecto */
   z-index: 1; /* Asegurarse de que las tarjetas inactivas estén detrás */
+  opacity: 0.7; /* Reducir opacidad de slides inactivos */
 }
 
 /* Responsividad para ajustar dimensiones del componente */
-@media (max-width: 767px) {
+@media (max-width: 599px) {
   .inactiveSlide,
   .activeSlide {
-    
-    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease,
+      z-index 0.5s ease;
   }
 }

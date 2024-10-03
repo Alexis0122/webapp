@@ -33,7 +33,7 @@ export const CampaignCard = () => {
       letter: 'C'
     },
     {
-      title: 'Crowdfunding',
+      title: 'Crowdfunding1',
       subtitle: 'Raise Funds',
       buttonText: 'Start Your Campaign',
       fees: 'Fees 5%-8%; 4-5% of funds raised + transaction fees',
@@ -51,7 +51,7 @@ export const CampaignCard = () => {
         dragFree
         initialSlide={1}
         className={classes.carousel}
-        slideSize={{ base: '100%', sm: '50%', md: '33.333333%' }}
+        slideSize={{ base: '110%', sm: '50%', md: '33.333333%' }}
         slideGap={{ base: 0, sm: 'xl' }}
         loop
         align='center'
