@@ -1,3 +1,34 @@
+/* CampaignCard.module.css */
+
+.container {
+  width: 100%;
+  
+  display: flex; /* Utiliza flexbox para centrar el contenedor */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;
+}
+
+/* Estilos del Carousel */
+.carousel {
+  width: 100%;
+        /* Width por defecto */
+
+}
+
+
+/* Estilos para diferentes tamaños de pantalla */
+@media (min-width: 768px) {
+  .carousel {
+    width: 75%; /* Ancho para pantallas medianas */
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel {
+    width: 79%; 
+  }
+}
+
 /* Estilos del card */
 .card {
   background-color: #f27243;
@@ -7,53 +38,134 @@
   align-items: center;
   margin-top: 30px;
   transition: width 0.5s ease, height 0.5s ease;
-  /* Elimina o ajusta overflow si está configurado */
+  width: 430px; /* Ancho por defecto */
+  height: 530px; /* Alto por defecto */
+  overflow: hidden; /* Ajusta el overflow */
 }
 
+/* Estilos para diferentes tamaños de pantalla */
+@media (max-width: 767px) {
+  .card {
+    width: 300px;
+    height: 420px;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card {
+    width: 430px;
+    height: 550px;
+  }
+}
+
+/* Estilos del texto alineado a la izquierda */
 .leftText {
   text-align: left;
   width: 100%;
+  padding-left: 150px; /* Valor por defecto */
 }
 
+/* Responsividad para el .leftText */
+@media (max-width: 767px) {
+  .leftText {
+    padding-left: 230px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .leftText {
+    padding-left: 170px;
+  }
+}
+
+/* Estilos del título centrado */
 .centeredTitle {
   text-align: center;
   margin-bottom: 10px;
-  transition: font-size 0.7s ease; /* Transición suave para el margin-top */
-  
+  transition: font-size 0.7s ease, transform 0.7s ease; /* Smooth transition */
+  font-size: 40px; /* Default font size */
 }
 
+/* Estilo para el título activo */
+.activeTitle {
+  font-size: 50px; /* Larger font size when active */
+  transform: scale(1.1); /* Scale effect */
+}
+
+/* Responsividad para el .centeredTitle */
+@media (max-width: 767px) {
+  .centeredTitle {
+    font-size: 30px;
+  }
+
+  .activeTitle {
+    font-size: 40px; /* Adjusted size for mobile when active */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .centeredTitle {
+    font-size: 40px;
+  }
+
+  .activeTitle {
+    font-size: 50px; /* Adjusted size for medium screens when active */
+  }
+}
+
+
+
+/* Estilos del grupo de botones */
 .group {
   width: 100%;
 }
 
+/* Estilos del botón */
 .button {
-  margin-top: 0;
+  margin-top: 240px; /* Margen superior por defecto */
   background-color: #065242;
   width: 550px;
   height: 60px;
   overflow: hidden;
   max-width: 100%;
   transition: margin-top 0.5s ease; /* Transición suave para el margin-top */
-
+  font-size: 30px; /* Tamaño de fuente por defecto */
 }
 
+/* Responsividad para el .button */
+@media (max-width: 767px) {
+  .button {
+    height: 40px;
+    font-size: 20px; /* Tamaño de fuente para pantallas pequeñas */
+    margin-top: 140px; /* Margen superior para pantallas pequeñas */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .button {
+    height: 60px;
+    font-size: 30px;
+    margin-top: 240px;
+  }
+}
+
+/* Divider personalizado */
 .customDivider {
   border-color: black !important;
   border-width: 1.5px !important;
 }
 
+/* Estilos del texto de fees */
 .feesText {
   text-align: center;
   margin-top: 10px;
 }
 
-
 /* Estilos para la tarjeta activa */
 .activeSlide {
   transform: scale(1.1); /* Aumentar el tamaño del slide activo */
   z-index: 10; /* Traer la tarjeta activa al frente */
-  /* transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease; */
+  transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Estilos para las tarjetas inactivas */
@@ -61,8 +173,13 @@
   opacity: 0.7; /* Reducir opacidad de slides inactivos */
   transform: scale(0.95); /* Reducir tamaño de slides inactivos */
   z-index: 1; /* Asegurarse de que las tarjetas inactivas estén detrás */
-  /* transition: transform 0.3s ease, opacity 0.3s ease, z-index 0.3s ease; */
 }
 
-/* Responsividad para ajustar dimensiones */
-
+/* Responsividad para ajustar dimensiones del componente */
+@media (max-width: 767px) {
+  .inactiveSlide,
+  .activeSlide {
+    
+    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  }
+}
