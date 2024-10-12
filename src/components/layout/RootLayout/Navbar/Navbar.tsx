@@ -12,11 +12,11 @@ export const Navbar: FC<NavbarProps> = ({}) => {
     <Group
       h="100%"
       justify='space-between'
-      p='md'
-      bg='gold.3'
+      p='sm'
+      bg='tertiary.2'
     >
       <ActionIcon size='xl' variant="transparent">
-        <LogoCrowDev/>
+        <LogoCrowDev />
       </ActionIcon>
       <Input
         placeholder="SocialPet, GetYourTrack, MC And Cheese...."

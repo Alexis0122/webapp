@@ -5,10 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
+    "build:format": "npm run format && npm run build",
+    "pre-commit": "npm run format && npm run test && npm run build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm test && npm run build"
+    }
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@mantine/carousel": "^7.13.1",
     "@mantine/core": "^7.13.1",
     "@mantine/dates": "^7.12.2",
@@ -19,18 +29,22 @@
     "@mantine/styles": "^6.0.22",
     "@phosphor-icons/react": "^2.1.5-alpha.3",
     "@svgr/webpack": "^8.1.0",
-    "@tabler/icons-react": "^3.19.0",
     "dayjs": "^1.11.13",
+    "file-loader": "^6.2.0",
     "framer-motion": "^11.5.6",
     "husky": "^9.1.6",
     "icons-react": "^3.7.1",
     "jsdoc": "^4.0.3",
+    "lodash": "^4.17.21",
     "next": "14.2.11",
     "phosphor-react": "^1.4.1",
     "postcss-preset-mantine": "^1.17.0",
     "prettier": "^3.3.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.53.0",
+    "react-toastify": "^10.0.5",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -38,6 +52,12 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.11",
+    "msw": "^2.4.10",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "mocks"
+    ]
   }
 }
