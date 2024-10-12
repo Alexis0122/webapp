@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Title, Text, Button, Center } from '@mantine/core';
+import styles from './CampagneCard.module.css'
 
 /// FRAN-ARM participation
 /*
@@ -18,34 +19,22 @@ interface ContainerProps
     description: string;
     backgroundImage?: string;
     buttonText: string;
-    buttonColor: string;
     onClick: () => void;
 }
 
-const Container: React.FC<ContainerProps> = ({
+const Container: FC<ContainerProps> = ({
     title,
     description,
     backgroundImage,
     buttonText,
-    buttonColor,
     onClick,
 }) => {
     return (
         <div
         style={{
-            width: '100%',
-            height: '100%',
-            padding: '20px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-            color: 'white',
-            borderRadius: '15px',
             backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
         }}
+        className={styles.container}
         >
         <Center>
             <Title order={3}>{title}</Title>
@@ -54,23 +43,22 @@ const Container: React.FC<ContainerProps> = ({
         <Text>{description}</Text>
         </Center>
         <div style={{ textAlign: 'right' }}>
-            <Button onClick={onClick} variant="filled" color={buttonColor}><span style={{ color: '#065242' }}>{buttonText}</span></Button>
+            <Button onClick={onClick} variant="filled" >{buttonText}</Button>
         </div>
         </div>
     );
 };
 
-function CampagneCard({title, description="", backgroundImage="", buttonText="", buttonColor="", onClick=function(){alert('Clean Button.')}} : ContainerProps) {
+function CampagneCardUtils({title, description="", backgroundImage="", buttonText="", onClick=function(){alert('Clean Button.')}} : ContainerProps) {
     return (
         <Container
         title={title}
         description={description}
         backgroundImage={backgroundImage}
         buttonText={buttonText}
-        buttonColor={buttonColor}
         onClick={onClick}
         />
     );
 };
 
-export default CampagneCard;
+export default CampagneCardUtils;

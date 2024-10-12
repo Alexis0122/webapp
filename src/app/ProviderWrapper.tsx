@@ -10,12 +10,12 @@ import '@mantine/carousel/styles.css';
 export const ProvidersWrapper: FC<PropsWithChildren> = ({ children }) => {
   return(
     <>
-    <MantineProvider
-      theme={theme}
-      withCssVariables
-    >
-      {children}
-    </MantineProvider>
+      <MantineProvider
+        theme={theme}
+        withCssVariables
+      >
+        {children}
+      </MantineProvider>
     </>
   )
 }

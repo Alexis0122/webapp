@@ -1,7 +1,7 @@
 // CampaignCard.tsx
 import React from 'react'
 import { Card, Text, Button, Group, Divider } from '@mantine/core'
-import styles from './CampaignCard.module.css'
+import styles from './CampaignCarousel.module.css'
 
 interface CampaignCardItemProps {
   title: string
@@ -11,6 +11,8 @@ interface CampaignCardItemProps {
   letter?: string
   isActive?: boolean // New prop to indicate if it is the active card
 }
+
+// todo: resolver el gap de los cards
 
 export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
   title,
@@ -22,16 +24,16 @@ export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
 }) => {
   return (
     <div>
-      <Card shadow='md' radius='md' className={styles.card}>
+      <Card shadow='md' radius='md' bg='tertiary.2' className={styles.card}>
         {letter && (
           <Text w={700} size='xs' fw='700' className={styles.leftText}>
             {letter}. {subtitle}
           </Text>
         )}
-        <Text 
-          mt='20px' 
-          w={700} 
-          fw='700' 
+        <Text
+          mt='20px'
+          w={700}
+          fw='700'
           className={`${styles.centeredTitle} ${isActive ? styles.activeTitle : ''}`} // Conditional class
         >
           {title}

@@ -1,1 +1,1 @@
-export * from './CampaignLanding';
+export * from './HomePage';
