@@ -2,17 +2,11 @@ import { Grid, Title, Text, Button, Stack, Tabs, Group } from "@mantine/core";
 import React from "react";
 import styles from './CampaignLanding.module.css'
 import { Star } from "@phosphor-icons/react";
+import Link from "next/link";
 
 export const CampaignLanding = () => {
   return (
     <Stack align="center">
-      {/* <Tabs defaultValue="Pre-Launch" variant='pills' radius="md">
-        <Tabs.List>
-          <Tabs.Tab leftSection={<Star size={12} />} value="Pre-Launch">Pre-Launch</Tabs.Tab>
-          <Tabs.Tab leftSection={<Star size={12} />} value="Crowdfunding">Crowdfunding</Tabs.Tab>
-          <Tabs.Tab leftSection={<Star size={12} />} value="in-demand">in demand</Tabs.Tab>
-        </Tabs.List>
-      </Tabs> */}
       <Grid p='lg' grow>
         <Grid.Col span={{xs: 8, sm: 6, md: 4}}>
           <Title>PEDRO E UN MMG (Aqui va la foto)</Title>
