@@ -16,7 +16,6 @@ export default function Home() {
       </Head>
       <main className={`${inter.className}`}></main>
       <HomePage />
-      {/* <LoginFormComponent /> */}
     </>
   )
 }

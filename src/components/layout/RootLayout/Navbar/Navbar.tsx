@@ -32,7 +32,9 @@ export const Navbar: FC<NavbarProps> = ({}) => {
         <Link href="/login">
           <Button variant="white" >Login</Button>
         </Link>
-        <Button>Register</Button>
+        <Link href='/register'>
+          <Button>Register</Button>
+        </Link>
       </Group>
     </Group>
   )
