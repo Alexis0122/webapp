@@ -28,9 +28,13 @@ export const Navbar: FC<NavbarProps> = ({}) => {
           rightSection={ <MagnifyingGlass/> }
         />
         <Group>
-          <Button variant="white">Login</Button>
+        <Link href="/login">
+          <Button variant="white" >Login</Button>
+        </Link>
+        <Link href='/register'>
           <Button>Register</Button>
-        </Group>
+        </Link>
+      </Group>
       </Group>
       <Group justify="center" >
         <Tabs defaultValue="Home" variant='pills' radius="md">
