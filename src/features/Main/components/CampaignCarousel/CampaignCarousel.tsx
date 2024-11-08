@@ -48,9 +48,11 @@ export const CampaignCarousel = () => {
         initialSlide={1}
         className={classes.carousel}
         slideSize={{ base: '100%', sm: '50%', md: '33.333333%' }}
-        slideGap={{ base: 0, sm: 'xl' }}
         loop
         onSlideChange={setActiveSlide}
+        controlsOffset='50px'
+        controlSize='50px'
+        withIndicators={true}
       >
         {slides.map((slide, index) => (
           <Carousel.Slide
