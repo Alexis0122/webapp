@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { ActionIcon, Button, Group, Input } from "@mantine/core";
 import { LogoCrowDev } from "@/components/icons";
 import { MagnifyingGlass } from '@phosphor-icons/react';
+import Link from "next/link";
 
 //TODO: Props for actions buttons
 
@@ -15,9 +16,11 @@ export const Navbar: FC<NavbarProps> = ({}) => {
       p='sm'
       bg='tertiary.2'
     >
-      <ActionIcon size='xl' variant="transparent">
-        <LogoCrowDev />
-      </ActionIcon>
+      <Link href="./">
+        <ActionIcon size='xl' variant="transparent">
+          <LogoCrowDev />
+        </ActionIcon>
+      </Link>
       <Input
         placeholder="SocialPet, GetYourTrack, MC And Cheese...."
         radius='lg'
@@ -26,7 +29,9 @@ export const Navbar: FC<NavbarProps> = ({}) => {
         rightSection={ <MagnifyingGlass/> }
       />
       <Group>
-        <Button variant="white">Login</Button>
+        <Link href="/login">
+          <Button variant="white" >Login</Button>
+        </Link>
         <Button>Register</Button>
       </Group>
     </Group>
