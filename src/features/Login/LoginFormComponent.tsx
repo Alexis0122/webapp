@@ -1,48 +1,91 @@
-import React, { FC } from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useEffect } from 'react'
+import { useForm, FormProvider } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { LoginSchema } from './LoginForm.utils'
-import { PasswordInputController, TextInputController } from '@/components/form/controllers'
-import { LoginForm } from '@/types/Project'
-import { Box, Button, Stack } from '@mantine/core'
+import { Button, Checkbox, Anchor } from '@mantine/core'
+import { LoginSchema } from './LoginForm.utils' // Ajusta la ruta según tu estructura de proyecto
+import { TextInputController } from '@/components/form/controllers/TextInputController' // Ajusta la ruta según tu estructura
+import { PasswordInputController } from '@/components/form/controllers/PasswordInputController' // Ajusta la ruta según tu estructura
+import { LoginForm } from '@/types/Project' // Ajusta la ruta según tu estructura de proyecto
+import './style.css'
+import './styleguide.css'
 
 export const LoginFormComponent = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { isValid }
-  } = useForm<LoginForm>({
+  const formMethods = useForm({
     resolver: yupResolver(LoginSchema),
-    shouldFocusError: true,
-    mode: 'onBlur'
+    defaultValues: { email: '', password: '' }
   })
+  const { handleSubmit, control, formState } = formMethods
+  const { errors } = formState
 
   const onSubmit = (data: LoginForm) => {
-    console.log('Datos del formulario:', data)
-    // todo: implement save logic
+    console.log(data)
   }
 
+  useEffect(() => {
+    // Si hay errores, añade la clase yup-error a :root
+    if (Object.keys(errors).length > 0) {
+      document.documentElement.classList.add('yup-error')
+    } else {
+      document.documentElement.classList.remove('yup-error')
+    }
+  }, [errors])
+
   return (
-    <form id='login' onSubmit={handleSubmit(onSubmit)}>
-      <Stack justify='center'>
+    <FormProvider {...formMethods}>
+      <form onSubmit={handleSubmit(onSubmit)} className='login-form-section'>
         <TextInputController
           control={control}
           name='email'
           textInputProps={{
             label: 'Email',
-            placeholder: 'Pedro@gmail.com'
+            className: 'input-2',
+            placeholder: 'Your email',
+            size: 'xl'
           }}
         />
+
         <PasswordInputController
           control={control}
           name='password'
           PasswordInputProps={{
-            label: 'Password',
-            placeholder: '**********'
+            description: 'Password',
+            className: 'input-2 password',
+            placeholder: 'Password',
+            size: 'xl'
           }}
         />
-        <Button fullWidth color='primary.6' type='submit' form='login' disabled={!isValid} >Login</Button>
-      </Stack>
-    </form>
+
+        <div>
+          <div className='remember-me-group'>
+            <Checkbox className='remember-me-text' label='Remember Me' />
+          </div>
+          <div className='forgot-password-group'>
+            <Anchor href='/forgot-password' className='forgot-password-text'>
+              Forgot Password
+            </Anchor>
+          </div>
+        </div>
+
+        <div className='overlap'>
+          <div className='overlap-group'>
+            <p className='p'>Don’t have an account yet?</p>
+            <Button type='submit' className='button-2 button-instance' size='xl' variant='outlined'>
+              Login
+            </Button>
+          </div>
+
+          <div className='signUp-wrapper'>
+            <Anchor href='/forgot-password' className='signUp-text'>
+              Sign Up
+            </Anchor>
+          </div>
+        </div>
+
+        <div className='overlap-group-2'>
+          <div className='text-wrapper-7'>Welcome Back!</div>
+          <div className='text-wrapper-8'>Hello,</div>
+        </div>
+      </form>
+    </FormProvider>
   )
 }
