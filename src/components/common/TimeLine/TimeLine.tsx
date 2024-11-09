@@ -36,7 +36,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
       </div>
 
       <div>
-        <Timeline radius='xl' bulletSize={40} active={activebar=2} lineWidth={6}>
+        <Timeline radius='xl' bulletSize={40} active={(activebar = 2)} lineWidth={6}>
           <Timeline.Item
             title='Concept'
             className='timeline-textsubtitle'

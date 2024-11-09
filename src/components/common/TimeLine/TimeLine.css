@@ -35,7 +35,7 @@
 
 .timeline-highlights {
   /*! El texto de HighLights */
-  color: var(--Tertiary-C-0, #F8F9FA);
+  color: var(--Tertiary-C-0, #f8f9fa);
   font-family: Roboto;
   font-size: 20px;
   font-style: normal;
@@ -43,7 +43,6 @@
   line-height: normal;
   letter-spacing: -0.3px;
   text-align: right;
-
 }
 
 .timeline-buttons {
@@ -67,7 +66,7 @@
   /*! El estilo de los botones pp */
   border-radius: 15px;
   background: white;
-  color: var(--Secundary-B-0, #E21243);
+  color: var(--Secundary-B-0, #e21243);
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
@@ -75,14 +74,13 @@
   line-height: 24px;
 }
 
-
 .timeline-container {
   /*! Eto e el Background del TimeLine*/
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
-  background: linear-gradient(180deg, #F8F9FA 15.5%, #dedcdc 51.5%, #6e6e6e 100%);
+  background: linear-gradient(180deg, #f8f9fa 15.5%, #dedcdc 51.5%, #6e6e6e 100%);
   padding: 20px;
   border-radius: 2px;
   position: relative;

@@ -48,7 +48,9 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
       </Group>
       <Group justify='flex-start' align='flex-start'>
         <Text className='campaigninfo-price'>${(price = 979.766)}</Text>
-        <Text className='campaigninfo-stateCampaing'>{stateCampaing="HQD by 721 Supporters"}</Text>
+        <Text className='campaigninfo-stateCampaing'>
+          {(stateCampaing = 'HQD by 721 Supporters')}
+        </Text>
       </Group>
 
       <Text className='campaigninfo-supportinfo'>

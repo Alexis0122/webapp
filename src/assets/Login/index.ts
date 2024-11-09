@@ -1,7 +1,6 @@
-export { Logo } from "./Logo";
-export { Vector1 } from "./Vector1";
-export { Vector2 } from "./Vector2";
-export { Shapes } from "./Shapes"
-export { LoginIcon } from "./LoginIcon"
-export { RegisterIcon } from "./RegisterIcon"
-
+export { Logo } from './Logo'
+export { Vector1 } from './Vector1'
+export { Vector2 } from './Vector2'
+export { Shapes } from './Shapes'
+export { LoginIcon } from './LoginIcon'
+export { RegisterIcon } from './RegisterIcon'

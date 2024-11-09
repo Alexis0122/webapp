@@ -36,13 +36,11 @@ export const CampaignCarousel = () => {
       buttonText: 'Start Your Campaign',
       fees: 'Fees 5%-8%; 4-5% of funds raised + transaction fees',
       letter: 'B'
-    },
+    }
   ]
 
   return (
-    <div
-      className={classes.container}
-    >
+    <div className={classes.container}>
       <Carousel
         dragFree
         initialSlide={1}
