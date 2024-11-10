@@ -1,6 +1,5 @@
 ### Diseño
 - Componetizar el "About Us".
-- Colorear el "About Us".
 - Reemplazar nubes (íconos) por hexágonos en el "About Us" (hexágonos del login, por ejemplo).
 - Componetizar la sección de comentarios de la página de campañas.
 - Crear los términos y condiciones (modal simple, título y texto), sin imágenes, simple.
