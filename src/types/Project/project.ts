@@ -1,5 +1,3 @@
-
-
 export type RegisterForm = {
   name?: string
   surName?: string

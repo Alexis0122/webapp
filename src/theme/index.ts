@@ -1,11 +1,10 @@
-import { createTheme } from "@mantine/core";
+import { createTheme } from '@mantine/core'
 
 const customColors = {
   //this section is for add customs colors
 }
 
 const theme = createTheme({
-
   //Fonts
   fontFamily: 'Inter, sans-serif',
 

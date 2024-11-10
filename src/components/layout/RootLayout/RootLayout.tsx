@@ -1,18 +1,16 @@
-import { Paper, Stack } from "@mantine/core";
-import React, { type FC, type PropsWithChildren} from "react";
+import { Paper, Stack } from '@mantine/core'
+import React, { type FC, type PropsWithChildren } from 'react'
 import classes from './RootLayout.module.css'
-import { Navbar } from "./Navbar";
+import { Navbar } from './Navbar'
 
 // TODO: Responsive for mobile
 
 export const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Paper className={classes.paper}>
-        <Stack className={classes.content}>
-          {children}
-        </Stack>
+        <Stack className={classes.content}>{children}</Stack>
       </Paper>
     </>
   )
