@@ -36,21 +36,15 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
         <Avatar src={userImageUrl} alt='User image' className='campaigninfo-userimage' />
         <div>
           <Text className='campaigninfo-username'>{usernameCampaing}</Text>
-          <Text className='campaigninfo-aboutusername'>
-            {aboutUsercampaing}
-          </Text>
+          <Text className='campaigninfo-aboutusername'>{aboutUsercampaing}</Text>
         </div>
       </Group>
       <Group justify='flex-start' align='flex-start'>
         <Text className='campaigninfo-price'>${price}</Text>
-        <Text className='campaigninfo-stateCampaing'>
-          {stateCampaing}
-        </Text>
+        <Text className='campaigninfo-stateCampaing'>{stateCampaing}</Text>
       </Group>
 
-      <Text className='campaigninfo-supportinfo'>
-        {informacionSupport}
-      </Text>
+      <Text className='campaigninfo-supportinfo'>{informacionSupport}</Text>
 
       <Group justify='center' align='center'>
         <Button className='campaigninfo-bigbutton'>PICK YOUR PERK</Button>
