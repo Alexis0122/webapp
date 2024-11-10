@@ -6,10 +6,10 @@ import './CampaignInfo.css'
 interface CampaignInfoprops {
   titleCampaing: string
   descriptionCampaing: string
-  usernamecampaing: string
-  aboutusercampaing: string
+  usernameCampaing: string
+  aboutUsercampaing: string
   price: number
-  informacionsupport: string
+  informacionSupport: string
   userImageUrl: string
   stateCampaing: string
 }
@@ -17,44 +17,39 @@ interface CampaignInfoprops {
 export const CampaignInfo: FC<CampaignInfoprops> = ({
   titleCampaing,
   descriptionCampaing,
-  usernamecampaing,
-  aboutusercampaing,
+  usernameCampaing,
+  aboutUsercampaing,
   price,
-  informacionsupport,
+  informacionSupport,
   userImageUrl,
   stateCampaing
 }) => {
   return (
     <div className='campaigninfo-backgroud'>
-      <Text className='campainginfo-indemand '>{(stateCampaing = 'INDEMAND')}</Text>
+      <Text className='campainginfo-indemand '>{stateCampaing}</Text>
       <Group justify='space-between' mt='md'>
-        <Text className='campainginfo-title'>{(titleCampaing = 'Georgian Restaurant')}</Text>
+        <Text className='campainginfo-title'>{titleCampaing}</Text>
       </Group>
-      <Text className='campainginfo-description'>
-        {
-          (descriptionCampaing =
-            'Lorem ipsum dolor sit amet | consectetur adipiscing elit | Aenean porta in tellus non scelerisque |')
-        }
-      </Text>
+      <Text className='campainginfo-description'>{descriptionCampaing}</Text>
 
       <Group justify='flex-start' align='flex-start'>
         <Avatar src={userImageUrl} alt='User image' className='campaigninfo-userimage' />
         <div>
-          <Text className='campaigninfo-username'>{(usernamecampaing = 'Muhamed Ali')}</Text>
+          <Text className='campaigninfo-username'>{usernameCampaing}</Text>
           <Text className='campaigninfo-aboutusername'>
-            {(aboutusercampaing = '1 Campaign | New York, United States')}
+            {aboutUsercampaing}
           </Text>
         </div>
       </Group>
       <Group justify='flex-start' align='flex-start'>
-        <Text className='campaigninfo-price'>${(price = 979.766)}</Text>
+        <Text className='campaigninfo-price'>${price}</Text>
         <Text className='campaigninfo-stateCampaing'>
-          {(stateCampaing = 'HQD by 721 Supporters')}
+          {stateCampaing}
         </Text>
       </Group>
 
       <Text className='campaigninfo-supportinfo'>
-        {(informacionsupport = '$745.146 HQD by 612 Supporters on May 15, 2024')}
+        {informacionSupport}
       </Text>
 
       <Group justify='center' align='center'>

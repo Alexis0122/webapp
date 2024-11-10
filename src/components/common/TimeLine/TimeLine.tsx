@@ -14,32 +14,32 @@ import React, { FC } from 'react'
 
 interface TimeLineProps {
   titleTimeline: string
-  activebar: number
-  desripctionTimeline: string
+  activeBar: number
+  descriptionTimeline: string
 }
 
 export const HorizontalTimeline: FC<TimeLineProps> = ({
-  activebar,
+  activeBar,
   titleTimeline,
-  desripctionTimeline
+  descriptionTimeline
 }) => {
   return (
     <div className='timeline-container'>
       <div className='timeline-title'>
-        <Title order={1} className='timeline-texttitle'>
-          {(titleTimeline = 'Production')}
+        <Title order={1} className='timeline-textTitle'>
+          {titleTimeline}
         </Title>
-        <Text className='timeline-description'>{(desripctionTimeline = 'Una descripción')}</Text>
-        <Title order={2} className='timeline-texttitle'>
+        <Text className='timeline-description'>{descriptionTimeline}</Text>
+        <Title order={2} className='timeline-textTitle'>
           {(titleTimeline = 'Learn More')}
         </Title>
       </div>
 
       <div>
-        <Timeline radius='xl' bulletSize={40} active={(activebar = 2)} lineWidth={6}>
+        <Timeline radius='xl' bulletSize={40} active={activeBar} lineWidth={6}>
           <Timeline.Item
             title='Concept'
-            className='timeline-textsubtitle'
+            className='timeline-textSubtitle'
             bullet={<Lightbulb size={40} weight='bold' />}
             radius='xl'
           >
@@ -51,7 +51,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
 
           <Timeline.Item
             title='Prototype'
-            className='timeline-textsubtitle'
+            className='timeline-textSubtitle'
             bullet={<Robot size={40} weight='bold' />}
             radius='xl'
           >
@@ -63,7 +63,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
 
           <Timeline.Item
             title='Production'
-            className='timeline-textsubtitle'
+            className='timeline-textSubtitle'
             bullet={<Factory size={40} weight='bold' />}
             radius='xl'
           >
@@ -75,7 +75,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
 
           <Timeline.Item
             title='Shipping'
-            className='timeline-textsubtitle'
+            className='timeline-textSubtitle'
             bullet={<Truck size={40} weight='bold' />}
             radius='xl'
           >
@@ -87,7 +87,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
 
           <Timeline.Item
             title='Delivered'
-            className='timeline-textsubtitle'
+            className='timeline-textSubtitle'
             bullet={<Storefront size={40} weight='bold' />}
             radius='xl'
           >
@@ -99,7 +99,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
 
           <Timeline.Item
             title='Ended?'
-            className='timeline-textsubtitle'
+            className='timeline-textSubtitle'
             bullet={<CheckFat size={40} weight='bold' />}
             radius='xl'
           >
