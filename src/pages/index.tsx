@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { HomePage } from '@/features/Main'
-import { LoginFormComponent } from '@/features/Login'
+import { LoginFormComponent } from '@/features/login_Register/login_form'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {

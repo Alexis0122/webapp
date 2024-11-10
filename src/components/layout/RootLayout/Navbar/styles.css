@@ -1,0 +1,5 @@
+/* Define la clase navbar con z-index explícito */
+.navbar {
+  z-index: 2 !important;
+  position: relative !important; /* Asegura que el z-index funcione como se espera */
+}
