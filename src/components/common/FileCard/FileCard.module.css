@@ -1,0 +1,23 @@
+/* FileCard.module.css */
+
+.paper {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid var(--mantine-color-red-2);
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+}
+
+.actionIcon {
+  cursor: pointer;
+}

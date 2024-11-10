@@ -1,3 +1,4 @@
+import { ProjectDetails } from "@/features/ProjectDetails";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -7,6 +8,7 @@ export default function ProjectDetailPage() {
 
   return(
     <>
+      <ProjectDetails/>
     </>
   )
 }

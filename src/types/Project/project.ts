@@ -1,13 +1,5 @@
+import { ProjectStatus } from "@/constants"
 import { DateValue } from "@mantine/dates"
-
-export enum ProjectStatus {
-  Concept = 'Concepto',
-  Prototype = 'Prototipo',
-  Production = 'Produccion',
-  Shipping = 'Enviado',
-  Delivered = 'Entregado',
-  Ended = 'Finalizado'
-}
 
 export interface ProjectFormAttachment {
   name: string
@@ -15,11 +7,11 @@ export interface ProjectFormAttachment {
   size: number
 }
 
-export interface ProjectGratification {
+export interface ProjectGratificationForm {
   title: string
   category: string
-  amount: number
-  imageUrl: ProjectFormAttachment[]
+  amount?: number
+  imageUrl?: ProjectFormAttachment
   description: string
 }
 
@@ -36,12 +28,12 @@ export type LoginForm = {
   password?: string
 }
 
-export type CreateProject = {
+export type CreateProjectForm = {
   title?: string
   description?: string
   image?: ProjectFormAttachment[]
   startDate?: DateValue
   endDate?: DateValue
   status?: ProjectStatus
-  gratification?: ProjectGratification[]
+  gratification?: ProjectGratificationForm[]
 }

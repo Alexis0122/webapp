@@ -17,9 +17,11 @@ export const Navbar: FC<NavbarProps> = ({}) => {
         p='sm'
         bg='tertiary.2'
       >
-        <ActionIcon size='xl' variant="transparent">
-          <LogoCrowDev />
-        </ActionIcon>
+        <Link href='./'>
+          <ActionIcon size='xl' variant="transparent">
+            <LogoCrowDev />
+          </ActionIcon>
+        </Link>
         <Input
           placeholder="SocialPet, GetYourTrack, MC And Cheese...."
           radius='lg'
@@ -28,26 +30,13 @@ export const Navbar: FC<NavbarProps> = ({}) => {
           rightSection={ <MagnifyingGlass/> }
         />
         <Group>
-        <Link href="/login">
-          <Button variant="white" >Login</Button>
-        </Link>
-        <Link href='/register'>
-          <Button>Register</Button>
-        </Link>
-      </Group>
-      </Group>
-      <Group justify="center" >
-        <Tabs defaultValue="Home" variant='pills' radius="md">
-          <Tabs.List>
-            <Link href='./'>
-              <Tabs.Tab leftSection={<Star size={12} />} value="Home">Home</Tabs.Tab>
-            </Link>
-            <Link href='./Search'>
-              <Tabs.Tab leftSection={<Star size={12} />} value="Crowdfunding">Crowdfunding</Tabs.Tab>
-            </Link>
-            <Tabs.Tab leftSection={<Star size={12} />} value="About">About</Tabs.Tab>
-          </Tabs.List>
-        </Tabs>
+          <Link href="/login">
+            <Button variant="white" >Login</Button>
+          </Link>
+          <Link href='/register'>
+            <Button>Register</Button>
+          </Link>
+        </Group>
       </Group>
     </>
   )
