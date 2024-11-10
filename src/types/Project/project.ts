@@ -1,5 +1,5 @@
-import { ProjectStatus } from "@/constants"
-import { DateValue } from "@mantine/dates"
+import { ProjectStatus } from '@/constants'
+import { DateValue } from '@mantine/dates'
 
 export interface ProjectFormAttachment {
   name: string

@@ -1,22 +1,26 @@
-import { NumberInputController, TextareaController, TextInputController } from "@/components/form/controllers";
-import { ProjectGratificationForm } from "@/types/Project";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Grid, Group, Modal, Paper, Stack } from "@mantine/core";
-import React, { FC } from "react";
-import { useForm } from "react-hook-form";
-import { GratificationProjectSchema } from "./GratificationProject.utils";
-import { ImportGratificationImage } from "./ImportGratificationImage";
-import { useDisclosure } from "@mantine/hooks";
+import {
+  NumberInputController,
+  TextareaController,
+  TextInputController
+} from '@/components/form/controllers'
+import { ProjectGratificationForm } from '@/types/Project'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Button, Grid, Group, Modal, Paper, Stack } from '@mantine/core'
+import React, { FC } from 'react'
+import { useForm } from 'react-hook-form'
+import { GratificationProjectSchema } from './GratificationProject.utils'
+import { ImportGratificationImage } from './ImportGratificationImage'
+import { useDisclosure } from '@mantine/hooks'
 
 type GratificationFormProps = {
-  onGratificationSubmit: (data: ProjectGratificationForm) => void;
-};
+  onGratificationSubmit: (data: ProjectGratificationForm) => void
+}
 
-export const GratificationForm: FC<GratificationFormProps> = ({onGratificationSubmit}) => {
+export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationSubmit }) => {
   const {
     control,
     handleSubmit,
-    formState: {isValid},
+    formState: { isValid },
     reset
   } = useForm<ProjectGratificationForm>({
     resolver: yupResolver(GratificationProjectSchema),
@@ -27,27 +31,27 @@ export const GratificationForm: FC<GratificationFormProps> = ({onGratificationSu
   const [isModalShown, { open, close }] = useDisclosure(false)
 
   const handleFormSubmit = (data: ProjectGratificationForm) => {
-    onGratificationSubmit(data);
-    reset();
+    onGratificationSubmit(data)
+    reset()
   }
 
-  return(
+  return (
     <>
       <Button mt={18} fullWidth variant='outline' onClick={open}>
-          Crear Recompensas
+        Crear Recompensas
       </Button>
       <Modal
         opened={isModalShown}
         onClose={() => {
-          close();
-          reset();
+          close()
+          reset()
         }}
         withCloseButton={false}
         centered
-        title="Gratificaciones"
+        title='Gratificaciones'
         size='xl'
       >
-        <form id="createGratification" onSubmit={handleSubmit(handleFormSubmit)}>
+        <form id='createGratification' onSubmit={handleSubmit(handleFormSubmit)}>
           <Stack>
             <Grid>
               <Grid.Col>
@@ -91,12 +95,22 @@ export const GratificationForm: FC<GratificationFormProps> = ({onGratificationSu
                 />
               </Grid.Col>
               <Grid.Col>
-                <ImportGratificationImage control={control}/>
+                <ImportGratificationImage control={control} />
               </Grid.Col>
             </Grid>
             <Group grow>
-              <Button fullWidth onClick={() => { close(); reset(); }}>Cancelar</Button>
-              <Button fullWidth type='submit' form='createGratification' disabled={!isValid}>Crear Recompensa</Button>
+              <Button
+                fullWidth
+                onClick={() => {
+                  close()
+                  reset()
+                }}
+              >
+                Cancelar
+              </Button>
+              <Button fullWidth type='submit' form='createGratification' disabled={!isValid}>
+                Crear Recompensa
+              </Button>
             </Group>
           </Stack>
         </form>

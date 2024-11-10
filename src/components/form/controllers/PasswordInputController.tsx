@@ -5,13 +5,18 @@ import { PasswordInput, type PasswordInputProps } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
 interface TextFieldControllerProps<T extends FieldValues> extends CommonControllerProps<T> {
-  PasswordInputProps?: Omit<PasswordInputProps, 'value' | 'onChange' | 'name' | 'error' | 'visible' | 'onVisibilityChange'>
+  PasswordInputProps?: Omit<
+    PasswordInputProps,
+    'value' | 'onChange' | 'name' | 'error' | 'visible' | 'onVisibilityChange'
+  >
 }
 
 /**
  * Component that uses React hook form to handle state of Mantine's PasswordInput input.
  */
-export const PasswordInputController = <T extends FieldValues>(props: TextFieldControllerProps<T>) => {
+export const PasswordInputController = <T extends FieldValues>(
+  props: TextFieldControllerProps<T>
+) => {
   const { control, name, PasswordInputProps } = props
 
   const {
@@ -21,7 +26,7 @@ export const PasswordInputController = <T extends FieldValues>(props: TextFieldC
     name,
     control
   })
-  const [visible, { toggle }] = useDisclosure(false);
+  const [visible, { toggle }] = useDisclosure(false)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => onChange(e)
 

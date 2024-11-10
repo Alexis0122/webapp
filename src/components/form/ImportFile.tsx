@@ -18,22 +18,13 @@ export const ImportFile: FC<ImportFileProps> = ({ onDrop, content, dropzoneProps
     >
       <Stack align='center' justify={'center'} gap='xl' mih={220} style={{ pointerEvents: 'none' }}>
         <Dropzone.Accept>
-          <IconUpload
-            style={{ width: rem(52), height: rem(52), color: 'blue' }}
-            stroke={1.5}
-          />
+          <IconUpload style={{ width: rem(52), height: rem(52), color: 'blue' }} stroke={1.5} />
         </Dropzone.Accept>
         <Dropzone.Reject>
-          <IconX
-            style={{ width: rem(52), height: rem(52), color: 'red' }}
-            stroke={1.5}
-          />
+          <IconX style={{ width: rem(52), height: rem(52), color: 'red' }} stroke={1.5} />
         </Dropzone.Reject>
         <Dropzone.Idle>
-          <IconPhoto
-            style={{ width: rem(52), height: rem(52), color: 'dimmed' }}
-            stroke={1.5}
-          />
+          <IconPhoto style={{ width: rem(52), height: rem(52), color: 'dimmed' }} stroke={1.5} />
         </Dropzone.Idle>
 
         <div>

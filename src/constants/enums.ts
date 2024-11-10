@@ -1,4 +1,3 @@
-
 export enum ProjectStatus {
   Concept = 'Concept',
   Prototype = 'Prototype',

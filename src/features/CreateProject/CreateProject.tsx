@@ -1,15 +1,20 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { CreateProjectSchema } from "./CreateProject.utils";
-import { CreateProjectForm, ProjectGratificationForm } from "@/types/Project";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Grid, Group, Stack, Title } from "@mantine/core";
-import Link from "next/link";
-import { DatePickerInputController, SelectController, TextareaController, TextInputController } from "@/components/form/controllers";
-import { ImportProjectImage } from "./ImportProjectImage";
-import { ProjectStatus } from "@/constants";
-import { GratificationForm } from "./Components";
-import { GratificationProject } from "./Components/Gratification/GratificationProject";
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { CreateProjectSchema } from './CreateProject.utils'
+import { CreateProjectForm, ProjectGratificationForm } from '@/types/Project'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Button, Grid, Group, Stack, Title } from '@mantine/core'
+import Link from 'next/link'
+import {
+  DatePickerInputController,
+  SelectController,
+  TextareaController,
+  TextInputController
+} from '@/components/form/controllers'
+import { ImportProjectImage } from './ImportProjectImage'
+import { ProjectStatus } from '@/constants'
+import { GratificationForm } from './Components'
+import { GratificationProject } from './Components/Gratification/GratificationProject'
 
 export const CreateProject = () => {
   const {
@@ -18,7 +23,7 @@ export const CreateProject = () => {
     trigger,
     reset,
     setValue,
-    formState: {isValid}
+    formState: { isValid }
   } = useForm<CreateProjectForm>({
     resolver: yupResolver(CreateProjectSchema),
     shouldFocusError: true,
@@ -27,32 +32,30 @@ export const CreateProject = () => {
 
   const handleFormSubmit = (data: CreateProjectForm) => {
     console.log('Datos del formulario:', data)
-    reset();
+    reset()
     // todo: implement save logic
   }
 
-  const [gratifications, setGratifications] = useState<ProjectGratificationForm[]>([]);
+  const [gratifications, setGratifications] = useState<ProjectGratificationForm[]>([])
 
   const handleGratificationSubmit = (data: ProjectGratificationForm) => {
-    setGratifications((prev) => [...prev, data]);
-    setValue('gratification', [...gratifications, data]);
-  };
-
-  const handleLink = () =>{
-    return(
-      <Link href='./'></Link>
-    )
+    setGratifications((prev) => [...prev, data])
+    setValue('gratification', [...gratifications, data])
   }
 
-  return(
+  const handleLink = () => {
+    return <Link href='./'></Link>
+  }
+
+  return (
     <>
-      <Stack mt={20} justify="center" >
+      <Stack mt={20} justify='center'>
         <Title>Crea tu propio proyecto</Title>
         <Grid>
           <Grid.Col>
             <TextInputController
               control={control}
-              name={"title"}
+              name={'title'}
               textInputProps={{
                 label: 'Titulo',
                 placeholder: 'CrowdevTest'
@@ -75,7 +78,7 @@ export const CreateProject = () => {
             <ImportProjectImage control={control} />
           </Grid.Col>
 
-          <Grid.Col  span={{ xs: 12, sm: 6, md: 6 }}>
+          <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
             <DatePickerInputController
               control={control}
               name={'startDate'}
@@ -87,7 +90,7 @@ export const CreateProject = () => {
             />
           </Grid.Col>
 
-          <Grid.Col  span={{ xs: 12, sm: 6, md: 6 }}>
+          <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
             <DatePickerInputController
               control={control}
               name={'endDate'}
@@ -104,12 +107,12 @@ export const CreateProject = () => {
               control={control}
               name={'status'}
               options={[
-                { label: 'Concepto', value: ProjectStatus.Concept},
-                { label: 'Prototipo', value: ProjectStatus.Prototype},
-                { label: 'Produccion', value: ProjectStatus.Production},
-                { label: 'Enviado', value: ProjectStatus.Shipping},
-                { label: 'Enviado', value: ProjectStatus.Delivered},
-                { label: 'Finalizado', value: ProjectStatus.Ended},
+                { label: 'Concepto', value: ProjectStatus.Concept },
+                { label: 'Prototipo', value: ProjectStatus.Prototype },
+                { label: 'Produccion', value: ProjectStatus.Production },
+                { label: 'Enviado', value: ProjectStatus.Shipping },
+                { label: 'Enviado', value: ProjectStatus.Delivered },
+                { label: 'Finalizado', value: ProjectStatus.Ended }
               ]}
               selectProps={{
                 label: 'Estado',
@@ -119,16 +122,17 @@ export const CreateProject = () => {
           </Grid.Col>
 
           <Grid.Col>
-            <GratificationProject control={control}/>
-            <GratificationForm onGratificationSubmit={handleGratificationSubmit}/>
+            <GratificationProject control={control} />
+            <GratificationForm onGratificationSubmit={handleGratificationSubmit} />
           </Grid.Col>
-
         </Grid>
       </Stack>
       <Group grow mb={20}>
         <Button onClick={handleLink}>Cancelar</Button>
         {/* <Link href='./'> */}
-        <Button onClick={handleSubmit(handleFormSubmit)} disabled={!isValid} >Crear Proyecto</Button>
+        <Button onClick={handleSubmit(handleFormSubmit)} disabled={!isValid}>
+          Crear Proyecto
+        </Button>
         {/* </Link> */}
       </Group>
     </>

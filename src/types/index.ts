@@ -1,8 +1,8 @@
-import { Icon, IconProps } from "@phosphor-icons/react";
-import { NextPage } from "next";
-import type { ComponentType } from "react";
+import { Icon, IconProps } from '@phosphor-icons/react'
+import { NextPage } from 'next'
+import type { ComponentType } from 'react'
 
-export type Page<P ={}> = NextPage<P> & {
+export type Page<P = {}> = NextPage<P> & {
   Layout?: ComponentType
 }
 

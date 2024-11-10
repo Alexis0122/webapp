@@ -1,9 +1,9 @@
-import { PerkSection } from "@/components/common";
-import { Group } from "@mantine/core";
-import React from "react";
+import { PerkSection } from '@/components/common'
+import { Group } from '@mantine/core'
+import React from 'react'
 
 export const ProjectDetails = () => {
-  return(
+  return (
     <Group>
       {/* <PerkSection
         title='PEDRO MMG'

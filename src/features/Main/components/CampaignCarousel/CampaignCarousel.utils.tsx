@@ -39,11 +39,7 @@ export const CampaignCardItem: React.FC<CampaignCardItemProps> = ({
           {title}
         </Text>
         <Group justify='center' pb='8px' className={styles.group}>
-          <Button
-            variant='filled'
-            fullWidth
-            className={styles.button}
-          >
+          <Button variant='filled' fullWidth className={styles.button}>
             {buttonText}
           </Button>
         </Group>

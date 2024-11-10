@@ -1,5 +1,5 @@
-import { Title, Text, Image } from "@mantine/core";
-import React, { FC } from "react";
+import { Title, Text, Image } from '@mantine/core'
+import React, { FC } from 'react'
 
 interface DescriptionProps {
   title: String
@@ -8,18 +8,12 @@ interface DescriptionProps {
 }
 
 export const Description: FC<DescriptionProps> = ({ title, image, text }) => {
-  return(
+  return (
     <>
-      <Image
-        radius="md"
-        src={image}
-      />
+      <Image radius='md' src={image} />
       <Title>{title}</Title>
       <Text>{text}</Text>
-      <Image
-        radius="md"
-        src={image}
-      />
+      <Image radius='md' src={image} />
     </>
   )
 }

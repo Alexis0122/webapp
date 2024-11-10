@@ -1,10 +1,10 @@
-import { SearchProject } from "@/features/Search";
-import React from "react";
+import { SearchProject } from '@/features/Search'
+import React from 'react'
 
 export default function SearchPage() {
-  return(
+  return (
     <>
-      <SearchProject/>
+      <SearchProject />
     </>
   )
 }
