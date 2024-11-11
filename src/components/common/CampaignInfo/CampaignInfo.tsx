@@ -9,6 +9,7 @@ interface CampaignInfoprops {
   usernameCampaing: string
   aboutUsercampaing: string
   price: number
+  priceDescription: string,
   informacionSupport: string
   userImageUrl: string
   stateCampaing: string
@@ -20,9 +21,11 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
   usernameCampaing,
   aboutUsercampaing,
   price,
+  priceDescription,
   informacionSupport,
   userImageUrl,
   stateCampaing
+  
 }) => {
   return (
     <div className='campaigninfo-backgroud'>
@@ -41,7 +44,7 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
       </Group>
       <Group justify='flex-start' align='flex-start'>
         <Text className='campaigninfo-price'>${price}</Text>
-        <Text className='campaigninfo-stateCampaing'>{stateCampaing}</Text>
+        <Text className='campaigninfo-stateCampaing'>{priceDescription}</Text>
       </Group>
 
       <Text className='campaigninfo-supportinfo'>{informacionSupport}</Text>

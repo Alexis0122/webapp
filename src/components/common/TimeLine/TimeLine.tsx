@@ -1,4 +1,4 @@
-import { Timeline, Text, Title, Button, Avatar } from '@mantine/core'
+import { Timeline, Text, Title, Button, Space } from '@mantine/core'
 import './TimeLine.css'
 import {
   Lightbulb,
@@ -18,7 +18,7 @@ interface TimeLineProps {
   descriptionTimeline: string
 }
 
-export const HorizontalTimeline: FC<TimeLineProps> = ({
+export const TimeLine: FC<TimeLineProps> = ({
   activeBar,
   titleTimeline,
   descriptionTimeline
@@ -31,7 +31,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
         </Title>
         <Text className='timeline-description'>{descriptionTimeline}</Text>
         <Title order={2} className='timeline-textTitle'>
-          {(titleTimeline = 'Learn More')}
+         Learn More
         </Title>
       </div>
 
@@ -43,10 +43,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
             bullet={<Lightbulb size={40} weight='bold' />}
             radius='xl'
           >
-            <Text size='sm'>
-              Production Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in
-              tellus non scelerisque.
-            </Text>
+            <Space h="md" />
           </Timeline.Item>
 
           <Timeline.Item
@@ -55,10 +52,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
             bullet={<Robot size={40} weight='bold' />}
             radius='xl'
           >
-            <Text size='sm'>
-              Prototype Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in
-              tellus non scelerisque.
-            </Text>
+            <Space h="md" />
           </Timeline.Item>
 
           <Timeline.Item
@@ -67,10 +61,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
             bullet={<Factory size={40} weight='bold' />}
             radius='xl'
           >
-            <Text size='sm'>
-              Production Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in
-              tellus non scelerisque.
-            </Text>
+            <Space h="md" />
           </Timeline.Item>
 
           <Timeline.Item
@@ -79,10 +70,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
             bullet={<Truck size={40} weight='bold' />}
             radius='xl'
           >
-            <Text size='sm'>
-              Production Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in
-              tellus non scelerisque.
-            </Text>
+            <Space h="md" />
           </Timeline.Item>
 
           <Timeline.Item
@@ -91,10 +79,7 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
             bullet={<Storefront size={40} weight='bold' />}
             radius='xl'
           >
-            <Text size='sm'>
-              Production Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in
-              tellus non scelerisque.
-            </Text>
+            <Space h="md" />
           </Timeline.Item>
 
           <Timeline.Item
@@ -103,10 +88,6 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
             bullet={<CheckFat size={40} weight='bold' />}
             radius='xl'
           >
-            <Text size='sm'>
-              Ended Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in tellus
-              non scelerisque.
-            </Text>
           </Timeline.Item>
         </Timeline>
       </div>
@@ -128,4 +109,4 @@ export const HorizontalTimeline: FC<TimeLineProps> = ({
   )
 }
 
-export default HorizontalTimeline
+export default TimeLine

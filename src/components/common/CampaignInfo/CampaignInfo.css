@@ -5,13 +5,14 @@
   flex-shrink: 0;
   border-radius: 20px;
   background: #d9d9d9;
+  margin-left: 50px;
 }
 
 .campainginfo-indemand {
   color: #000;
   font-family: Roboto;
   font-size: 15px;
-  font-style: normal;
+  font-style: normal; 
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.3px;
