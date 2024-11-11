@@ -1,0 +1,227 @@
+.diduforgoturpassword {
+  max-width: 325px;
+  width: 25%;
+  min-height: 600px;
+  min-width: 500px;
+  position: relative;
+  top: var(--register-section-top);
+  left: var(--register-section-left);
+  right: var(--register-section-right);
+  bottom: var(--register-section-bottom);
+  background: #282828;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.diduforgoturpassword .overlap-group {
+  height: 78px;
+  left: 38px;
+  position: absolute;
+  top: 271px;
+  width: 399px;
+}
+
+.diduforgoturpassword .text-wrapper-2 {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 11px;
+  letter-spacing: -0.32px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  width: 129px;
+}
+
+/* Estilos comunes para la clase de entrada */
+/* Estilos comunes para todos los inputs de 1 a 6 */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-1
+  .mantine-Input-input.mantine-TextInput-input,
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-2
+  .mantine-Input-input.mantine-TextInput-input,
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-3
+  .mantine-Input-input.mantine-TextInput-input,
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-4
+  .mantine-Input-input.mantine-TextInput-input,
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-5
+  .mantine-Input-input.mantine-TextInput-input,
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-6
+  .mantine-Input-input.mantine-TextInput-input {
+  height: 60px !important;
+  width: 60px !important;
+  font-size: 25px !important;
+  position: absolute !important;
+  top: 30%;
+}
+
+/* Estilo para la primera entrada (left: 0) */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-1
+  .mantine-Input-input.mantine-TextInput-input {
+  left: 0 !important;
+}
+
+/* Estilo para la segunda entrada (left: 70px) */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-2
+  .mantine-Input-input.mantine-TextInput-input {
+  left: 70px !important;
+}
+
+/* Estilo para la tercera entrada (left: 140px) */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-3
+  .mantine-Input-input.mantine-TextInput-input {
+  left: 140px !important;
+}
+
+/* Estilo para la cuarta entrada (left: 210px) */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-4
+  .mantine-Input-input.mantine-TextInput-input {
+  left: 210px !important;
+}
+
+/* Estilo para la quinta entrada (left: 280px) */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-5
+  .mantine-Input-input.mantine-TextInput-input {
+  left: 280px !important;
+}
+
+/* Estilo para la sexta entrada (left: 350px) */
+.diduforgoturpassword
+  .diduforgoturpassword-input-instance-6
+  .mantine-Input-input.mantine-TextInput-input {
+  left: 350px !important;
+}
+
+.diduforgoturpassword .design-component-instance-node {
+  z-index: unset !important;
+}
+
+.diduforgoturpassword .input-2 {
+  color: var(--pedro-frame-colors-secundary-b-0) !important;
+}
+
+.diduforgoturpassword .to-continue-with-the {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 71px;
+  left: 13px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 167px;
+  width: 449px;
+}
+
+.diduforgoturpassword .span {
+  color: #f8f9fa;
+  letter-spacing: -0.04px;
+}
+
+.diduforgoturpassword .text-wrapper-3 {
+  color: #e21243;
+  letter-spacing: -0.04px;
+}
+
+.diduforgoturpassword .overlap-2 {
+  height: 122px;
+  left: 62px;
+  position: absolute;
+  top: 45px;
+  width: 383px;
+}
+
+.diduforgoturpassword .diduforgoturpassword-text-wrapper-4 {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 41px;
+  font-weight: 700;
+  left: 1px;
+  letter-spacing: -0.9px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.diduforgoturpassword .password-text-wrapper-5 {
+  color: var(--pedro-frame-colors-secundary-b-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 65px;
+  font-weight: 700;
+  left: 20px;
+  letter-spacing: -1.3px;
+  line-height: normal;
+  position: absolute;
+  top: 46px;
+  white-space: nowrap;
+}
+
+.diduforgoturpassword .button-footer {
+  height: 93px;
+  left: 64px;
+  position: absolute;
+  top: 65%;
+  width: 350px;
+}
+
+.diduforgoturpassword .group {
+  height: 31px;
+  left: 264px;
+  position: absolute;
+  top: 60px;
+  width: 61px;
+}
+
+.diduforgoturpassword .login-text-wrapper {
+  -webkit-text-stroke: 1px #e21243;
+  border-color: var(--pedro-frame-colors-secundary-b-0);
+  color: var(--pedro-frame-colors-secundary-b-0);
+  font-family: 'Open Sans', Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  height: 31px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 31px;
+  position: absolute;
+  top: 10%;
+  white-space: nowrap;
+}
+
+.diduforgoturpassword .p {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Open Sans', Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  height: 31px;
+  left: 13px;
+  letter-spacing: 0;
+  line-height: 31px;
+  position: absolute;
+  top: 47%;
+  white-space: nowrap;
+}
+
+.diduforgoturpassword .button-instance {
+  background-color: var(--pedro-frame-colors-secundary-b-0) !important;
+  border-radius: 15px !important;
+  height: 60px !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 348px !important;
+}

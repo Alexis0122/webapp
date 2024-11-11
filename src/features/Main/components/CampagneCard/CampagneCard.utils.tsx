@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Title, Text, Button, Center } from '@mantine/core';
+import React, { FC } from 'react'
+import { Title, Text, Button, Center } from '@mantine/core'
 import styles from './CampagneCard.module.css'
 
 /// FRAN-ARM participation
@@ -13,52 +13,61 @@ import styles from './CampagneCard.module.css'
 */
 // Codigo robusto, me encanta
 
-interface ContainerProps
-{
-    title: string;
-    description: string;
-    backgroundImage?: string;
-    buttonText: string;
-    onClick: () => void;
+interface ContainerProps {
+  title: string
+  description: string
+  backgroundImage?: string
+  buttonText: string
+  onClick: () => void
 }
 
 const Container: FC<ContainerProps> = ({
-    title,
-    description,
-    backgroundImage,
-    buttonText,
-    onClick,
+  title,
+  description,
+  backgroundImage,
+  buttonText,
+  onClick
 }) => {
-    return (
-        <div
-        style={{
-            backgroundImage: `url(${backgroundImage})`,
-        }}
-        className={styles.container}
-        >
-        <Center>
-            <Title order={3}>{title}</Title>
-        </Center>
-        <Center>
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`
+      }}
+      className={styles.container}
+    >
+      <Center>
+        <Title order={3}>{title}</Title>
+      </Center>
+      <Center>
         <Text>{description}</Text>
-        </Center>
-        <div style={{ textAlign: 'right' }}>
-            <Button onClick={onClick} variant="filled" >{buttonText}</Button>
-        </div>
-        </div>
-    );
-};
+      </Center>
+      <div style={{ textAlign: 'right' }}>
+        <Button onClick={onClick} variant='filled'>
+          {buttonText}
+        </Button>
+      </div>
+    </div>
+  )
+}
 
-function CampagneCardUtils({title, description="", backgroundImage="", buttonText="", onClick=function(){alert('Clean Button.')}} : ContainerProps) {
-    return (
-        <Container
-        title={title}
-        description={description}
-        backgroundImage={backgroundImage}
-        buttonText={buttonText}
-        onClick={onClick}
-        />
-    );
-};
+function CampagneCardUtils({
+  title,
+  description = '',
+  backgroundImage = '',
+  buttonText = '',
+  onClick = function () {
+    alert('Clean Button.')
+  }
+}: ContainerProps) {
+  return (
+    <Container
+      title={title}
+      description={description}
+      backgroundImage={backgroundImage}
+      buttonText={buttonText}
+      onClick={onClick}
+    />
+  )
+}
 
-export default CampagneCardUtils;
+export default CampagneCardUtils
