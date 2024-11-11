@@ -1,18 +1,18 @@
-import React, { FC, useState, useRef } from 'react';
-import { Image, Group, ScrollArea } from '@mantine/core';
-import './ImagesCarousel.css';
+import React, { FC, useState, useRef } from 'react'
+import { Image, Group, ScrollArea } from '@mantine/core'
+import './ImagesCarousel.css'
 
 interface ImageCarouselProps {
-  images: { url: string }[];
+  images: { url: string }[]
 }
 
 export const ImagesCarousel: FC<ImageCarouselProps> = ({ images }) => {
-  const [selectedImage, setSelectedImage] = useState(images[0].url);
-  const thumbnailRef = useRef<HTMLDivElement>(null);
+  const [selectedImage, setSelectedImage] = useState(images[0].url)
+  const thumbnailRef = useRef<HTMLDivElement>(null)
 
   const handleThumbnailClick = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
-  };
+    setSelectedImage(imageUrl)
+  }
 
   return (
     <div className='carousel-background'>
@@ -21,7 +21,7 @@ export const ImagesCarousel: FC<ImageCarouselProps> = ({ images }) => {
           <Image src={selectedImage} alt='Imagen Principal' radius='md' className='main-image' />
         </div>
         <div className='thumbnail-container'>
-          <ScrollArea scrollbars='x' scrollbarSize={4} >
+          <ScrollArea scrollbars='x' scrollbarSize={4}>
             <Group gap='xs' className='thumbnail-scroll' ref={thumbnailRef}>
               {images.map((image, index) => (
                 <div
@@ -37,7 +37,7 @@ export const ImagesCarousel: FC<ImageCarouselProps> = ({ images }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImagesCarousel;
+export default ImagesCarousel

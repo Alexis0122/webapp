@@ -18,11 +18,7 @@ interface TimeLineProps {
   descriptionTimeline: string
 }
 
-export const TimeLine: FC<TimeLineProps> = ({
-  activeBar,
-  titleTimeline,
-  descriptionTimeline
-}) => {
+export const TimeLine: FC<TimeLineProps> = ({ activeBar, titleTimeline, descriptionTimeline }) => {
   return (
     <div className='timeline-container'>
       <div className='timeline-title'>
@@ -31,7 +27,7 @@ export const TimeLine: FC<TimeLineProps> = ({
         </Title>
         <Text className='timeline-description'>{descriptionTimeline}</Text>
         <Title order={2} className='timeline-textTitle'>
-         Learn More
+          Learn More
         </Title>
       </div>
 
@@ -43,7 +39,7 @@ export const TimeLine: FC<TimeLineProps> = ({
             bullet={<Lightbulb size={40} weight='bold' />}
             radius='xl'
           >
-            <Space h="md" />
+            <Space h='md' />
           </Timeline.Item>
 
           <Timeline.Item
@@ -52,7 +48,7 @@ export const TimeLine: FC<TimeLineProps> = ({
             bullet={<Robot size={40} weight='bold' />}
             radius='xl'
           >
-            <Space h="md" />
+            <Space h='md' />
           </Timeline.Item>
 
           <Timeline.Item
@@ -61,7 +57,7 @@ export const TimeLine: FC<TimeLineProps> = ({
             bullet={<Factory size={40} weight='bold' />}
             radius='xl'
           >
-            <Space h="md" />
+            <Space h='md' />
           </Timeline.Item>
 
           <Timeline.Item
@@ -70,7 +66,7 @@ export const TimeLine: FC<TimeLineProps> = ({
             bullet={<Truck size={40} weight='bold' />}
             radius='xl'
           >
-            <Space h="md" />
+            <Space h='md' />
           </Timeline.Item>
 
           <Timeline.Item
@@ -79,7 +75,7 @@ export const TimeLine: FC<TimeLineProps> = ({
             bullet={<Storefront size={40} weight='bold' />}
             radius='xl'
           >
-            <Space h="md" />
+            <Space h='md' />
           </Timeline.Item>
 
           <Timeline.Item
@@ -87,8 +83,7 @@ export const TimeLine: FC<TimeLineProps> = ({
             className='timeline-textSubtitle'
             bullet={<CheckFat size={40} weight='bold' />}
             radius='xl'
-          >
-          </Timeline.Item>
+          ></Timeline.Item>
         </Timeline>
       </div>
 

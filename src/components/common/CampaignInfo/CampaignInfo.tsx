@@ -9,7 +9,7 @@ interface CampaignInfoprops {
   usernameCampaing: string
   aboutUsercampaing: string
   price: number
-  priceDescription: string,
+  priceDescription: string
   informacionSupport: string
   userImageUrl: string
   stateCampaing: string
@@ -25,7 +25,6 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
   informacionSupport,
   userImageUrl,
   stateCampaing
-  
 }) => {
   return (
     <div className='campaigninfo-backgroud'>
