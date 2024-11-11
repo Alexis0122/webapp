@@ -85,7 +85,8 @@
   border-radius: 2px;
   position: relative;
   font-family: Arial, sans-serif;
-  width: 200;
-  height: 250;
+  width: 900px;
+  height: 550px;
   flex-shrink: 0;
+  border-radius: 20px;
 }
