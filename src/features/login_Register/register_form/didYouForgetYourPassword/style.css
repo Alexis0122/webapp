@@ -225,3 +225,10 @@
   top: 0 !important;
   width: 348px !important;
 }
+
+.error-message {
+  color: var(--pedro-frame-colors-secundary-b-0) !important;
+  font-size: 20px;
+  margin-top: 16%;
+  margin-left: 1%;
+}
