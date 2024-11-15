@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, Checkbox, Anchor } from '@mantine/core'
-import { loginSchema } from './loginForm.utils' // Ajusta la ruta según tu estructura de proyecto
-import { TextInputController } from '@/components/form/controllers/TextInputController' // Ajusta la ruta según tu estructura
-import { PasswordInputController } from '@/components/form/controllers/PasswordInputController' // Ajusta la ruta según tu estructura
-import { LoginForm } from '@/types/Project' // Ajusta la ruta según tu estructura de proyecto
+import { loginSchema } from './loginForm.utils'
+import { TextInputController } from '@/components/form/controllers/TextInputController'
+import { PasswordInputController } from '@/components/form/controllers/PasswordInputController'
+import { LoginForm } from '@/types/Project'
 import './style.css'
 
 export const LoginFormComponent = () => {
@@ -21,7 +21,6 @@ export const LoginFormComponent = () => {
   }
 
   useEffect(() => {
-    // Si hay errores, añade la clase yup-error a :root
     if (Object.keys(errors).length > 0) {
       document.documentElement.classList.add('yup-error')
     } else {
@@ -90,7 +89,7 @@ export const LoginFormComponent = () => {
           </div>
 
           <div className={`signUp-wrapper ${errors.password ? 'login-input-error-account' : ''}`}>
-            <Anchor href='/forgot-password' className='signUp-text'>
+            <Anchor href='/register' className='signUp-text'>
               Sign Up
             </Anchor>
           </div>

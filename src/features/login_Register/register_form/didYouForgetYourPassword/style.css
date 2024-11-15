@@ -1,13 +1,61 @@
+:root {
+  --diduforgoturpassword-section-top: 10%;
+  --diduforgoturpassword-section-left: 60%;
+  --diduforgoturpassword-section-right: 0%;
+  --diduforgoturpassword-section-bottom: 0%;
+
+  --diduforgoturpassword-text-wrapper-2-top: 308px;
+  --diduforgoturpassword-text-wrapper-2-left: 47px;
+
+  --diduforgoturpassword-input-2-top: 228px;
+  --diduforgoturpassword-input-2-left: 47px;
+
+  --diduforgoturpassword-input-newPassword-top: 196px;
+  --diduforgoturpassword-input-newPassword-left: 9.1%;
+
+  --diduforgoturpassword-input-confirmPassword-top: 301px;
+  --diduforgoturpassword-input-confirmPassword-left: 9.1%;
+
+  --diduforgoturpassword-input-name-top: 112px;
+  --diduforgoturpassword-input-name-left: 9.1%;
+
+  --diduforgoturpassword-input-surname-top: 112px;
+  --diduforgoturpassword-input-surname-left: 259px;
+
+  --diduforgoturpassword-text-wrapper-4-top: 148px;
+  --diduforgoturpassword-text-wrapper-4-left: 50px;
+
+  --diduforgoturpassword-input-5-top: 149px;
+  --diduforgoturpassword-input-5-left: 264px;
+
+  --button-diduforgoturpassword-top: 80%;
+  --button-diduforgoturpassword-left: 9.1%;
+
+  --account-check-top: 500px;
+  --account-check-left: 64px;
+
+  --p-top-diduforgoturpassword: -23px;
+  --p-left: 10px;
+
+  --diduforgoturpassword-header-diduforgoturpassword-text-top: 30px;
+  --diduforgoturpassword-header-diduforgoturpassword-text-left: 120px;
+
+  --diduforgoturpassword-group-top: 483px;
+  --diduforgoturpassword-group-left: 324px;
+
+  --login-link-top: 0;
+  --login-link-left: 270px;
+}
 .diduforgoturpassword {
   max-width: 325px;
   width: 25%;
   min-height: 600px;
   min-width: 500px;
   position: relative;
-  top: var(--register-section-top);
-  left: var(--register-section-left);
-  right: var(--register-section-right);
-  bottom: var(--register-section-bottom);
+  top: var(--diduforgoturpassword-section-top);
+  left: var(--diduforgoturpassword-section-left);
+  right: var(--diduforgoturpassword-section-right);
+  bottom: var(--diduforgoturpassword-section-bottom);
   background: #282828;
   border-radius: 10px;
   z-index: 2;
@@ -15,9 +63,9 @@
 
 .diduforgoturpassword .overlap-group {
   height: 78px;
-  left: 38px;
+  left: 10%;
   position: absolute;
-  top: 271px;
+  top: 55%;
   width: 399px;
 }
 
@@ -35,8 +83,6 @@
   width: 129px;
 }
 
-/* Estilos comunes para la clase de entrada */
-/* Estilos comunes para todos los inputs de 1 a 6 */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-1
   .mantine-Input-input.mantine-TextInput-input,
@@ -62,42 +108,36 @@
   top: 30%;
 }
 
-/* Estilo para la primera entrada (left: 0) */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-1
   .mantine-Input-input.mantine-TextInput-input {
   left: 0 !important;
 }
 
-/* Estilo para la segunda entrada (left: 70px) */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-2
   .mantine-Input-input.mantine-TextInput-input {
   left: 70px !important;
 }
 
-/* Estilo para la tercera entrada (left: 140px) */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-3
   .mantine-Input-input.mantine-TextInput-input {
   left: 140px !important;
 }
 
-/* Estilo para la cuarta entrada (left: 210px) */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-4
   .mantine-Input-input.mantine-TextInput-input {
   left: 210px !important;
 }
 
-/* Estilo para la quinta entrada (left: 280px) */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-5
   .mantine-Input-input.mantine-TextInput-input {
   left: 280px !important;
 }
 
-/* Estilo para la sexta entrada (left: 350px) */
 .diduforgoturpassword
   .diduforgoturpassword-input-instance-6
   .mantine-Input-input.mantine-TextInput-input {
@@ -115,15 +155,15 @@
 .diduforgoturpassword .to-continue-with-the {
   color: var(--pedro-frame-colors-tertiary-c-0);
   font-family: 'Roboto', Helvetica;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   height: 71px;
-  left: 13px;
+  left: 5%;
   letter-spacing: -0.3px;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 167px;
+  top: 30%;
   width: 449px;
 }
 
@@ -139,7 +179,7 @@
 
 .diduforgoturpassword .overlap-2 {
   height: 122px;
-  left: 62px;
+  left: 15%;
   position: absolute;
   top: 45px;
   width: 383px;
@@ -220,9 +260,9 @@
   background-color: var(--pedro-frame-colors-secundary-b-0) !important;
   border-radius: 15px !important;
   height: 60px !important;
-  left: 0 !important;
+  left: 5% !important;
   position: absolute !important;
-  top: 0 !important;
+  top: 80% !important;
   width: 348px !important;
 }
 

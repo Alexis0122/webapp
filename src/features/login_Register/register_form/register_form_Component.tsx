@@ -7,7 +7,11 @@ import { registerSchema } from './register_form.utils'
 import { RegisterForm } from '@/types/Project'
 import './style.css'
 
-export const RegisterFormComponent = (): JSX.Element => {
+interface RegisterFormComponentProps {
+  onSubmit: () => void
+}
+
+export const RegisterFormComponent = ({ onSubmit }: RegisterFormComponentProps): JSX.Element => {
   const formMethods = useForm({
     resolver: yupResolver(registerSchema),
     defaultValues: {
@@ -21,8 +25,9 @@ export const RegisterFormComponent = (): JSX.Element => {
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
 
-  const onSubmit = (data: RegisterForm) => {
+  const HandleFormOnSubmit = (data: RegisterForm) => {
     console.log(data)
+    onSubmit()
   }
 
   useEffect(() => {
@@ -35,7 +40,7 @@ export const RegisterFormComponent = (): JSX.Element => {
 
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='register-section'>
+      <form onSubmit={handleSubmit(HandleFormOnSubmit)} className='register-section'>
         <div
           className={`header-text ${errors.surname ? 'input-error-surname' : ''} ${errors.name ? 'input-error-name' : ''}`}
         >

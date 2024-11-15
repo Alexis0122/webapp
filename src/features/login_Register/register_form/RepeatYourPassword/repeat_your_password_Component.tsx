@@ -1,13 +1,15 @@
 // NewPasswordForm.tsx
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import * as yup from 'yup'
 import { NewPasswordSchema } from './repeat_your_password.utils'
 import { useForm, FormProvider } from 'react-hook-form'
-import { Button, Anchor } from '@mantine/core'
+import { Button } from '@mantine/core'
 import { PasswordInputController } from '@/components/form/controllers/PasswordInputController'
 import './style.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { NPasswordForm } from '@/types/Project'
+import { useNavigate } from 'react-router-dom'
+
 export const NewPasswordForm: React.FC = () => {
   const formMethods = useForm({
     resolver: yupResolver(NewPasswordSchema),
@@ -19,9 +21,11 @@ export const NewPasswordForm: React.FC = () => {
 
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
+  const navigate = useNavigate()
 
   const onSubmit = (data: NPasswordForm) => {
     console.log(data)
+    navigate('/login')
   }
 
   useEffect(() => {
@@ -63,21 +67,16 @@ export const NewPasswordForm: React.FC = () => {
           }}
         />
 
-        <p className='newPasswordForm-to-continue-with-the-2'>
+        <p
+          className={`newPasswordForm-to-continue-with-the-2 ${errors.confirmPassword ? 'newPasswordForm-input-error-confirmPassword-label' : ''}`}
+        >
           <span>Create a strong password for your account, associated with </span>
           <span className='text-wrapper-3-2'>Bín@gmail.com</span>
-          <span> , and re-enter it below to confirm your choice.</span>
+          <span>, and re-enter it below to confirm your choice.</span>
         </p>
         <Button type='submit' className={`button-newPasswordForm`} size='xl' variant='filled'>
           Update & Proceed
         </Button>
-
-        {/* <div className={`account-check ${errors.email ? 'newPasswordForm-input-error-check' : ''}`}>
-          <p className='p'>Already have an account?</p>
-          <Anchor href='/login' className='login-link'>
-            Log In
-          </Anchor>
-        </div> */}
       </form>
     </FormProvider>
   )

@@ -1,7 +1,6 @@
 :root {
-  /* Variables generales para los valores de posición */
-  --newPasswordForm-section-top: 0%;
-  --newPasswordForm-section-left: 0%;
+  --newPasswordForm-section-top: 10%;
+  --newPasswordForm-section-left: 60%;
   --newPasswordForm-section-right: 0%;
   --newPasswordForm-section-bottom: 0%;
 
@@ -47,14 +46,14 @@
   --login-link-top: 0;
   --login-link-left: 270px;
 }
-/* .newPasswordForm-input-error {
-  animation: newPassordMoveInputError 0.3s forwards;
-} */
 
 .newPasswordForm-input-error-newPassword {
   animation: newPassordMoveTopInputError 0.3s forwards;
 }
 .newPasswordForm-input-error-confirmPassword {
+  animation: newPassordMoveLittleTopInputError 0.3s forwards;
+}
+.newPasswordForm-input-error-confirmPassword-label {
   animation: newPassordMoveBottomInputError 0.3s forwards;
 }
 
@@ -63,7 +62,15 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-20px); /* Ajusta el valor según sea necesario */
+    transform: translateY(-20px);
+  }
+}
+@keyframes newPassordMoveLittleTopInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
   }
 }
 @keyframes newPassordMoveBottomInputError {
@@ -71,7 +78,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-5px); /* Ajusta el valor según sea necesario */
+    transform: translateY(10px);
   }
 }
 
@@ -164,11 +171,10 @@ p {
   font-size: 16px !important;
 }
 
-/* Region SiUsarExtras */
 .mantine-InputWrapper-label.mantine-PasswordInput-label {
-  color: var(--pedro-frame-colors-tertiary-c-0) !important; /* Cambia el color */
-  font-size: 14px !important; /* Cambia el tamaño de la fuente */
-  font-weight: bold !important; /* Cambia el grosor de la fuente */
+  color: var(--pedro-frame-colors-tertiary-c-0) !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
 }
 
 .newPasswordForm-section .newPasswordForm-to-continue-with-the-2 {
@@ -182,7 +188,7 @@ p {
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 70%;
+  top: 67%;
   width: 449px;
   font-style: italic;
 }

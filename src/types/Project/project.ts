@@ -7,13 +7,10 @@ export type RegisterForm = {
 }
 
 export interface NPasswordForm {
+  newPassword: string
 
-  newPassword: string;
-
-  confirmPassword: string;
-
+  confirmPassword: string
 }
-
 
 export type LoginForm = {
   email?: string

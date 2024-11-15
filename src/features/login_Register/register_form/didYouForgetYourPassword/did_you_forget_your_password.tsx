@@ -8,11 +8,15 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { forgotPasswordSchema } from './did_you_forget_your_password.utils'
 import CodeInputField from './componentsDidYouForgetYourPassword/CodeInputField'
 
-export const Diduforgoturpassword = (): JSX.Element => {
+interface DiduforgoturpasswordProps {
+  onSubmit: () => void
+}
+
+export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): JSX.Element => {
   const formMethods = useForm<{ code: string[] }>({
     resolver: yupResolver(forgotPasswordSchema),
     defaultValues: {
-      code: ['', '', '', '', '', ''] // Asegura que code tenga 6 posiciones de strings vacíos
+      code: ['', '', '', '', '', '']
     }
   })
 
@@ -24,20 +28,19 @@ export const Diduforgoturpassword = (): JSX.Element => {
     formState: { errors }
   } = formMethods
 
-  const onSubmit = (data: { code: string[] }) => {
+  const handleFormSubmit = (data: { code: string[] }) => {
     console.log('Código OTP ingresado:', data.code)
+    onSubmit()
   }
 
-  const codeValues = watch('code') as unknown as string[] // Forzar a TypeScript a tratarlo como un array de strings
-
+  const codeValues = watch('code') as unknown as string[]
   const isButtonDisabled = codeValues.includes(' ')
 
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='diduforgoturpassword'>
-        <div className='overlap'>
+      <form onSubmit={handleSubmit(handleFormSubmit)} className='diduforgoturpassword'>
+        <div className='diduforgoturpassword-overlap'>
           <div className='overlap-group'>
-            {/* Generamos los 6 campos con el componente CodeInputField */}
             {codeValues.map((_, index) => (
               <CodeInputField
                 key={index}
@@ -75,7 +78,7 @@ export const Diduforgoturpassword = (): JSX.Element => {
               color='gray'
               size='xl'
               variant='filled'
-              disabled={isButtonDisabled} // Deshabilitamos el botón si hay campos vacíos
+              disabled={isButtonDisabled}
             >
               CONTINUE
             </Button>
