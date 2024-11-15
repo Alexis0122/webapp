@@ -1,0 +1,206 @@
+:root {
+  --newPasswordForm-section-top: 10%;
+  --newPasswordForm-section-left: 60%;
+  --newPasswordForm-section-right: 0%;
+  --newPasswordForm-section-bottom: 0%;
+
+  --newPasswordForm-text-wrapper-2-top: 308px;
+  --newPasswordForm-text-wrapper-2-left: 47px;
+
+  --newPasswordForm-input-2-top: 228px;
+  --newPasswordForm-input-2-left: 47px;
+
+  --newPasswordForm-input-newPassword-top: 196px;
+  --newPasswordForm-input-newPassword-left: 9.1%;
+
+  --newPasswordForm-input-confirmPassword-top: 301px;
+  --newPasswordForm-input-confirmPassword-left: 9.1%;
+
+  --newPasswordForm-input-name-top: 112px;
+  --newPasswordForm-input-name-left: 9.1%;
+
+  --newPasswordForm-input-surname-top: 112px;
+  --newPasswordForm-input-surname-left: 259px;
+
+  --newPasswordForm-text-wrapper-4-top: 148px;
+  --newPasswordForm-text-wrapper-4-left: 50px;
+
+  --newPasswordForm-input-5-top: 149px;
+  --newPasswordForm-input-5-left: 264px;
+
+  --button-newPasswordForm-top: 80%;
+  --button-newPasswordForm-left: 9.1%;
+
+  --account-check-top: 500px;
+  --account-check-left: 64px;
+
+  --p-top-newPasswordForm: -23px;
+  --p-left: 10px;
+
+  --newPasswordForm-header-newPasswordForm-text-top: 30px;
+  --newPasswordForm-header-newPasswordForm-text-left: 120px;
+
+  --newPasswordForm-group-top: 483px;
+  --newPasswordForm-group-left: 324px;
+
+  --login-link-top: 0;
+  --login-link-left: 270px;
+}
+
+.newPasswordForm-input-error-newPassword {
+  animation: newPassordMoveTopInputError 0.3s forwards;
+}
+.newPasswordForm-input-error-confirmPassword {
+  animation: newPassordMoveLittleTopInputError 0.3s forwards;
+}
+.newPasswordForm-input-error-confirmPassword-label {
+  animation: newPassordMoveBottomInputError 0.3s forwards;
+}
+
+@keyframes newPassordMoveTopInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes newPassordMoveLittleTopInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes newPassordMoveBottomInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.newPasswordForm-section {
+  max-width: 325px;
+  width: 25%;
+  min-height: 600px;
+  min-width: 500px;
+  position: relative;
+  top: var(--newPasswordForm-section-top);
+  left: var(--newPasswordForm-section-left);
+  right: var(--newPasswordForm-section-right);
+  bottom: var(--newPasswordForm-section-bottom);
+  background: #282828;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.newPasswordForm-section .newPasswordForm-input-newPassword {
+  border: unset !important;
+  border-color: unset !important;
+  border-radius: 15px !important;
+  height: 50px !important;
+  left: var(--newPasswordForm-input-newPassword-left) !important;
+  position: absolute !important;
+  top: var(--newPasswordForm-input-newPassword-top) !important;
+  width: 405px !important;
+}
+
+.newPasswordForm-section .newPasswordForm-to-continue-with-the {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 71px;
+  left: 13px;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 107px;
+  width: 449px;
+  margin-left: 2%;
+}
+
+.newPasswordForm-section .newPasswordForm-to-continue-with-the span {
+  font-size: 20px;
+}
+
+.newPasswordForm-section .text-wrapper-3 {
+  color: #e21243;
+  letter-spacing: -0.04px;
+}
+
+.newPasswordForm-section .newPasswordForm-input-confirmPassword {
+  border: unset !important;
+  border-color: unset !important;
+  border-radius: 15px !important;
+  height: 50px !important;
+  left: var(--newPasswordForm-input-confirmPassword-left) !important;
+  position: absolute !important;
+  top: var(--newPasswordForm-input-confirmPassword-top) !important;
+  width: 405px !important;
+}
+
+.newPasswordForm-section .button-newPasswordForm {
+  background-color: var(--pedro-frame-colors-secundary-b-0) !important;
+  border-radius: 15px !important;
+  height: 60px !important;
+  left: var(--button-newPasswordForm-left) !important;
+  position: absolute !important;
+  top: var(--button-newPasswordForm-top) !important;
+  width: 408px !important;
+}
+
+.newPasswordForm-section .newPasswordForm-header-newPasswordForm-text {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 65px;
+  font-weight: 700;
+  left: var(--newPasswordForm-header-newPasswordForm-text-left);
+  letter-spacing: -1.3px;
+  line-height: normal;
+  position: absolute;
+  top: var(--newPasswordForm-header-newPasswordForm-text-top);
+  white-space: nowrap;
+}
+
+p {
+  font-size: 16px !important;
+}
+
+.mantine-InputWrapper-label.mantine-PasswordInput-label {
+  color: var(--pedro-frame-colors-tertiary-c-0) !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+.newPasswordForm-section .newPasswordForm-to-continue-with-the-2 {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 15px !important;
+  font-weight: 700;
+  height: 71px;
+  margin-left: 5%;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 67%;
+  width: 449px;
+  font-style: italic;
+}
+
+.newPasswordForm-section .span-2 {
+  color: #f8f9fa;
+  letter-spacing: -0.04px;
+}
+
+.newPasswordForm-section .text-wrapper-3-2 {
+  color: #e21243;
+  letter-spacing: -0.04px;
+}
+
+/* End Region */

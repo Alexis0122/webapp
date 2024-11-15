@@ -2,16 +2,15 @@ import React, { useEffect } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, Checkbox, Anchor } from '@mantine/core'
-import { LoginSchema } from './LoginForm.utils' // Ajusta la ruta según tu estructura de proyecto
-import { TextInputController } from '@/components/form/controllers/TextInputController' // Ajusta la ruta según tu estructura
-import { PasswordInputController } from '@/components/form/controllers/PasswordInputController' // Ajusta la ruta según tu estructura
-import { LoginForm } from '@/types/Project' // Ajusta la ruta según tu estructura de proyecto
+import { loginSchema } from './loginForm.utils'
+import { TextInputController } from '@/components/form/controllers/TextInputController'
+import { PasswordInputController } from '@/components/form/controllers/PasswordInputController'
+import { LoginForm } from '@/types/Project'
 import './style.css'
-import './styleguide.css'
 
 export const LoginFormComponent = () => {
   const formMethods = useForm({
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(loginSchema),
     defaultValues: { email: '', password: '' }
   })
   const { handleSubmit, control, formState } = formMethods
@@ -22,7 +21,6 @@ export const LoginFormComponent = () => {
   }
 
   useEffect(() => {
-    // Si hay errores, añade la clase yup-error a :root
     if (Object.keys(errors).length > 0) {
       document.documentElement.classList.add('yup-error')
     } else {
@@ -33,12 +31,17 @@ export const LoginFormComponent = () => {
   return (
     <FormProvider {...formMethods}>
       <form onSubmit={handleSubmit(onSubmit)} className='login-form-section'>
+        <div className='overlap-group-2'>
+          <div className='text-wrapper-7'>Welcome Back!</div>
+          <div className='text-wrapper-8'>Hello,</div>
+        </div>
+
         <TextInputController
           control={control}
           name='email'
           textInputProps={{
             label: 'Email',
-            className: 'input-2',
+            className: `input-2 ${errors.email ? 'login-input-error-email' : ''}`,
             placeholder: 'Your email',
             size: 'xl'
           }}
@@ -49,17 +52,21 @@ export const LoginFormComponent = () => {
           name='password'
           PasswordInputProps={{
             description: 'Password',
-            className: 'input-2 password',
+            className: `input-2 password`,
             placeholder: 'Password',
             size: 'xl'
           }}
         />
 
         <div>
-          <div className='remember-me-group'>
+          <div
+            className={`remember-me-group ${errors.password ? 'login-input-error-password' : ''}`}
+          >
             <Checkbox className='remember-me-text' label='Remember Me' />
           </div>
-          <div className='forgot-password-group'>
+          <div
+            className={`forgot-password-group ${errors.password ? 'login-input-error-password' : ''}`}
+          >
             <Anchor href='/forgot-password' className='forgot-password-text'>
               Forgot Password
             </Anchor>
@@ -68,22 +75,24 @@ export const LoginFormComponent = () => {
 
         <div className='overlap'>
           <div className='overlap-group'>
-            <p className='p'>Don’t have an account yet?</p>
-            <Button type='submit' className='button-2 button-instance' size='xl' variant='outlined'>
+            <p className={`p ${errors.password ? 'login-input-error-account' : ''}`}>
+              Don’t have an account yet?
+            </p>
+            <Button
+              type='submit'
+              className={`button-2 button-instance ${errors.password ? 'login-input-error-password' : ''}`}
+              size='xl'
+              variant='outlined'
+            >
               Login
             </Button>
           </div>
 
-          <div className='signUp-wrapper'>
-            <Anchor href='/forgot-password' className='signUp-text'>
+          <div className={`signUp-wrapper ${errors.password ? 'login-input-error-account' : ''}`}>
+            <Anchor href='/register' className='signUp-text'>
               Sign Up
             </Anchor>
           </div>
-        </div>
-
-        <div className='overlap-group-2'>
-          <div className='text-wrapper-7'>Welcome Back!</div>
-          <div className='text-wrapper-8'>Hello,</div>
         </div>
       </form>
     </FormProvider>

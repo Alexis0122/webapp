@@ -1,10 +1,9 @@
 import React from 'react'
 import './style.css'
 import { Logo, Vector1, Vector2, Shapes, LoginIcon, RegisterIcon } from '@/assets/Login'
-const LoginLayout: React.FC = () => {
+const LoginAndRegisterLayout: React.FC = () => {
   return (
     <div className='register-layout'>
-      {/* <img src="img/vector.svg" alt="Vector" /> */}
       <div className='overlap'>
         <div className='overlap-group'>
           <Vector1 className='vector' />
@@ -21,4 +20,4 @@ const LoginLayout: React.FC = () => {
   )
 }
 
-export default LoginLayout
+export default LoginAndRegisterLayout

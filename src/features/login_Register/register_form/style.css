@@ -1,0 +1,309 @@
+:root {
+  /* Variables generales para los valores de posición */
+  --register-section-top: 10%;
+  --register-section-left: 60%;
+  --register-section-right: 0%;
+  --register-section-bottom: 0%;
+
+  --text-wrapper-2-top: 308px;
+  --text-wrapper-2-left: 47px;
+
+  --input-2-top: 228px;
+  --input-2-left: 47px;
+
+  --input-email-top: 301px;
+  --input-email-left: 9.1%;
+
+  --input-username-top: 206px;
+  --input-username-left: 9.1%;
+
+  --input-name-top: 112px;
+  --input-name-left: 9.1%;
+
+  --input-surname-top: 112px;
+  --input-surname-left: 259px;
+
+  --text-wrapper-4-top: 148px;
+  --text-wrapper-4-left: 50px;
+
+  --input-5-top: 149px;
+  --input-5-left: 264px;
+
+  --button-register-top: 427px;
+  --button-register-left: 9.1%;
+
+  --account-check-top: 500px;
+  --account-check-left: 64px;
+
+  --p-top-register: -23px;
+  --p-left: 10px;
+
+  --header-text-top: 30px;
+  --header-text-left: 120px;
+
+  --group-top: 483px;
+  --group-left: 324px;
+
+  --login-link-top: 0;
+  --login-link-left: 270px;
+}
+/* .input-error {
+  animation: moveInputError 0.3s forwards;
+} */
+
+.input-error-name {
+  animation: moveTopInputError 0.3s forwards;
+}
+.input-error-surname {
+  animation: moveTopInputError 0.3s forwards;
+}
+
+.input-error-username {
+  animation: moveInputError 0.3s forwards;
+}
+.input-error-email {
+  animation: moveBottomInputError 0.3s forwards;
+}
+.input-error-check {
+  animation: moveInputCheckError 0.3s forwards;
+}
+
+@keyframes moveInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(8px); /* Ajusta el valor según sea necesario */
+  }
+}
+@keyframes moveInputCheckError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(28px); /* Ajusta el valor según sea necesario */
+  }
+}
+@keyframes moveTopInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-30px); /* Ajusta el valor según sea necesario */
+  }
+}
+@keyframes moveBottomInputError {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px); /* Ajusta el valor según sea necesario */
+  }
+}
+
+.register-section {
+  max-width: 325px;
+  width: 25%;
+  min-height: 600px;
+  min-width: 500px;
+  position: relative;
+  top: var(--register-section-top);
+  left: var(--register-section-left);
+  right: var(--register-section-right);
+  bottom: var(--register-section-bottom);
+  background: #282828;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.register-section .input-email {
+  border: unset !important;
+  border-color: unset !important;
+  border-radius: 15px !important;
+  height: 50px !important;
+  left: var(--input-email-left) !important;
+  position: absolute !important;
+  top: var(--input-email-top) !important;
+  width: 405px !important;
+}
+
+.register-section .input-2 {
+  color: var(--pedro-frame-colors-primary-a-75) !important;
+}
+
+.register-section .text-wrapper-3 {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.32px;
+  line-height: normal;
+  position: absolute;
+  top: var(--input-2-top);
+  left: var(--input-2-left);
+  width: 96px;
+}
+
+.register-section .input-username {
+  border: unset !important;
+  border-color: unset !important;
+  border-radius: 15px !important;
+  height: 50px !important;
+  left: var(--input-username-left) !important;
+  position: absolute !important;
+  top: var(--input-username-top) !important;
+  width: 405px !important;
+}
+
+.register-section .text-wrapper-4 {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: var(--text-wrapper-4-left);
+  letter-spacing: -0.32px;
+  line-height: normal;
+  position: absolute;
+  top: var(--text-wrapper-4-top);
+  width: 124px;
+}
+
+.register-section .input-name {
+  border: unset !important;
+  border-color: unset !important;
+  border-radius: 15px !important;
+  height: 50px !important;
+  left: var(--input-name-left) !important;
+  position: absolute !important;
+  top: var(--input-name-top) !important;
+  width: 192px !important;
+}
+
+.register-section .input-5 {
+  color: var(--pedro-frame-colors-primary-a-75) !important;
+  font-family: 'Roboto', Helvetica !important;
+  font-size: 18px !important;
+  font-style: unset !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 24px !important;
+}
+
+.register-section .text-wrapper-5 {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: var(--input-5-left);
+  letter-spacing: -0.32px;
+  line-height: normal;
+  position: absolute;
+  top: var(--input-5-top);
+  width: 123px;
+}
+
+.register-section .input-surname {
+  border: unset !important;
+  border-color: unset !important;
+  border-radius: 15px !important;
+  height: 50px !important;
+  left: var(--input-surname-left) !important;
+  position: absolute !important;
+  top: var(--input-surname-top) !important;
+  width: 192px !important;
+}
+
+.register-section .button-register {
+  background-color: var(--pedro-frame-colors-secundary-b-0) !important;
+  border-radius: 15px !important;
+  height: 60px !important;
+  left: var(--button-register-left) !important;
+  position: absolute !important;
+  top: var(--button-register-top) !important;
+  width: 408px !important;
+}
+
+.register-section .button-2 {
+  -webkit-text-stroke: 1px #f8f9fa !important;
+  color: var(--pedro-frame-colors-tertiary-c-0) !important;
+  font-family: 'Roboto', Helvetica !important;
+  font-size: 30px !important;
+  font-style: unset !important;
+  font-weight: 300 !important;
+  letter-spacing: 5px !important;
+  line-height: 24px !important;
+}
+
+.register-section .account-check {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Open Sans', Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  height: 31px;
+  left: var(--account-check-left);
+  letter-spacing: 0;
+  line-height: 31px;
+  position: absolute;
+  top: var(--account-check-top);
+  white-space: nowrap;
+}
+
+.register-section .p {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Open Sans', Helvetica;
+  font-size: 20px !important;
+  font-weight: 600;
+  height: 31px;
+  left: var(--p-left);
+  letter-spacing: 0;
+  line-height: 31px;
+  position: absolute;
+  top: var(--p-top-register);
+  white-space: nowrap;
+}
+
+.register-section .header-text {
+  color: var(--pedro-frame-colors-tertiary-c-0);
+  font-family: 'Roboto', Helvetica;
+  font-size: 65px;
+  font-weight: 700;
+  left: var(--header-text-left);
+  letter-spacing: -1.3px;
+  line-height: normal;
+  position: absolute;
+  top: var(--header-text-top);
+  white-space: nowrap;
+}
+
+.register-section .group {
+  height: 31px;
+  left: var(--group-left);
+  position: absolute;
+  top: var(--group-top);
+  width: 61px;
+}
+
+.register-section .login-link {
+  border-color: var(--pedro-frame-colors-secundary-b-0);
+  color: var(--pedro-frame-colors-secundary-b-0);
+  font-family: 'Open Sans', Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  height: 31px;
+  left: var(--login-link-left);
+  letter-spacing: 0;
+  position: absolute;
+  top: var(--login-link-top);
+  white-space: nowrap;
+  line-height: 24.8px;
+}
+
+.mantine-TextInput-label {
+  color: var(--pedro-frame-colors-tertiary-c-0) !important; /* Cambia el color */
+  font-size: 14px !important; /* Cambia el tamaño de la fuente */
+  font-weight: bold !important; /* Cambia el grosor de la fuente */
+}
+
+p {
+  font-size: 16px !important;
+}

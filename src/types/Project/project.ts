@@ -23,6 +23,12 @@ export type RegisterForm = {
   password?: string
 }
 
+export interface NPasswordForm {
+  newPassword: string
+
+  confirmPassword: string
+}
+
 export type LoginForm = {
   email?: string
   password?: string
@@ -37,3 +43,4 @@ export type CreateProjectForm = {
   status?: ProjectStatus
   gratification?: ProjectGratificationForm[]
 }
+

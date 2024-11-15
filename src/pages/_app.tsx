@@ -3,6 +3,7 @@ import type { Page } from '@/types'
 import { ProvidersWrapper } from '@/app'
 import { RootLayout } from '@/components/layout'
 import '@/globals.css'
+import '@/styleguide.css'
 
 type Props = AppProps & {
   Component: Page

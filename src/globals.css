@@ -1,21 +1,21 @@
 body {
   background-color: #eeeeef;
   overflow: hidden;
+  font-family: sans-serif; /* Estilo de fuente opcional */
+}
 
-  * {
-    ::-webkit-scrollbar {
-      width: 8px; /* Thin width */
-      height: 8px; /* Thin width for horizontal scrollbar */
-    }
+/* Estilo de barra de desplazamiento */
+body ::-webkit-scrollbar {
+  width: 8px; /* Anchura para scrollbar vertical */
+  height: 8px; /* Anchura para scrollbar horizontal */
+}
 
-    ::-webkit-scrollbar-track {
-      border-radius: 8px; /* Border radius */
-    }
+body ::-webkit-scrollbar-track {
+  border-radius: 8px; /* Bordes redondeados */
+}
 
-    ::-webkit-scrollbar-thumb {
-      background: var(--mantine-color-gray-1); /* Background of the track */
-      border-radius: 8px; /* Border radius */
-      padding: 20px 0;
-    }
-  }
+body ::-webkit-scrollbar-thumb {
+  background: var(--mantine-color-gray-1); /* Color del scrollbar */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px 0;
 }
