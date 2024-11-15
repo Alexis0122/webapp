@@ -4,9 +4,9 @@ import { CampaignCarousel, CampagneCard, CampaignLanding } from '@/features/Main
 
 export const HomePage = () => {
   return (
-    <Stack>
+    <Stack gap='xl'>
       <CampaignLanding />
-      <CampagneCard />
+      {/* <CampagneCard /> */}
       <CampaignCarousel />
     </Stack>
   )

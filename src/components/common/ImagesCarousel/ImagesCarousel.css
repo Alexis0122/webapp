@@ -1,0 +1,83 @@
+/*! Estilo del fondo */
+.carousel-background {
+  position: relative;
+  width: 680px;
+  height: 480px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+/*! Esta es la  Capa de superposición */
+.carousel-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/*! Imagen principal */
+.main-image-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+/*! Contenedor de  las miniaturas */
+.thumbnail-container {
+  background-color: #d9d9d9;
+  padding: 10px;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+/* !Contenedor de miniaturas con desplazamiento */
+.thumbnail-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: hidden;
+}
+
+/*! Estilo las miniaturas */
+.thumbnail {
+  width: 60px;
+  height: 40px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*! Imagen Seleccionada */
+.thumbnail.selected {
+  transform: scale(1.1);
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.timeline-item-spacing {
+  margin-bottom: 20px; /* Ajusta el valor de 20px según el espacio que desees */
+}
