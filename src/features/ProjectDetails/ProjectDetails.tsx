@@ -1,44 +1,44 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 import {
   PerkSection,
   TimeLine,
   ImagesCarousel,
   CampaignInfo,
-  Description,
-} from '@/components/common';
-import { Group } from '@mantine/core';
-import './ProjectDetails.modules.css';
+  Description
+} from '@/components/common'
+import { Group } from '@mantine/core'
+import './ProjectDetails.modules.css'
 
 interface ProjectDetailsProps {
-  images: { url: string }[];
+  images: { url: string }[]
   campaignInfo: {
-    campaingState: string;
-    titleCampaing: string;
-    usernameCampaing: string;
-    descriptionCampaing: string;
-    aboutUsercampaing: string;
-    price: number;
-    priceDescription: string;
-    informacionSupport: string;
-    userImageUrl: string;
-  };
+    campaingState: string
+    titleCampaing: string
+    usernameCampaing: string
+    descriptionCampaing: string
+    aboutUsercampaing: string
+    price: number
+    priceDescription: string
+    informacionSupport: string
+    userImageUrl: string
+  }
   timelineInfo: {
-    titleTimeline: string;
-    descriptionTimeline: string;
-    activeBar: number;
-  };
+    titleTimeline: string
+    descriptionTimeline: string
+    activeBar: number
+  }
   perkSections: {
-    title: string;
-    text: string;
-    image: string;
-    number: number;
-    category: string;
-  }[];
+    title: string
+    text: string
+    image: string
+    number: number
+    category: string
+  }[]
   description: {
-    title: string;
-    image: string;
-    text: string;
-  };
+    title: string
+    image: string
+    text: string
+  }
 }
 
 export const ProjectDetails: FC<ProjectDetailsProps> = ({
@@ -46,7 +46,7 @@ export const ProjectDetails: FC<ProjectDetailsProps> = ({
   campaignInfo,
   timelineInfo,
   perkSections,
-  description,
+  description
 }) => {
   return (
     <Group className='project-details-container'>
@@ -82,15 +82,11 @@ export const ProjectDetails: FC<ProjectDetailsProps> = ({
             />
           ))}
         </div>
-        <Description
-        title={description.title}
-        image={description.image}
-        text={description.text}
-      />
+        <Description title={description.title} image={description.image} text={description.text} />
       </div>
-     {/* Aqui va el Componente de los Comentarios cuando esté ready */}
+      {/* Aqui va el Componente de los Comentarios cuando esté ready */}
     </Group>
-  );
-};
+  )
+}
 
-export default ProjectDetails;
+export default ProjectDetails

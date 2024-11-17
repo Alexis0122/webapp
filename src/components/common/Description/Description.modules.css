@@ -2,7 +2,7 @@
 
 .description-background {
   width: 100%;
-  max-width: 1350px; 
+  max-width: 1350px;
   min-height: 200px;
   padding: 20px;
   border-radius: 20px;
@@ -10,9 +10,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   gap: 20px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 /*! El contenido dentro del componente */
@@ -40,7 +40,6 @@
   line-height: 1.6;
   margin-top: 10px;
 }
-
 
 /*! Este es el Estilo de la Imagen */
 .description-image {

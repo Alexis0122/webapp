@@ -1,11 +1,11 @@
-import { Title, Text, Image, Group  } from '@mantine/core';
-import React, { FC } from 'react';
-import './Description.modules.css';
+import { Title, Text, Image, Group } from '@mantine/core'
+import React, { FC } from 'react'
+import './Description.modules.css'
 
 interface DescriptionProps {
-  title: string;
-  image: string;
-  text: string;
+  title: string
+  image: string
+  text: string
 }
 
 export const Description: FC<DescriptionProps> = ({ title, image, text }) => {
@@ -17,5 +17,5 @@ export const Description: FC<DescriptionProps> = ({ title, image, text }) => {
         <Text className='description-text'>{text}</Text>
       </div>
     </Group>
-  );
-};
+  )
+}

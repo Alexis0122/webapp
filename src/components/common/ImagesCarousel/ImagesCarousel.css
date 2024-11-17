@@ -28,13 +28,13 @@
 .main-image-container {
   width: 100%;
   max-width: 510px;
-  height: 400px; 
+  height: 400px;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
-  background-color:  #d9d9d9;  
+  overflow: hidden;
+  background-color: #d9d9d9;
 }
 
 /*! Contenedor de miniaturas */
@@ -78,7 +78,7 @@
   align-items: center;
   background-color: #f0f0f0;
   border-radius: 8px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .thumbnail img {
