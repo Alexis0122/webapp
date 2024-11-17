@@ -12,7 +12,7 @@ interface CampaignInfoprops {
   priceDescription: string
   informacionSupport: string
   userImageUrl: string
-  stateCampaing: string
+  campaingState: string
 }
 
 export const CampaignInfo: FC<CampaignInfoprops> = ({
@@ -24,11 +24,11 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
   priceDescription,
   informacionSupport,
   userImageUrl,
-  stateCampaing
+  campaingState
 }) => {
   return (
     <div className='campaigninfo-backgroud'>
-      <Text className='campainginfo-indemand '>{stateCampaing}</Text>
+      <Text className='campainginfo-state '>{campaingState}</Text>
       <Group justify='space-between' mt='md'>
         <Text className='campainginfo-title'>{titleCampaing}</Text>
       </Group>

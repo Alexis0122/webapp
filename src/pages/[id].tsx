@@ -6,9 +6,5 @@ export default function ProjectDetailPage() {
   const router = useRouter()
   const { id } = router.query
 
-  return (
-    <>
-      <ProjectDetails />
-    </>
-  )
+  return <>{/* <ProjectDetails /> */}</>
 }
