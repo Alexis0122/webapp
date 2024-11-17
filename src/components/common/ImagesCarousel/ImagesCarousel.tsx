@@ -21,7 +21,7 @@ export const ImagesCarousel: FC<ImageCarouselProps> = ({ images }) => {
           <Image src={selectedImage} alt='Imagen Principal' radius='md' className='main-image' />
         </div>
         <div className='thumbnail-container'>
-          <ScrollArea scrollbars='x' scrollbarSize={4}>
+          <ScrollArea>
             <Group gap='xs' className='thumbnail-scroll' ref={thumbnailRef}>
               {images.map((image, index) => (
                 <div

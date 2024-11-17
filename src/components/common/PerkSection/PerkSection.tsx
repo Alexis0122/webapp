@@ -12,24 +12,25 @@ interface PerkSectionProps {
 
 export const PerkSection: FC<PerkSectionProps> = ({ title, text, image, number, category }) => {
   return (
-    <Card bg='primary.8' className={styles.card}>
-      <Card.Section>
-        <Image h='90' w='180' src={image} />
-      </Card.Section>
-      <Stack gap='xs'>
-        <Badge mt='md'>{category}</Badge>
-        <Text fz={20} c='white'>
-          {title}
-        </Text>
-        <Text fz={20} c='white'>
-          ${number}
-        </Text>
-        <ScrollArea h={370}>
-          <Text fz={12} c='white'>
-            {text}
+
+      <Card bg='primary.8' className={styles.card}>
+        <Card.Section>
+          <Image h='90' w='180' src={image} />
+        </Card.Section>
+        <Stack gap='xs'>
+          <Badge mt='md'>{category}</Badge>
+          <Text fz={20} c='white'>
+            {title}
           </Text>
-        </ScrollArea>
-      </Stack>
-    </Card>
+          <Text fz={20} c='white'>
+            ${number}
+          </Text>
+          <ScrollArea h={370}>
+            <Text fz={12} c='white'>
+              {text}
+            </Text>
+          </ScrollArea>
+        </Stack>
+      </Card>
   )
 }

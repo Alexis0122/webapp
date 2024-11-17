@@ -8,7 +8,7 @@ export default function ProjectDetailPage() {
 
   return (
     <>
-      <ProjectDetails />
+      {/* <ProjectDetails /> */}
     </>
   )
 }

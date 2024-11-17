@@ -1,0 +1,51 @@
+/*! El BackGround del Componente */
+
+.description-background {
+  width: 100%;
+  max-width: 1350px; 
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #d9d9d9;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 20px;
+  margin: 0 auto; 
+}
+
+/*! El contenido dentro del componente */
+.description-content {
+  width: 100%;
+  text-align: left;
+}
+
+/*! Este es el Estilo del Titulo */
+.description-title {
+  color: #000;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+/*! Este es el Estilo de la descripción*/
+.description-text {
+  color: #000;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+
+/*! Este es el Estilo de la Imagen */
+.description-image {
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
