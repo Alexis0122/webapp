@@ -4,7 +4,6 @@ import { CreateProjectSchema } from './CreateProject.utils'
 import { CreateProjectForm, ProjectGratificationForm } from '@/types/Project'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, Grid, Group, Stack, Title } from '@mantine/core'
-import Link from 'next/link'
 import {
   DatePickerInputController,
   SelectController,
@@ -15,8 +14,10 @@ import { ImportProjectImage } from './ImportProjectImage'
 import { ProjectStatus } from '@/constants'
 import { GratificationForm } from './Components'
 import { GratificationProject } from './Components/Gratification/GratificationProject'
+import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
 
 export const CreateProject = () => {
+  const { goTo } = useNavigation() // Usamos el hook personalizado
   const {
     control,
     handleSubmit,
@@ -30,21 +31,17 @@ export const CreateProject = () => {
     mode: 'onBlur'
   })
 
+  const [gratifications, setGratifications] = useState<ProjectGratificationForm[]>([])
+
   const handleFormSubmit = (data: CreateProjectForm) => {
     console.log('Datos del formulario:', data)
     reset()
-    // todo: implement save logic
+    // TODO: Implementar lógica de guardado
   }
-
-  const [gratifications, setGratifications] = useState<ProjectGratificationForm[]>([])
 
   const handleGratificationSubmit = (data: ProjectGratificationForm) => {
     setGratifications((prev) => [...prev, data])
     setValue('gratification', [...gratifications, data])
-  }
-
-  const handleLink = () => {
-    return <Link href='./'></Link>
   }
 
   return (
@@ -128,12 +125,10 @@ export const CreateProject = () => {
         </Grid>
       </Stack>
       <Group grow mb={20}>
-        <Button onClick={handleLink}>Cancelar</Button>
-        {/* <Link href='./'> */}
+        <Button onClick={() => goTo('/')}>Cancelar</Button>
         <Button onClick={handleSubmit(handleFormSubmit)} disabled={!isValid}>
           Crear Proyecto
         </Button>
-        {/* </Link> */}
       </Group>
     </>
   )

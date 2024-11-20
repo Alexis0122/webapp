@@ -2,18 +2,19 @@ import React, { FC } from 'react'
 import { ActionIcon, Button, Group, Input } from '@mantine/core'
 import { LogoCrowDev } from '@/components/icons'
 import { MagnifyingGlass } from '@phosphor-icons/react'
-import Link from 'next/link'
+import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
 import './styles.css'
+
 interface NavbarProps {}
 
-export const Navbar: FC<NavbarProps> = ({}) => {
+export const Navbar: FC<NavbarProps> = () => {
+  const { goTo } = useNavigation() // Usamos el hook personalizado para navegación
+
   return (
     <Group h='100%' justify='space-between' p='sm' bg='tertiary.2' className='navbar'>
-      <Link href='./'>
-        <ActionIcon size='xl' variant='transparent'>
-          <LogoCrowDev />
-        </ActionIcon>
-      </Link>
+      <ActionIcon size='xl' variant='transparent' onClick={() => goTo('/')}>
+        <LogoCrowDev />
+      </ActionIcon>
       <Input
         placeholder='SocialPet, GetYourTrack, MC And Cheese....'
         radius='lg'
@@ -22,12 +23,10 @@ export const Navbar: FC<NavbarProps> = ({}) => {
         rightSection={<MagnifyingGlass />}
       />
       <Group>
-        <Link href='/login'>
-          <Button variant='white'>Login</Button>
-        </Link>
-        <Link href='/register'>
-          <Button>Register</Button>
-        </Link>
+        <Button variant='white' onClick={() => goTo('/login')}>
+          Login
+        </Button>
+        <Button onClick={() => goTo('/register')}>Register</Button>
       </Group>
     </Group>
   )

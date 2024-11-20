@@ -13,8 +13,8 @@ const MultiStepForm = () => {
   return (
     <div>
       {step === 1 && <RegisterFormComponent onSubmit={handleNextStep} />}
-      {step === 2 && <Diduforgoturpassword onSubmit={handleNextStep} />}
-      {step === 3 && <NewPasswordForm />}
+      {step === 2 && <NewPasswordForm onSubmit={handleNextStep} />}
+      {step === 3 && <Diduforgoturpassword />}
     </div>
   )
 }

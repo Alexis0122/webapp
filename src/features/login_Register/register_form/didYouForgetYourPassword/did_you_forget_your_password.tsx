@@ -7,12 +7,13 @@ import './style.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { forgotPasswordSchema } from './did_you_forget_your_password.utils'
 import CodeInputField from './componentsDidYouForgetYourPassword/CodeInputField'
+import useNavigation from '@/hooks/useNavigation'
 
 interface DiduforgoturpasswordProps {
   onSubmit: () => void
 }
 
-export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): JSX.Element => {
+export const Diduforgoturpassword: React.FC = () => {
   const formMethods = useForm<{ code: string[] }>({
     resolver: yupResolver(forgotPasswordSchema),
     defaultValues: {
@@ -27,10 +28,9 @@ export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): J
     setValue,
     formState: { errors }
   } = formMethods
-
-  const handleFormSubmit = (data: { code: string[] }) => {
-    console.log('Código OTP ingresado:', data.code)
-    onSubmit()
+  const { goTo } = useNavigation()
+  const onSubmit = (data: { code: string[] }) => {
+    console.log(data)
   }
 
   const codeValues = watch('code') as unknown as string[]
@@ -38,7 +38,7 @@ export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): J
 
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={handleSubmit(handleFormSubmit)} className='diduforgoturpassword'>
+      <form onSubmit={handleSubmit(onSubmit)} className='diduforgoturpassword'>
         <div className='diduforgoturpassword-overlap'>
           <div className='overlap-group'>
             {codeValues.map((_, index) => (
@@ -79,6 +79,7 @@ export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): J
               size='xl'
               variant='filled'
               disabled={isButtonDisabled}
+              onClick={() => goTo('/')}
             >
               CONTINUE
             </Button>
