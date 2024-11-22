@@ -14,10 +14,19 @@ import { ImportProjectImage } from './ImportProjectImage'
 import { ProjectStatus } from '@/constants'
 import { GratificationForm } from './Components'
 import { GratificationProject } from './Components/Gratification/GratificationProject'
-import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
+import useNavigation from '@/hooks/useNavigation'
+import { useAuth } from '@/hooks/useAuth'
+import { Console } from 'console'
 
 export const CreateProject = () => {
-  const { goTo } = useNavigation() // Usamos el hook personalizado
+  const { isAuthenticated, token } = useAuth()
+
+  if (!isAuthenticated) {
+    console.log('No estás autenticado.')
+  } else {
+    console.log(`estás autenticado. tu token es ${token}`)
+  }
+  const { goTo } = useNavigation()
   const {
     control,
     handleSubmit,

@@ -11,7 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
 
 interface NewPasswordFormProps {
-  onSubmit: () => void
+  onSubmit: (data: any) => void
 }
 
 export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element => {
@@ -27,8 +27,9 @@ export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
 
-  const handleFormSubmit = () => {
-    onSubmit()
+  const handleFormSubmit = (data: any) => {
+    console.log(data)
+    onSubmit(data) // Envía los datos al padre
   }
 
   useEffect(() => {

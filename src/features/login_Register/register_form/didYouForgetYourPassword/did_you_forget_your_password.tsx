@@ -1,5 +1,3 @@
-// Diduforgoturpassword.tsx
-
 import React from 'react'
 import { useForm, FormProvider, Controller } from 'react-hook-form'
 import { Button } from '@mantine/core'
@@ -10,10 +8,10 @@ import CodeInputField from './componentsDidYouForgetYourPassword/CodeInputField'
 import useNavigation from '@/hooks/useNavigation'
 
 interface DiduforgoturpasswordProps {
-  onSubmit: () => void
+  onSubmit: (data: { code: string[] }) => void
 }
 
-export const Diduforgoturpassword: React.FC = () => {
+export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({ onSubmit }) => {
   const formMethods = useForm<{ code: string[] }>({
     resolver: yupResolver(forgotPasswordSchema),
     defaultValues: {
@@ -28,17 +26,19 @@ export const Diduforgoturpassword: React.FC = () => {
     setValue,
     formState: { errors }
   } = formMethods
-  const { goTo } = useNavigation()
-  const onSubmit = (data: { code: string[] }) => {
-    console.log(data)
-  }
 
+  const { goTo } = useNavigation()
   const codeValues = watch('code') as unknown as string[]
   const isButtonDisabled = codeValues.includes(' ')
 
+  const handleFormSubmit = (data: { code: string[] }) => {
+    console.log('Verification code entered:', data)
+    onSubmit(data)
+  }
+
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='diduforgoturpassword'>
+      <form onSubmit={handleSubmit(handleFormSubmit)} className='diduforgoturpassword'>
         <div className='diduforgoturpassword-overlap'>
           <div className='overlap-group'>
             {codeValues.map((_, index) => (
@@ -79,7 +79,6 @@ export const Diduforgoturpassword: React.FC = () => {
               size='xl'
               variant='filled'
               disabled={isButtonDisabled}
-              onClick={() => goTo('/')}
             >
               CONTINUE
             </Button>
