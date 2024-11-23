@@ -16,12 +16,12 @@ export interface ProjectGratificationForm {
 }
 
 export interface ProjectData {
-  id: number;
-  title: string;
-  imageUrl: string;
-  financialTarget: number;
-  amountCollected: number;
-  patronageCount: number;
+  id: number
+  title: string
+  imageUrl: string
+  financialTarget: number
+  amountCollected: number
+  patronageCount: number
 }
 
 export type RegisterForm = {
@@ -52,4 +52,3 @@ export type CreateProjectForm = {
   status?: ProjectStatus
   gratification?: ProjectGratificationForm[]
 }
-
