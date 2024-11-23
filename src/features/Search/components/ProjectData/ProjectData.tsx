@@ -1,41 +1,46 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Loader, Center, Group } from '@mantine/core';
-import { ProjectCard } from '@/components/common';
-import axios from 'axios';
-import { ProjectData } from '@/types/Project';
+import React, { FC, useEffect, useState } from 'react'
+import { Loader, Center, Group } from '@mantine/core'
+import { ProjectCard } from '@/components/common'
+import axios from 'axios'
+import { ProjectData } from '@/types/Project'
 
 export const ProjectList: FC = () => {
-  const [projects, setProjects] = useState<ProjectData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [projects, setProjects] = useState<ProjectData[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('https://crowdevsserviceapi.azurewebsites.net/api/v1/Project', {
-        });
-        setProjects(response.data);
+        const response = await axios.get(
+          'https://crowdevsserviceapi.azurewebsites.net/api/v1/Project',
+          {}
+        )
+        setProjects(response.data)
       } catch (error) {
-        console.error("Error fetching projects:", error);
+        console.error('Error fetching projects:', error)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchProjects();
-  }, []);
+    fetchProjects()
+  }, [])
 
   if (loading) {
     return (
       <Center>
         <Loader />
       </Center>
-    );
+    )
   }
 
   return (
-    <Group >
+    <Group>
       {projects.map((project) => {
-        const donationPercentage = ((project.amountCollected / project.financialTarget) * 100).toFixed(2);
+        const donationPercentage = (
+          (project.amountCollected / project.financialTarget) *
+          100
+        ).toFixed(2)
         return (
           <ProjectCard
             key={project.id}
@@ -46,8 +51,8 @@ export const ProjectList: FC = () => {
             financialTarget={`${project.financialTarget.toLocaleString()}`}
             donationPercentage={`${donationPercentage}%`}
           />
-        );
+        )
       })}
     </Group>
-  );
-};
+  )
+}

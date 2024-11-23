@@ -12,7 +12,6 @@ export const GratificationProjectSchema: ObjectSchema<ProjectGratificationForm> 
       .moreThan(0, 'El monto debe ser mayor a 0.')
       .required('Campo obligatorio')
       .typeError('Campo obligatorio'),
-    imageUrl: yup.array(yup.mixed<ProjectFormAttachment>().required()).optional()
-      .optional()
+    imageUrl: yup.array(yup.mixed<ProjectFormAttachment>().required()).optional().optional()
   })
   .required()
