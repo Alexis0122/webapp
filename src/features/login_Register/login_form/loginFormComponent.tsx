@@ -7,6 +7,7 @@ import { TextInputController } from '@/components/form/controllers/TextInputCont
 import { PasswordInputController } from '@/components/form/controllers/PasswordInputController'
 import { LoginForm } from '@/types/Project'
 import './style.css'
+import { useAuth } from '@/hooks/useAuth'
 
 export const LoginFormComponent = () => {
   const formMethods = useForm({
@@ -16,8 +17,18 @@ export const LoginFormComponent = () => {
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
 
-  const onSubmit = (data: LoginForm) => {
-    console.log(data)
+  // Hook de autenticación
+  const { login } = useAuth()
+
+  const onSubmit = async (data: LoginForm) => {
+    console.log('Data being sent to the API:', data)
+
+    try {
+      await login(data.email as string, data.password as string)
+      console.log('User logged in successfully')
+    } catch (error) {
+      console.error('Login failed:', error)
+    }
   }
 
   useEffect(() => {

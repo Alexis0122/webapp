@@ -1,19 +1,28 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { ActionIcon, Button, Group, Input } from '@mantine/core'
 import { LogoCrowDev } from '@/components/icons'
 import { MagnifyingGlass } from '@phosphor-icons/react'
-import Link from 'next/link'
+import useNavigation from '@/hooks/useNavigation'
+import { useAuth } from '@/hooks/useAuth'
 import './styles.css'
-interface NavbarProps {}
 
-export const Navbar: FC<NavbarProps> = ({}) => {
+interface NavbarProps {
+  isAuthenticated: boolean
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
+  const { goTo } = useNavigation()
+  const { logout, token, isMounted } = useAuth()
+
+  //TODO: arreglar el maldito navBar (hay que recargar la página para que se puedan ver los cambios) y estos deben verse inmediatamente se de click al login
   return (
     <Group h='100%' justify='space-between' p='sm' bg='tertiary.2' className='navbar'>
-      <Link href='./'>
-        <ActionIcon size='xl' variant='transparent'>
-          <LogoCrowDev />
-        </ActionIcon>
-      </Link>
+      {/* Logo */}
+      <ActionIcon size='xl' variant='transparent' onClick={() => goTo('/')}>
+        <LogoCrowDev />
+      </ActionIcon>
+
+      {/* Barra de búsqueda */}
       <Input
         placeholder='SocialPet, GetYourTrack, MC And Cheese....'
         radius='lg'
@@ -21,13 +30,30 @@ export const Navbar: FC<NavbarProps> = ({}) => {
         size='md'
         rightSection={<MagnifyingGlass />}
       />
+
+      {/* Botones dinámicos */}
       <Group>
-        <Link href='/login'>
-          <Button variant='white'>Login</Button>
-        </Link>
-        <Link href='/register'>
-          <Button>Register</Button>
-        </Link>
+        {isMounted ? (
+          token != null ? (
+            // Si el usuario está autenticado, muestra el botón de logout
+            <Button variant='white' onClick={logout}>
+              Logout
+            </Button>
+          ) : (
+            // Si no está autenticado, muestra los botones de login y registro
+            <>
+              <Button variant='white' onClick={() => goTo('/login')}>
+                Login
+              </Button>
+              <Button onClick={() => goTo('/register')}>Register</Button>
+            </>
+          )
+        ) : (
+          // Mientras no esté montado, muestra un placeholder
+          <Button variant='white' disabled>
+            Loading...
+          </Button>
+        )}
       </Group>
     </Group>
   )

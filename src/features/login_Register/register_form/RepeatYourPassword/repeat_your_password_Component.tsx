@@ -7,10 +7,14 @@ import { Button } from '@mantine/core'
 import { PasswordInputController } from '@/components/form/controllers/PasswordInputController'
 import './style.css'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { NPasswordForm } from '@/types/Project'
-import { useNavigate } from 'react-router-dom'
+// import { NPasswordForm } from '@/types/Project'
+import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
 
-export const NewPasswordForm: React.FC = () => {
+interface NewPasswordFormProps {
+  onSubmit: (data: any) => void
+}
+
+export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element => {
   const formMethods = useForm({
     resolver: yupResolver(NewPasswordSchema),
     defaultValues: {
@@ -19,13 +23,13 @@ export const NewPasswordForm: React.FC = () => {
     }
   })
 
+  const { goTo } = useNavigation() // Usamos el hook personalizado
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
-  const navigate = useNavigate()
 
-  const onSubmit = (data: NPasswordForm) => {
+  const handleFormSubmit = (data: any) => {
     console.log(data)
-    navigate('/login')
+    onSubmit(data) // Envía los datos al padre
   }
 
   useEffect(() => {
@@ -38,7 +42,7 @@ export const NewPasswordForm: React.FC = () => {
 
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='newPasswordForm-section'>
+      <form onSubmit={handleSubmit(handleFormSubmit)} className='newPasswordForm-section'>
         <p className='newPasswordForm-to-continue-with-the'>
           <span>Almost finished, </span>
           <span className='text-wrapper-3'>Pedro!</span>
@@ -74,7 +78,13 @@ export const NewPasswordForm: React.FC = () => {
           <span className='text-wrapper-3-2'>Bín@gmail.com</span>
           <span>, and re-enter it below to confirm your choice.</span>
         </p>
-        <Button type='submit' className={`button-newPasswordForm`} size='xl' variant='filled'>
+        <Button
+          type='submit'
+          className={`button-newPasswordForm`}
+          size='xl'
+          variant='filled'
+          // onClick={() => goTo('/')}
+        >
           Update & Proceed
         </Button>
       </form>

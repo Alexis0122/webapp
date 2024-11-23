@@ -4,7 +4,7 @@ import { object, ObjectSchema } from 'yup'
 
 export const loginSchema: ObjectSchema<LoginForm> = object()
   .shape({
-    email: yup.string().email('Correo no válido').trim().required('Campo obligatorio'),
+    email: yup.string().trim().required('Campo obligatorio'),
     password: yup
       .string()
       .trim()

@@ -8,7 +8,7 @@ import { RegisterForm } from '@/types/Project'
 import './style.css'
 
 interface RegisterFormComponentProps {
-  onSubmit: () => void
+  onSubmit: (data: RegisterForm) => void
 }
 
 export const RegisterFormComponent = ({ onSubmit }: RegisterFormComponentProps): JSX.Element => {
@@ -27,7 +27,7 @@ export const RegisterFormComponent = ({ onSubmit }: RegisterFormComponentProps):
 
   const HandleFormOnSubmit = (data: RegisterForm) => {
     console.log(data)
-    onSubmit()
+    onSubmit(data) // Envía los datos al padre
   }
 
   useEffect(() => {

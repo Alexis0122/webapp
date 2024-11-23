@@ -1,5 +1,3 @@
-// Diduforgoturpassword.tsx
-
 import React from 'react'
 import { useForm, FormProvider, Controller } from 'react-hook-form'
 import { Button } from '@mantine/core'
@@ -7,12 +5,13 @@ import './style.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { forgotPasswordSchema } from './did_you_forget_your_password.utils'
 import CodeInputField from './componentsDidYouForgetYourPassword/CodeInputField'
+import useNavigation from '@/hooks/useNavigation'
 
 interface DiduforgoturpasswordProps {
-  onSubmit: () => void
+  onSubmit: (data: { code: string[] }) => void
 }
 
-export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): JSX.Element => {
+export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({ onSubmit }) => {
   const formMethods = useForm<{ code: string[] }>({
     resolver: yupResolver(forgotPasswordSchema),
     defaultValues: {
@@ -28,13 +27,14 @@ export const Diduforgoturpassword = ({ onSubmit }: DiduforgoturpasswordProps): J
     formState: { errors }
   } = formMethods
 
-  const handleFormSubmit = (data: { code: string[] }) => {
-    console.log('Código OTP ingresado:', data.code)
-    onSubmit()
-  }
-
+  const { goTo } = useNavigation()
   const codeValues = watch('code') as unknown as string[]
   const isButtonDisabled = codeValues.includes(' ')
+
+  const handleFormSubmit = (data: { code: string[] }) => {
+    console.log('Verification code entered:', data)
+    onSubmit(data)
+  }
 
   return (
     <FormProvider {...formMethods}>
