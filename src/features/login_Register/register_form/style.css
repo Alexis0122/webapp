@@ -223,6 +223,14 @@
   width: 408px !important;
 }
 
+.register-section .button-register:hover {
+  background-color: var(--pedro-frame-colors-tertiary-c-0) !important;
+  color: var(--official-colors-dark-mode-secondary-red-secondary-0) !important;
+  /* box-shadow: 10px 4px 40px var(--official-colors-dark-mode-secondary-red-secondary-75); */
+  box-shadow: 4px 4px 40px var(--pedro-frame-colors-tertiary-c-50);
+
+  border: unset;
+}
 .register-section .button-2 {
   -webkit-text-stroke: 1px #f8f9fa !important;
   color: var(--pedro-frame-colors-tertiary-c-0) !important;

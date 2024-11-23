@@ -12,9 +12,10 @@ import useNavigation from '@/hooks/useNavigation' // Importamos el hook personal
 
 interface NewPasswordFormProps {
   onSubmit: (data: any) => void
+  onGoBack: () => void
 }
 
-export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element => {
+export const NewPasswordForm = ({ onSubmit, onGoBack }: NewPasswordFormProps): JSX.Element => {
   const formMethods = useForm({
     resolver: yupResolver(NewPasswordSchema),
     defaultValues: {
@@ -46,7 +47,7 @@ export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element
         <p className='newPasswordForm-to-continue-with-the'>
           <span>Almost finished, </span>
           <span className='text-wrapper-3'>Pedro!</span>
-          <span> Set your new password, and you’ll be all set to go.</span>
+          <span> Set your password, and you’ll be all set to go.</span>
         </p>
         <div className={`newPasswordForm-header-newPasswordForm-text`}>Register</div>
 
@@ -54,8 +55,8 @@ export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element
           control={control}
           name='newPassword'
           PasswordInputProps={{
-            label: 'New Password',
-            placeholder: 'Set Your New Password',
+            label: 'Password',
+            placeholder: 'Set Your Password',
             size: 'xl',
             className: `newPasswordForm-input-newPassword ${errors.newPassword ? 'newPasswordForm-input-error-newPassword' : ''}`
           }}
@@ -86,6 +87,15 @@ export const NewPasswordForm = ({ onSubmit }: NewPasswordFormProps): JSX.Element
           // onClick={() => goTo('/')}
         >
           Update & Proceed
+        </Button>
+        <Button
+          type='button'
+          className={`button-newPasswordForm-go-back`}
+          size='xl'
+          variant='filled'
+          onClick={onGoBack}
+        >
+          Go Back
         </Button>
       </form>
     </FormProvider>
