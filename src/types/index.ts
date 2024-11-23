@@ -24,3 +24,29 @@ export interface CommonItemWithoutValue<OnClickType extends (...args: any[]) => 
 export interface CommonItemWithSubitems extends CommonItem {
   subItems?: CommonItem[]
 }
+
+export type BaseResponse = {
+  isSuccess: boolean
+  statusCode: number
+  message: string | null
+  pagination: Pagination | null
+  errors: string[] | null
+}
+
+export type Pagination = {
+  currentPage: number
+  pageSize: number
+  totalPages: number
+  totalItems: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+}
+
+export interface PaginatedItems<Type> {
+  items: Type[]
+}
+
+export interface PaginatedResponse<Type> extends BaseResponse {
+  data: PaginatedItems<Type>
+  pagination: Pagination
+}

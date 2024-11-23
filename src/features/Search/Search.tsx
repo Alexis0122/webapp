@@ -1,6 +1,12 @@
-import { Gratification } from '@/components/common'
 import React from 'react'
+import { ProjectList } from './components'
+import { Box } from '@mantine/core'
 
 export const SearchProject = () => {
-  return <></>
+
+  return (
+    <Box mt='md'>
+      <ProjectList/>
+    </Box>
+  )
 }

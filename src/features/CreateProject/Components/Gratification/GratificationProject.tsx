@@ -24,7 +24,7 @@ export const GratificationProject: FC<GratificationProjectProps> = ({ control })
       <Box key={index}>
         <Gratification
           title={gratification.title}
-          image={gratification.imageUrl?.name || 'Imagen no disponible'}
+          image={gratification.imageUrl}
           category={gratification.category}
           price={gratification.amount || 0}
           onClose={() => onGratificationDelete(index)}

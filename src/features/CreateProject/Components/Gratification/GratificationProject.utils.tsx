@@ -1,4 +1,4 @@
-import { ProjectGratificationForm } from '@/types/Project'
+import { ProjectFormAttachment, ProjectGratificationForm } from '@/types/Project'
 import * as yup from 'yup'
 import { object, ObjectSchema } from 'yup'
 
@@ -12,13 +12,7 @@ export const GratificationProjectSchema: ObjectSchema<ProjectGratificationForm> 
       .moreThan(0, 'El monto debe ser mayor a 0.')
       .required('Campo obligatorio')
       .typeError('Campo obligatorio'),
-    imageUrl: yup
-      .object()
-      .shape({
-        name: yup.string().required(),
-        format: yup.string().required(),
-        size: yup.number().required()
-      })
+    imageUrl: yup.array(yup.mixed<ProjectFormAttachment>().required()).optional()
       .optional()
   })
   .required()

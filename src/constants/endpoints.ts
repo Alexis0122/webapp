@@ -1,0 +1,5 @@
+export const PROJECT_ENDPOINT = 'Project'
+export const USER_ENDPOINT = 'Auth/User'
+export const COMMENT_ENDPOINT = 'Comment'
+export const PATRONAGE_ENDPOINT = 'Patronage'
+export const SEARCH_ENDPOINT = 'Project/getByTitle'
