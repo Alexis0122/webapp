@@ -9,6 +9,7 @@ import './style.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 // import { NPasswordForm } from '@/types/Project'
 import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
+import { useFormContext } from '@/context/FormContext' // Importar el contexto
 
 interface NewPasswordFormProps {
   onSubmit: (data: any) => void
@@ -27,6 +28,7 @@ export const NewPasswordForm = ({ onSubmit, onGoBack }: NewPasswordFormProps): J
   const { goTo } = useNavigation() // Usamos el hook personalizado
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
+  const { formData } = useFormContext() // Obtener datos del contexto
 
   const handleFormSubmit = (data: any) => {
     console.log(data)
@@ -46,7 +48,7 @@ export const NewPasswordForm = ({ onSubmit, onGoBack }: NewPasswordFormProps): J
       <form onSubmit={handleSubmit(handleFormSubmit)} className='newPasswordForm-section'>
         <p className='newPasswordForm-to-continue-with-the'>
           <span>Almost finished, </span>
-          <span className='text-wrapper-3'>Pedro!</span>
+          <span className='text-wrapper-3'>{formData.name}!</span>
           <span> Set your password, and you’ll be all set to go.</span>
         </p>
         <div className={`newPasswordForm-header-newPasswordForm-text`}>Register</div>
@@ -76,10 +78,10 @@ export const NewPasswordForm = ({ onSubmit, onGoBack }: NewPasswordFormProps): J
           className={`newPasswordForm-to-continue-with-the-2 ${errors.confirmPassword ? 'newPasswordForm-input-error-confirmPassword-label' : ''}`}
         >
           <span>Create a strong password for your account, associated with </span>
-          <span className='text-wrapper-3-2'>Bín@gmail.com</span>
+          <span className='text-wrapper-3-2'>{formData.email}</span>
           <span>, and re-enter it below to confirm your choice.</span>
         </p>
-        <Button
+        {/* <Button
           type='submit'
           className={`button-newPasswordForm`}
           size='xl'
@@ -87,6 +89,15 @@ export const NewPasswordForm = ({ onSubmit, onGoBack }: NewPasswordFormProps): J
           // onClick={() => goTo('/')}
         >
           Update & Proceed
+        </Button> */}
+        <Button
+          type='submit'
+          className={`button-newPasswordForm`}
+          size='xl'
+          variant='filled'
+          // onClick={() => goTo('/')}
+        >
+          Proceed
         </Button>
         <Button
           type='button'

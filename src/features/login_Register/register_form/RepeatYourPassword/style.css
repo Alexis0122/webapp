@@ -29,10 +29,10 @@
   --newPasswordForm-input-5-left: 264px;
 
   --button-newPasswordForm-top: 77%;
-  --button-newPasswordForm-left: 9.1%;
+  --button-newPasswordForm-left: 52.1%;
 
-  --button-newPasswordForm-top-go-back: 88%;
-  --button-newPasswordForm-left-go-back: 9.1%;
+  --button-newPasswordForm-top-go-back: 77%;
+  --button-newPasswordForm-left-go-back: 7.1%;
 
   --account-check-top: 500px;
   --account-check-left: 64px;
@@ -154,7 +154,7 @@
   left: var(--button-newPasswordForm-left) !important;
   position: absolute !important;
   top: var(--button-newPasswordForm-top) !important;
-  width: 408px !important;
+  width: 200px !important;
 }
 
 .newPasswordForm-section .button-newPasswordForm-go-back {
@@ -165,7 +165,7 @@
   border-radius: 15px !important;
   height: 55px !important;
   position: absolute !important;
-  width: 408px !important;
+  width: 200px !important;
 
   border: 4px solid;
   border-color: var(--official-colors-dark-mode-secondary-red-secondary-0);

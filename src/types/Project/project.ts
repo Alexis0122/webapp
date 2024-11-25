@@ -43,4 +43,3 @@ export type CreateProjectForm = {
   status?: ProjectStatus
   gratification?: ProjectGratificationForm[]
 }
-
