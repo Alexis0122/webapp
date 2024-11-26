@@ -1,1 +1,1 @@
-export * from './did_you_forget_your_password'
+export * from './alert_register_exception'

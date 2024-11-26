@@ -4,6 +4,7 @@ import useNavigation from './useNavigation'
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(null)
   const [isMounted, setIsMounted] = useState(false)
+  const [error, setError] = useState<string | null>(null) // Estado para capturar el error
   const { goTo } = useNavigation()
 
   useEffect(() => {
@@ -44,11 +45,11 @@ export const useAuth = () => {
           goTo('/')
         } else {
           console.error('Error from API:', result)
-          throw new Error(result.message || 'Failed to authenticate')
+          return { error: result.error || 'Authentication failed' }
         }
       } catch (error) {
         console.error('Error connecting to the API:', error)
-        throw error
+        return { error: 'Error connecting to the API' }
       }
     },
     [goTo]
@@ -67,5 +68,5 @@ export const useAuth = () => {
 
   const isAuthenticated = Boolean(token)
 
-  return { token, login, logout, isAuthenticated, isMounted }
+  return { token, login, logout, isAuthenticated, isMounted, error } // Devolvemos el estado de error
 }
