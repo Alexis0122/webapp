@@ -1,32 +1,29 @@
-import React, { FC, useEffect, useState } from 'react'
-import { ActionIcon, Button, Group, Input } from '@mantine/core'
+import React, { FC } from 'react'
+import { ActionIcon, Avatar, Button, Group, Input, Menu, rem, Space, UnstyledButton } from '@mantine/core'
 import { LogoCrowDev } from '@/components/icons'
-import { MagnifyingGlass } from '@phosphor-icons/react'
+import { Gear, MagnifyingGlass } from '@phosphor-icons/react'
 import useNavigation from '@/hooks/useNavigation'
 import { useAuth } from '@/hooks/useAuth'
 import './styles.css'
+import { UserButton } from './UserButton'
 
-interface NavbarProps {
-  isAuthenticated: boolean
-}
 
-export const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
+export const Navbar = () => {
   const { goTo } = useNavigation()
   const { logout, token, isMounted } = useAuth()
 
-  //TODO: arreglar el maldito navBar (hay que recargar la página para que se puedan ver los cambios) y estos deben verse inmediatamente se de click al login
   return (
     <Group h='100%' justify='space-between' p='sm' bg='tertiary.2' className='navbar'>
       {/* Logo */}
       <ActionIcon size='xl' variant='transparent' onClick={() => goTo('/')}>
         <LogoCrowDev />
       </ActionIcon>
-
+      <Space w={{ xs:'xs',  md:'md' }} />
       {/* Barra de búsqueda */}
       <Input
         placeholder='SocialPet, GetYourTrack, MC And Cheese....'
         radius='lg'
-        w='30%'
+        w='50%'
         size='md'
         rightSection={<MagnifyingGlass />}
       />
@@ -34,11 +31,27 @@ export const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
       {/* Botones dinámicos */}
       <Group>
         {isMounted ? (
-          token != null ? (
+          token ? (
             // Si el usuario está autenticado, muestra el botón de logout
-            <Button variant='white' onClick={logout}>
-              Logout
-            </Button>
+            <Menu>
+              <Menu.Target>
+                <UserButton
+                  image='si'
+                  name='pedro'
+                  email='Prueba'
+                />
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Label>Application</Menu.Label>
+                  <Menu.Item onClick={() => goTo('/Perfil-[id]')}>
+                    Perfil
+                  </Menu.Item>
+                <Menu.Label>Danger Zone</Menu.Label>
+                  <Menu.Item onClick={logout} leftSection={<Gear style={{ width: rem(14), height: rem(14) }} />}>
+                    LogOut
+                  </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
           ) : (
             // Si no está autenticado, muestra los botones de login y registro
             <>
