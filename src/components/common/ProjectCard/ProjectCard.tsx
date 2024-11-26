@@ -17,21 +17,21 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   financialTarget,
   donationPercentage,
   amountCollected,
-  amountCollectedValue,
+  amountCollectedValue
 }) => {
   return (
-    <div className="card-background">
+    <div className='card-background'>
       <Card withBorder>
-        <Card.Section className="card-section">
-          <Image className="card-image" src={imageUrl} alt={title} />
-          <button className="card-button">Ver Campaña</button>
+        <Card.Section className='card-section'>
+          <Image className='card-image' src={imageUrl} alt={title} />
+          <button className='card-button'>Ver Campaña</button>
         </Card.Section>
-        <Stack gap="xs" mt="sm">
-          <Text className="card-title">{title}</Text>
-          <Text className="card-initiating">INICIA DESDE RD$100</Text>
-          <Text className="card-amountCollected">${amountCollected}</Text>
+        <Stack gap='xs' mt='sm'>
+          <Text className='card-title'>{title}</Text>
+          <Text className='card-initiating'>INICIA DESDE RD$100</Text>
+          <Text className='card-amountCollected'>${amountCollected}</Text>
           <Progress style={{ backgroundColor: 'black' }} value={amountCollectedValue} />
-          <Text className="card-subtitle">
+          <Text className='card-subtitle'>
             {financialTarget} raised | {donationPercentage} donated
           </Text>
         </Stack>
