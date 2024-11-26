@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { Card, Image, Text, Badge, Group, Stack, Progress, Button } from '@mantine/core'
-import styles from './ProjectCard.module.css'
+import { Card, Image, Text, Stack, Progress } from '@mantine/core'
+import './ProjectCard.css'
 
 interface ProjectCardProps {
   title: string
@@ -17,29 +17,25 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   financialTarget,
   donationPercentage,
   amountCollected,
-  amountCollectedValue
+  amountCollectedValue,
 }) => {
   return (
-    <Card shadow='sm' radius='md' withBorder className={styles.card}>
-      <Card.Section>
-        <Image src={imageUrl} alt={title} height={250} />
-      </Card.Section>
-      <Stack gap='xs' mt='sm'>
-        <Text fw={700} size='md'>
-          {title}
-        </Text>
-        <Text size='xs' color='black'>
-          INITIATING AT $100
-        </Text>
-        <Text size='md' color='black'>
-          ${amountCollected}
-        </Text>
-        <Progress value={amountCollectedValue} />
-        <Text size='xs' color='gray'>
-          {financialTarget} raised | {donationPercentage} donated
-        </Text>
-      </Stack>
-      <Button>NINO MMG</Button>
-    </Card>
+    <div className="card-background">
+      <Card withBorder>
+        <Card.Section className="card-section">
+          <Image className="card-image" src={imageUrl} alt={title} />
+          <button className="card-button">Ver Campaña</button>
+        </Card.Section>
+        <Stack gap="xs" mt="sm">
+          <Text className="card-title">{title}</Text>
+          <Text className="card-initiating">INICIA DESDE RD$100</Text>
+          <Text className="card-amountCollected">${amountCollected}</Text>
+          <Progress style={{ backgroundColor: 'black' }} value={amountCollectedValue} />
+          <Text className="card-subtitle">
+            {financialTarget} raised | {donationPercentage} donated
+          </Text>
+        </Stack>
+      </Card>
+    </div>
   )
 }
