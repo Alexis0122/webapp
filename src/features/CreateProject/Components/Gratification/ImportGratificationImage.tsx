@@ -19,10 +19,17 @@ export const ImportGratificationImage: FC<ImportGratificationImageProps> = ({ co
     // todo: implement file deletion logic
   }
 
-  const content = images ? (
-    <Stack>
-      <FileCard fileName={images.name} fileSize={images.size} onDelete={() => onImageDelete} />
-    </Stack>
+  const content = images?.length ? (
+    images?.map((image, index) => (
+      <Stack>
+        <FileCard
+          key={index}
+          fileName={image.name}
+          fileSize={image.size}
+          onDelete={() => onImageDelete(image.name)}
+        />
+      </Stack>
+    ))
   ) : (
     <Text ta='center'>No se han agregado archivos</Text>
   )

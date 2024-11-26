@@ -11,8 +11,17 @@ export interface ProjectGratificationForm {
   title: string
   category: string
   amount?: number
-  imageUrl?: ProjectFormAttachment
+  imageUrl?: ProjectFormAttachment[] | undefined
   description: string
+}
+
+export interface ProjectData {
+  id: number
+  title: string
+  imageUrl: string
+  financialTarget: number
+  amountCollected: number
+  patronageCount: number
 }
 
 export type RegisterForm = {

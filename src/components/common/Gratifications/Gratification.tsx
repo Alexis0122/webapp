@@ -12,11 +12,12 @@ import {
 import { X } from '@phosphor-icons/react'
 import React, { FC } from 'react'
 import styles from './Gratification.module.css'
+import { ProjectFormAttachment } from '@/types/Project'
 
 interface GratificationProps {
   title: string
   onClose: () => void
-  image: string
+  image?: ProjectFormAttachment[]
   category: string
   price: number
   description: string

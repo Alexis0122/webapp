@@ -1,17 +1,92 @@
-import { PerkSection } from '@/components/common'
+import React, { FC } from 'react'
+import {
+  PerkSection,
+  TimeLine,
+  ImagesCarousel,
+  CampaignInfo,
+  Description
+} from '@/components/common'
 import { Group } from '@mantine/core'
-import React from 'react'
+import './ProjectDetails.modules.css'
 
-export const ProjectDetails = () => {
+interface ProjectDetailsProps {
+  images: { url: string }[]
+  campaignInfo: {
+    campaingState: string
+    titleCampaing: string
+    usernameCampaing: string
+    descriptionCampaing: string
+    aboutUsercampaing: string
+    price: number
+    priceDescription: string
+    informacionSupport: string
+    userImageUrl: string
+  }
+  timelineInfo: {
+    titleTimeline: string
+    descriptionTimeline: string
+    activeBar: number
+  }
+  perkSections: {
+    title: string
+    text: string
+    image: string
+    number: number
+    category: string
+  }[]
+  description: {
+    title: string
+    image: string
+    text: string
+  }
+}
+
+export const ProjectDetails: FC<ProjectDetailsProps> = ({
+  images,
+  campaignInfo,
+  timelineInfo,
+  perkSections,
+  description
+}) => {
   return (
-    <Group>
-      {/* <PerkSection
-        title='PEDRO MMG'
-        text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in tellus non scelerisque. Suspendisse ac dolor rhoncus, ornare purus nec, molestie risus. Pellentesque vitae dui at enim congue ultricies. Nullam in orci quis mauris scelerisque volutpat sit amet vel sapien. Phasellus facilisis neque vitae aliquet ornare. In vel dapibus neque, sit amet lacinia sapien. Praesent elementum eros dolor. Vivamus sed mauris odio. Vivamus eu tortor neque. In ut aliquet diam.'
-        image='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-7.png'
-        number={10}
-        category='Junior'
-      /> */}
+    <Group className='project-details-container'>
+      <div className='carousel-and-info'>
+        <ImagesCarousel images={images} />
+        <CampaignInfo
+          campaingState={campaignInfo.campaingState}
+          titleCampaing={campaignInfo.titleCampaing}
+          usernameCampaing={campaignInfo.usernameCampaing}
+          descriptionCampaing={campaignInfo.descriptionCampaing}
+          aboutUsercampaing={campaignInfo.aboutUsercampaing}
+          price={campaignInfo.price}
+          priceDescription={campaignInfo.priceDescription}
+          informacionSupport={campaignInfo.informacionSupport}
+          userImageUrl={campaignInfo.userImageUrl}
+        />
+      </div>
+      <div className='timeline-and-perk'>
+        <TimeLine
+          titleTimeline={timelineInfo.titleTimeline}
+          descriptionTimeline={timelineInfo.descriptionTimeline}
+          activeBar={timelineInfo.activeBar}
+        />
+        <div className='perk-section'>
+          {perkSections.map((perk, index) => (
+            <PerkSection
+              key={index}
+              title={perk.title}
+              text={perk.text}
+              image={perk.image}
+              number={perk.number}
+              category={perk.category}
+            />
+          ))}
+        </div>
+        <Description title={description.title} image={description.image} text={description.text} />
+      </div>
+      {/* Aqui va el Componente de los Comentarios cuando esté ready */}
     </Group>
   )
 }
+
+export default ProjectDetails
