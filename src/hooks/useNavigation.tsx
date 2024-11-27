@@ -6,10 +6,10 @@ const useNavigation = () => {
   const goTo = (path: string, reload = false) => {
     router.push(path).then(() => {
       if (reload) {
-        router.reload();
+        router.reload()
       }
-    });
-  };
+    })
+  }
 
   return { goTo }
 }

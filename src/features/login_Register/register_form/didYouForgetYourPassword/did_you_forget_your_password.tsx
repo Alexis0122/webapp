@@ -6,12 +6,17 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { forgotPasswordSchema } from './did_you_forget_your_password.utils'
 import CodeInputField from './componentsDidYouForgetYourPassword/CodeInputField'
 import useNavigation from '@/hooks/useNavigation'
+import { useFormContext } from '@/context/FormContext' // Importar el contexto
 
 interface DiduforgoturpasswordProps {
   onSubmit: (data: { code: string[] }) => void
+  onGoBack: () => void
 }
 
-export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({ onSubmit }) => {
+export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({
+  onSubmit,
+  onGoBack
+}) => {
   const formMethods = useForm<{ code: string[] }>({
     resolver: yupResolver(forgotPasswordSchema),
     defaultValues: {
@@ -30,6 +35,7 @@ export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({ onSu
   const { goTo } = useNavigation()
   const codeValues = watch('code') as unknown as string[]
   const isButtonDisabled = codeValues.includes(' ')
+  const { formData } = useFormContext() // Obtener datos del contexto
 
   const handleFormSubmit = (data: { code: string[] }) => {
     console.log('Verification code entered:', data)
@@ -62,7 +68,7 @@ export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({ onSu
               To continue with the recovery process, we have sent a verification code to your email
               address{' '}
             </span>
-            <span className='text-wrapper-3'>bín4@gmail.com</span>
+            <span className='text-wrapper-3'>{formData.email}</span>
             <span>. Please make sure to enter it correctly in the verification field.</span>
           </p>
 
@@ -71,18 +77,24 @@ export const Diduforgoturpassword: React.FC<DiduforgoturpasswordProps> = ({ onSu
             <div className='password-text-wrapper-5'>Password?</div>
           </div>
 
-          <div className='button-footer'>
-            <Button
-              type='submit'
-              className='button-instance'
-              color='gray'
-              size='xl'
-              variant='filled'
-              disabled={isButtonDisabled}
-            >
-              CONTINUE
-            </Button>
-          </div>
+          <Button
+            type='submit'
+            className={`button-diduforgoturpassword`}
+            size='xl'
+            variant='filled'
+            // onClick={() => goTo('/')}
+          >
+            Proceed
+          </Button>
+          <Button
+            type='button'
+            className={`button-diduforgoturpassword-go-back`}
+            size='xl'
+            variant='filled'
+            onClick={onGoBack}
+          >
+            Go Back
+          </Button>
         </div>
       </form>
     </FormProvider>

@@ -39,7 +39,7 @@ export interface NPasswordForm {
 }
 
 export type LoginForm = {
-  email?: string
+  userName?: string
   password?: string
 }
 

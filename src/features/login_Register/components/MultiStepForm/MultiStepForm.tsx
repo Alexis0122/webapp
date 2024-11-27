@@ -2,10 +2,24 @@ import React, { useState } from 'react'
 import { NewPasswordForm } from '../../register_form/RepeatYourPassword'
 import { Diduforgoturpassword } from '../../register_form/didYouForgetYourPassword'
 import { RegisterFormComponent } from '../../register_form'
+import { registerSchema } from '@/features/login_Register/register_form/register_form.utils' // Importamos el esquema actualizado
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import { AlertRegisterException } from '../../register_form/AlertRegisterException/alert_register_exception'
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState<any>({})
+
+  // Configuración de useForm, usando el esquema de validación 'registerSchema' que incluye la verificación de email
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+    setError
+  } = useForm({
+    resolver: yupResolver(registerSchema) // Resolver usando 'yup' y el esquema de validación
+  })
 
   const handleNextStep = (data: any) => {
     setFormData((prevData: any) => {
@@ -44,32 +58,23 @@ const MultiStepForm = () => {
         }
       )
 
-      console.log('Response status:', response.status)
-      console.log('Response headers:', response.headers)
       const result = await response.json()
       console.log('API Response JSON:', result)
 
       if (response.ok) {
         console.log('User registered successfully:', result)
+        setStep(4) // Avanza a la pantalla 4
       } else {
         console.error('Error from API:', result)
+        if (result instanceof Array) {
+          // Mapea los errores del API al formulario
+          result.forEach((error) => {
+            setError(error.propertyName, { message: error.errorMessage })
+          })
+        }
       }
     } catch (error) {
       console.error('Error connecting to the API:', error)
-    }
-
-    console.log('Final state of formData:', formData)
-    console.log('Step count at submission:', step)
-    console.log('API call completed for registration')
-
-    if (
-      !formData.name ||
-      !formData.surname ||
-      !formData.email ||
-      !formData.username ||
-      !formData.newPassword
-    ) {
-      console.warn('Warning: Some form fields are missing data before submission!')
     }
   }
 
@@ -79,7 +84,11 @@ const MultiStepForm = () => {
       {step === 2 && (
         <NewPasswordForm onSubmit={(data) => handleNextStep(data)} onGoBack={handleGoBack} />
       )}
-      {step === 3 && <Diduforgoturpassword onSubmit={() => handleSubmitToAPI()} />}
+      {step === 3 && (
+        <Diduforgoturpassword onSubmit={() => handleSubmitToAPI()} onGoBack={handleGoBack} />
+      )}
+      {step === 4 && <AlertRegisterException onGoBack={handleGoBack} />}
+
       <div>
         <h3>Collected Data:</h3>
         <pre>{JSON.stringify(formData, null, 2)}</pre>

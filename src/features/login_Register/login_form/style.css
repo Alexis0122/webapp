@@ -60,6 +60,9 @@
 .login-input-error-email {
   animation: moveLoginBottomInputError 0.3s forwards;
 }
+.blocked {
+  animation: moveLoginBottomAccountInputError10 0.3s forwards;
+}
 .login-input-error-password {
   animation: moveLoginInputError 0.3s forwards;
 }
@@ -90,6 +93,14 @@
   }
   100% {
     transform: translateY(25px); /* Ajusta el valor según sea necesario */
+  }
+}
+@keyframes moveLoginBottomAccountInputError10 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px); /* Ajusta el valor según sea necesario */
   }
 }
 .login-form-section {

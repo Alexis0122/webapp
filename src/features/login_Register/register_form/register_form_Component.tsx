@@ -5,6 +5,8 @@ import { Button, Anchor } from '@mantine/core'
 import { TextInputController } from '@/components/form/controllers/TextInputController'
 import { registerSchema } from './register_form.utils'
 import { RegisterForm } from '@/types/Project'
+import { useFormContext } from '@/context/FormContext' // Importar el contexto
+
 import './style.css'
 
 interface RegisterFormComponentProps {
@@ -24,9 +26,11 @@ export const RegisterFormComponent = ({ onSubmit }: RegisterFormComponentProps):
 
   const { handleSubmit, control, formState } = formMethods
   const { errors } = formState
+  const { updateFormData } = useFormContext()
 
   const HandleFormOnSubmit = (data: RegisterForm) => {
     console.log(data)
+    updateFormData(data)
     onSubmit(data) // Envía los datos al padre
   }
 
