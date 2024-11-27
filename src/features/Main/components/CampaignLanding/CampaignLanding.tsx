@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Grid, Title, Text, Button, Stack, Tabs, Group } from '@mantine/core'
 import { Star } from '@phosphor-icons/react'
 import useNavigation from '@/hooks/useNavigation' // Importa tu hook de navegación personalizado
@@ -8,14 +8,6 @@ import styles from './CampaignLanding.module.css'
 export const CampaignLanding = () => {
   const { isAuthenticated } = useAuth() // Obtén el estado de autenticación
   const { goTo } = useNavigation() // Maneja la navegación
-
-  // Lógica de autenticación
-  useEffect(() => {
-    if (!isAuthenticated) {
-      console.log('Usuario no autenticado, redirigiendo al login...')
-      goTo('/') // Redirige al login si no está autenticado
-    }
-  }, [isAuthenticated, goTo])
 
   // Maneja el clic del botón de "Start A Campaign"
   const handleStartCampaign = () => {
