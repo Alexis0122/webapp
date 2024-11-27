@@ -3,6 +3,8 @@ import useNavigation from './useNavigation'
 
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(null)
+  const [id, setId] = useState<string | null>(null)
+
   const [isMounted, setIsMounted] = useState(false)
   const [error, setError] = useState<string | null>(null) // Estado para capturar el error
   const { goTo } = useNavigation()
@@ -10,14 +12,18 @@ export const useAuth = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedToken = localStorage.getItem('jwtToken')
+      const savedId = localStorage.getItem('jwtID')
+
       setToken(savedToken)
+      setId(savedId)
       setIsMounted(true)
     }
   }, [])
 
   useEffect(() => {
     console.log('isAuthenticated changed:', Boolean(token))
-    console.log('Current localStorage:', localStorage.getItem('jwtToken'))
+    // console.log('Current localStorage:', localStorage.getItem('jwtToken'))
+    console.log('Current id:', localStorage.getItem('jwtID'))
   }, [token])
 
   const login = useCallback(
@@ -41,7 +47,10 @@ export const useAuth = () => {
         if (response.ok) {
           console.log('User authenticated successfully:', result)
           localStorage.setItem('jwtToken', result.jwtToken)
+          localStorage.setItem('jwtID', result.id)
+
           setToken(result.jwtToken)
+          setId(result.id)
           goTo('/')
         } else {
           console.error('Error from API:', result)

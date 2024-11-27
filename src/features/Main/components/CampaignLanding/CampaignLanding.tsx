@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid, Title, Text, Button, Stack, Tabs, Group } from '@mantine/core'
 import { Star } from '@phosphor-icons/react'
 import useNavigation from '@/hooks/useNavigation' // Importa tu hook de navegación personalizado
+import { useAuth } from '@/hooks/useAuth' // Importa el hook para manejar la autenticación
 import styles from './CampaignLanding.module.css'
 
 export const CampaignLanding = () => {
-  const { goTo } = useNavigation()
+  const { isAuthenticated } = useAuth() // Obtén el estado de autenticación
+  const { goTo } = useNavigation() // Maneja la navegación
+
+  // Lógica de autenticación
+  useEffect(() => {
+    if (!isAuthenticated) {
+      console.log('Usuario no autenticado, redirigiendo al login...')
+      goTo('/') // Redirige al login si no está autenticado
+    }
+  }, [isAuthenticated, goTo])
+
+  // Maneja el clic del botón de "Start A Campaign"
+  const handleStartCampaign = () => {
+    if (isAuthenticated) {
+      goTo('/createProject') // Redirige a la página de crear campaña si está autenticado
+    } else {
+      goTo('/login') // Redirige al login si no está autenticado
+    }
+  }
 
   return (
     <Stack align='center'>
@@ -18,7 +37,7 @@ export const CampaignLanding = () => {
             <Tabs.Tab
               leftSection={<Star size={12} />}
               value='Crowdfunding'
-              onClick={() => goTo('/search')}
+              onClick={() => goTo('/Search')}
             >
               Crowdfunding
             </Tabs.Tab>
@@ -49,7 +68,7 @@ export const CampaignLanding = () => {
               ornare. In vel dapibus neque, sit amet lacinia sapien. Praesent elementum eros dolor.
               Vivamus sed mauris odio. Vivamus eu tortor neque. In ut aliquet diam.
             </Text>
-            <Button size='xl' onClick={() => goTo('/createProject')}>
+            <Button size='xl' onClick={handleStartCampaign}>
               Start A Campaign
             </Button>
           </Stack>

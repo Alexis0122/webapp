@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { CreateProjectSchema } from './CreateProject.utils'
 import { CreateProjectForm, ProjectGratificationForm } from '@/types/Project'
@@ -16,17 +16,10 @@ import { GratificationForm } from './Components'
 import { GratificationProject } from './Components/Gratification/GratificationProject'
 import useNavigation from '@/hooks/useNavigation'
 import { useAuth } from '@/hooks/useAuth'
-import { Console } from 'console'
 
 export const CreateProject = () => {
-  const { isAuthenticated, token } = useAuth()
-
-  if (!isAuthenticated) {
-    console.log('No estás autenticado.')
-  } else {
-    console.log(`estás autenticado. tu token es ${token}`)
-  }
   const { goTo } = useNavigation()
+
   const {
     control,
     handleSubmit,
