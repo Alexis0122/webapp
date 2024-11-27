@@ -1,6 +1,5 @@
 import Axios, { type AxiosResponse, type InternalAxiosRequestConfig } from 'axios'
 import { API_URL } from '@/config'
-import type { BaseResponse, PaginatedResponse } from '@/types'
 // import storage from '@app/utils/storage'
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {

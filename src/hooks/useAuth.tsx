@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import useNavigation from './useNavigation'
+import { AUTH_ENDPOINT } from '@/constants'
 
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(null)
@@ -23,7 +24,7 @@ export const useAuth = () => {
     async (email: string, password: string) => {
       try {
         const response = await fetch(
-          'https://crowdevsserviceapi.azurewebsites.net/api/v1/Auth/User/authenticate',
+          'https://crowdevsserviceapi.azurewebsites.net/api/v1/'+ AUTH_ENDPOINT ,
           {
             method: 'POST',
             headers: {
@@ -41,7 +42,7 @@ export const useAuth = () => {
           console.log('User authenticated successfully:', result)
           localStorage.setItem('jwtToken', result.jwtToken)
           setToken(result.jwtToken)
-          goTo('/')
+          goTo('/', true)
         } else {
           console.error('Error from API:', result)
           throw new Error(result.message || 'Failed to authenticate')
