@@ -45,17 +45,16 @@ export const ProjectList: FC = () => {
         ).toFixed(2)
         return (
           <div className='projectDetails'>
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
-            amountCollected={`${project.amountCollected.toLocaleString()}`}
-            amountCollectedValue={project.amountCollected}
-            financialTarget={`${project.financialTarget.toLocaleString()}`}
-            donationPercentage={`${donationPercentage}%`}
-          />
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
+              amountCollected={`${project.amountCollected.toLocaleString()}`}
+              amountCollectedValue={project.amountCollected}
+              financialTarget={`${project.financialTarget.toLocaleString()}`}
+              donationPercentage={`${donationPercentage}%`}
+            />
           </div>
-          
         )
       })}
     </Group>
