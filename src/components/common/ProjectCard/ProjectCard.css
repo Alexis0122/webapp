@@ -16,10 +16,11 @@
 }
 
 .card-image {
-  display: flex;
-  max-width: 300px;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+  border-radius: 15px;
+
 }
 
 .card-button {
@@ -49,7 +50,8 @@
 }
 
 .card-button:hover {
-  background: var(--Background-Gray-filled, #dedede);
+  color: #fff;
+  background: var(--Background-Gray-filled, #8e8e8e);
 }
 
 .card-title {

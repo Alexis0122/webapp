@@ -1,0 +1,7 @@
+.projectDetails {
+
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding: 20px;
+}
