@@ -4,6 +4,8 @@ import { ProjectCard } from '@/components/common'
 import axios from 'axios'
 import { ProjectData } from '@/types/Project'
 
+import './ProjectData.css'
+
 export const ProjectList: FC = () => {
   const [projects, setProjects] = useState<ProjectData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -42,15 +44,17 @@ export const ProjectList: FC = () => {
           100
         ).toFixed(2)
         return (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
-            amountCollected={`${project.amountCollected.toLocaleString()}`}
-            amountCollectedValue={project.amountCollected}
-            financialTarget={`${project.financialTarget.toLocaleString()}`}
-            donationPercentage={`${donationPercentage}%`}
-          />
+          <div className='projectDetails'>
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
+              amountCollected={`${project.amountCollected.toLocaleString()}`}
+              amountCollectedValue={project.amountCollected}
+              financialTarget={`${project.financialTarget.toLocaleString()}`}
+              donationPercentage={`${donationPercentage}%`}
+            />
+          </div>
         )
       })}
     </Group>
