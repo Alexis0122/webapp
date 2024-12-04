@@ -18,7 +18,7 @@ export const CampaignLanding = () => {
             <Tabs.Tab
               leftSection={<Star size={12} />}
               value='Crowdfunding'
-              onClick={() => goTo('/search')}
+              onClick={() => goTo('/Search')}
             >
               Crowdfunding
             </Tabs.Tab>
