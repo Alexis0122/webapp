@@ -25,7 +25,7 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
   } = useForm<ProjectGratificationForm>({
     resolver: yupResolver(GratificationProjectSchema),
     shouldFocusError: true,
-    mode: 'onBlur'
+    mode: 'onChange'
   })
 
   const [isModalShown, { open, close }] = useDisclosure(false)
@@ -91,6 +91,16 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
                   textInputProps={{
                     label: 'Categoria',
                     placeholder: 'premio'
+                  }}
+                />
+              </Grid.Col>
+              <Grid.Col>
+                <TextInputController
+                  control={control}
+                  name={'include'}
+                  textInputProps={{
+                    label: 'Incluye',
+                    placeholder: 'detalles de lo que incluye'
                   }}
                 />
               </Grid.Col>

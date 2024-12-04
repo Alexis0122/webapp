@@ -1,19 +1,36 @@
 import { ProjectStatus } from '@/constants'
 import { DateValue } from '@mantine/dates'
 
+export interface AnyPresentValue {
+  name: string
+  size: number
+}
+
 export interface ProjectFormAttachment {
   name: string
   format: string
   size: number
+  
 }
 
-export interface ProjectGratificationForm {
+
+export type ProjectGratificationForm = {
+
+  imageUrl?: ProjectFormAttachment[]
+
   title: string
-  category: string
-  amount?: number
-  imageUrl?: ProjectFormAttachment[] | undefined
+
   description: string
+
+  category: string
+
+  amount: number
+
+  include: string
+
 }
+;
+
 
 export interface ProjectData {
   id: number
@@ -23,6 +40,9 @@ export interface ProjectData {
   amountCollected: number
   patronageCount: number
 }
+
+
+
 
 export type RegisterForm = {
   name?: string
@@ -44,11 +64,15 @@ export type LoginForm = {
 }
 
 export type CreateProjectForm = {
-  title?: string
-  description?: string
-  image?: ProjectFormAttachment[]
-  startDate?: DateValue
-  endDate?: DateValue
-  status?: ProjectStatus
-  gratification?: ProjectGratificationForm[]
+    title: string
+    description: string
+    startDate: Date
+    endDate: Date
+    status?: ProjectStatus
+    financialTarget?: number | null  // Permitir null
+    equity?: number | null  // Permitir null
+    images: AnyPresentValue[] // Array de objetos con nombre y tamaño de la imagen
+    gratifications?: ProjectGratificationForm[] | null
+  
 }
+    
