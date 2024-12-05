@@ -35,33 +35,22 @@ export const CreateProjectSchema = Yup.object().shape({
     .min(0, 'El objetivo financiero no puede ser negativo'),
 
   equity: Yup.number().notRequired().min(0, 'La participación no puede ser negativa'),
-
   images: Yup.array()
     .of(
-      Yup.object().shape({
-        name: Yup.string().required('El nombre de la imagen es obligatorio'),
-        size: Yup.number()
-          .max(5000000, 'El tamaño de la imagen no puede ser mayor a 5MB') // Máximo tamaño de archivo de 5MB
-          .required('El tamaño de la imagen es obligatorio')
-      })
+      Yup.mixed<File>()
+        .required('El archivo es obligatorio')
+        .test(
+          'fileType',
+          'Formato no permitido. Solo imágenes JPEG o PNG',
+          (file) =>
+            file instanceof File && (file.type === 'image/jpeg' || file.type === 'image/png')
+        )
+        .test(
+          'fileSize',
+          'El tamaño del archivo no puede exceder los 5MB',
+          (file) => file instanceof File && file.size <= 5 * 1024 * 1024
+        )
     )
-    .min(1, 'Debe subir al menos una imagen')
-    .required('Las imágenes son obligatorias'),
-
-  gratifications: Yup.array()
-    .of(
-      Yup.object().shape({
-        title: Yup.string().required('El título es obligatorio'),
-        description: Yup.string()
-          .max(200, 'La descripción de la gratificación no puede exceder los 200 caracteres')
-          .required('La descripción es obligatoria'),
-        category: Yup.string().required('La categoría es obligatoria'),
-        amount: Yup.number()
-          .min(0, 'El monto de gratificación no puede ser negativo')
-          .required('El monto es obligatorio'),
-        include: Yup.string().required('El campo "include" es obligatorio')
-      })
-    )
-    .nullable()
-    .notRequired()
+    .min(1, 'Debes subir al menos una imagen')
+    .required('La imagen es requerida')
 })

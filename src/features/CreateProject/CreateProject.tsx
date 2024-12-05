@@ -55,17 +55,32 @@ export const CreateProject = () => {
 
     console.log('Campos básicos añadidos al FormData:', Object.fromEntries(formData.entries()))
 
-    // Añadir imágenes
+    // // Añadir imágenes como archivos
+    // if (Array.isArray(data.images) && data.images.length > 0) {
+    //   console.log('Número de imágenes:', data.images.length)
+    //   data.images.forEach((file, index) => {
+    //     if (file instanceof File || file instanceof Blob) {
+    //       console.log(`Añadiendo imagen ${index + 1}:`, file)
+    //       formData.append('images', file) // Adjuntar el archivo directamente
+    //     } else {
+    //       console.error(`El elemento ${index + 1} no es un archivo válido:`, file)
+    //     }
+    //   })
+    // } else {
+    //   console.warn('No se añadieron imágenes. ¿Es obligatorio?')
+    // }
+    // Convertir las imágenes en archivos y añadirlas al FormData
     if (Array.isArray(data.images) && data.images.length > 0) {
-      console.log('Número de imágenes:', data.images.length)
-      data.images.forEach((image, index) => {
-        console.log(`Imagen ${index + 1} añadida:`, image)
-        formData.append('images', image as unknown as Blob)
+      data.images.forEach((file, index) => {
+        if (file instanceof File) {
+          formData.append('images', file) // Adjuntar el archivo directamente
+        } else {
+          console.error(`El elemento ${index + 1} no es un archivo válido:`, file)
+        }
       })
     } else {
       console.warn('No se añadieron imágenes. ¿Es obligatorio?')
     }
-
     // Agregar gratificaciones (si se requiere)
     if (gratifications.length > 0) {
       gratifications.forEach((gratification, index) => {

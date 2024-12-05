@@ -10,27 +10,16 @@ export interface ProjectFormAttachment {
   name: string
   format: string
   size: number
-  
 }
-
 
 export type ProjectGratificationForm = {
-
-  imageUrl?: ProjectFormAttachment[]
-
-  title: string
-
-  description: string
-
-  category: string
-
-  amount: number
-
-  include: string
-
+  title: string;
+  description: string;
+  category: string;
+  amount: number;
+  include: string;
+  images?: { name: string; format: string; size: number; }[];
 }
-;
-
 
 export interface ProjectData {
   id: number
@@ -40,9 +29,6 @@ export interface ProjectData {
   amountCollected: number
   patronageCount: number
 }
-
-
-
 
 export type RegisterForm = {
   name?: string
@@ -63,16 +49,17 @@ export type LoginForm = {
   password?: string
 }
 
-export type CreateProjectForm = {
-    title: string
-    description: string
-    startDate: Date
-    endDate: Date
-    status?: ProjectStatus
-    financialTarget?: number | null  // Permitir null
-    equity?: number | null  // Permitir null
-    images: AnyPresentValue[] // Array de objetos con nombre y tamaño de la imagen
-    gratifications?: ProjectGratificationForm[] | null
+export interface CreateProjectForm  {
+  title: string
+  description: string
+  startDate: Date
+  endDate: Date
+  status?: ProjectStatus
+  financialTarget?: number | null // Permitir null
+  equity?: number | null // Permitir null
+  // images: { name: string; format: string; size: number; }[] ; // Array de objetos con nombre y tamaño de la imagen
+  images: File[]; // Array de objetos con nombre y tamaño de la imagen
   
+  gratifications?: ProjectGratificationForm[] | undefined;
+
 }
-    
