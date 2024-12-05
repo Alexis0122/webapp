@@ -9,7 +9,7 @@ interface FileUploaderControllerProps<T extends FieldValues> extends CommonContr
 }
 
 /**
- * Component that uses React hook form to handle state of Mantine's Dropzone.
+ * Componente que usa react-hook-form para manejar el estado de Dropzone de Mantine.
  */
 export const FileUploaderController = <T extends FieldValues>(
   props: FileUploaderControllerProps<T>
@@ -25,9 +25,20 @@ export const FileUploaderController = <T extends FieldValues>(
   })
 
   const handleChange = (newFiles: FileWithPath[]) => {
-    const updatedFiles = [...files, ...newFiles]
-    onChange(updatedFiles)
+    const uniqueFiles = newFiles.filter(
+      (newFile) => !files.some((existingFile: FileWithPath) => existingFile.name === newFile.name)
+    )
+
+    // Actualizar el estado del formulario con los archivos únicos
+    onChange([...files, ...uniqueFiles])
   }
 
-  return <ImportFile onDrop={handleChange} {...fileUploaderProps} />
+  const errorMessage = typeof errors[name]?.message === 'string' ? errors[name]?.message : null
+
+  return (
+    <div>
+      <ImportFile onDrop={handleChange} {...fileUploaderProps} />
+      {errorMessage && <p style={{ color: 'red', fontSize: '0.875rem' }}>{errorMessage}</p>}
+    </div>
+  )
 }

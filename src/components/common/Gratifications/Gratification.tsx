@@ -16,11 +16,12 @@ import { ProjectFormAttachment } from '@/types/Project'
 
 interface GratificationProps {
   title: string
+  image: string
   onClose: () => void
-  image?: ProjectFormAttachment[]
   category: string
   price: number
   description: string
+  include: string
 }
 
 export const Gratification: FC<GratificationProps> = ({
@@ -29,7 +30,8 @@ export const Gratification: FC<GratificationProps> = ({
   onClose,
   category,
   price,
-  description
+  description,
+  include
 }) => {
   return (
     <Card className={styles.cardG} bg='primary.7' withBorder shadow='sm' radius='md'>
@@ -56,6 +58,9 @@ export const Gratification: FC<GratificationProps> = ({
         <ScrollArea h={160}>
           <Text c='white' fz={12}>
             {description}
+          </Text>
+          <Text c='white' fz={12}>
+            {include}
           </Text>
         </ScrollArea>
       </Stack>

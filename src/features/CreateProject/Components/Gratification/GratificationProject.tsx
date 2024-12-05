@@ -11,7 +11,7 @@ type GratificationProjectProps = {
 export const GratificationProject: FC<GratificationProjectProps> = ({ control }) => {
   const gratifications = useWatch({
     control,
-    name: 'gratification',
+    name: 'gratifications',
     defaultValue: []
   })
 
@@ -24,11 +24,12 @@ export const GratificationProject: FC<GratificationProjectProps> = ({ control })
       <Box key={index}>
         <Gratification
           title={gratification.title}
-          image={gratification.imageUrl}
+          image={Array.isArray(gratification.images) ? '' : gratification.images || ''}
           category={gratification.category}
           price={gratification.amount || 0}
           onClose={() => onGratificationDelete(index)}
           description={gratification.description}
+          include={gratification.include}
         />
       </Box>
     ))
