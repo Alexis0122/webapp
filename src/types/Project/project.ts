@@ -13,12 +13,12 @@ export interface ProjectFormAttachment {
 }
 
 export type ProjectGratificationForm = {
-  title: string;
-  description: string;
-  category: string;
-  amount: number;
-  include: string;
-  images?: { name: string; format: string; size: number; }[];
+  title: string
+  description: string
+  category: string
+  amount: number
+  include: string
+  images?: { name: string; format: string; size: number }[]
 }
 
 export interface ProjectData {
@@ -48,7 +48,7 @@ export type LoginForm = {
   password?: string
 }
 
-export interface CreateProjectForm  {
+export interface CreateProjectForm {
   title: string
   description: string
   startDate: Date
@@ -57,15 +57,14 @@ export interface CreateProjectForm  {
   financialTarget?: number | null
   equity?: number | null
   // images: { name: string; format: string; size: number; }[] ;
-  images: File[];
-  gratifications?: ProjectGratificationForm[] | undefined;
-
+  images: File[]
+  gratifications?: ProjectGratificationForm[] | undefined
 }
 
 export interface Project {
-  id: string;
-  title: string;
-  imageUrl: string;
-  amountCollected: number;
-  financialTarget: number;
+  id: string
+  title: string
+  imageUrl: string
+  amountCollected: number
+  financialTarget: number
 }

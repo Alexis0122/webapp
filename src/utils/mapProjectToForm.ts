@@ -1,5 +1,4 @@
-import { CreateProjectForm, Project } from "@/types/Project";
-
+import { CreateProjectForm, Project } from '@/types/Project'
 
 export function mapProjectToForm(project: Project): CreateProjectForm {
   return {
@@ -11,6 +10,6 @@ export function mapProjectToForm(project: Project): CreateProjectForm {
     financialTarget: project.financialTarget,
     equity: null, // Valor predeterminado
     images: [], // Puedes agregar lógica para convertir imageUrl a un arreglo de archivos si es necesario
-    gratifications: undefined, // Valor predeterminado
-  };
+    gratifications: undefined // Valor predeterminado
+  }
 }

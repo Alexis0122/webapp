@@ -37,7 +37,13 @@ export default function AuthPage() {
             </Text>{' '}
             seconds...
           </Text>
-          <Button variant='light' color='primary.5' fullWidth mt={20} onClick={() => goTo('/login')}>
+          <Button
+            variant='light'
+            color='primary.5'
+            fullWidth
+            mt={20}
+            onClick={() => goTo('/login')}
+          >
             Go Now
           </Button>
         </Container>
