@@ -54,11 +54,10 @@ export interface CreateProjectForm  {
   startDate: Date
   endDate: Date
   status?: ProjectStatus
-  financialTarget?: number | null // Permitir null
-  equity?: number | null // Permitir null
-  // images: { name: string; format: string; size: number; }[] ; // Array de objetos con nombre y tamaño de la imagen
-  images: File[]; // Array de objetos con nombre y tamaño de la imagen
-  
+  financialTarget?: number | null
+  equity?: number | null
+  // images: { name: string; format: string; size: number; }[] ;
+  images: File[];
   gratifications?: ProjectGratificationForm[] | undefined;
 
 }

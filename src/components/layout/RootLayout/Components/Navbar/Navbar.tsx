@@ -6,11 +6,10 @@ import useNavigation from '@/hooks/useNavigation'
 import { useAuth } from '@/hooks/useAuth'
 import './styles.css'
 import { UserButton } from './UserButton'
-import { SearchInput } from '../SearchInput/SearchInput'
 
 export const Navbar = () => {
   const { goTo } = useNavigation()
-  const { logout, token, isMounted } = useAuth()
+  const { logout, token, isMounted, id } = useAuth()
 
   return (
     <Group h='100%' justify='space-between' p='sm' bg='tertiary.2' className='navbar'>
@@ -30,7 +29,8 @@ export const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Label>Application</Menu.Label>
-                <Menu.Item onClick={() => goTo(`/Perfil/${'id'}`)}>Perfil</Menu.Item>
+                <Menu.Item onClick={() => goTo(`/Perfil/Proyectos/${id}`)}>Tus Proyectos</Menu.Item>
+                <Menu.Item onClick={() => goTo('')}>Cambia la tu imagen de perfil</Menu.Item>
                 <Menu.Label>Danger Zone</Menu.Label>
                 <Menu.Item
                   onClick={logout}

@@ -32,7 +32,7 @@ export const ProjectList: FC = () => {
 
   if (loading) {
     return (
-      <Center>
+      <Center p='md'>
         <Loader />
       </Center>
     )

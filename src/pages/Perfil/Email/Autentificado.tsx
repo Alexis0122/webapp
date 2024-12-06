@@ -21,7 +21,7 @@ export default function AuthPage() {
 
   return (
     <>
-      <Center style={{ height: '100vh', backgroundColor: '#f5f5f5' }}>
+      <Center style={{ height: '100vh' }}>
         <Container size={420} p={30} style={{ textAlign: 'center' }}>
           <Text size='lg' fw={700} mb={15}>
             Confirm Your Account
@@ -29,15 +29,15 @@ export default function AuthPage() {
           <Text size='sm' color='dimmed' mb={25}>
             Please wait while we verify your email. You will be redirected shortly.
           </Text>
-          <Loader color='blue' size='md' variant='dots' mb={20} />
+          <Loader color='primary.5' size='md' variant='dots' mb={20} />
           <Text size='sm' fw={500}>
             Redirecting in{' '}
-            <Text component='span' color='blue'>
+            <Text component='span' color='primary.5'>
               {timeLeft}
             </Text>{' '}
             seconds...
           </Text>
-          <Button variant='light' color='blue' fullWidth mt={20} onClick={() => goTo('/login')}>
+          <Button variant='light' color='primary.5' fullWidth mt={20} onClick={() => goTo('/login')}>
             Go Now
           </Button>
         </Container>
