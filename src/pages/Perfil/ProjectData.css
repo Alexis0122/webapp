@@ -1,0 +1,8 @@
+.projectDetails {
+  width: 300px;
+  height: auto;
+  margin: 8px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

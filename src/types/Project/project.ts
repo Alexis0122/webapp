@@ -40,7 +40,6 @@ export type RegisterForm = {
 
 export interface NPasswordForm {
   newPassword: string
-
   confirmPassword: string
 }
 
@@ -62,4 +61,12 @@ export interface CreateProjectForm  {
   
   gratifications?: ProjectGratificationForm[] | undefined;
 
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  imageUrl: string;
+  amountCollected: number;
+  financialTarget: number;
 }
