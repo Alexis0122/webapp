@@ -10,7 +10,7 @@ import { SearchInput } from '../SearchInput/SearchInput'
 
 export const Navbar = () => {
   const { goTo } = useNavigation()
-  const { logout, token, isMounted } = useAuth()
+  const { logout, token, isMounted, img, email, user } = useAuth()
 
   return (
     <Group h='100%' justify='space-between' p='sm' bg='tertiary.2' className='navbar'>
@@ -26,7 +26,7 @@ export const Navbar = () => {
             // Si el usuario está autenticado, muestra el botón de logout
             <Menu>
               <Menu.Target>
-                <UserButton image='si' name='pedro' email='Prueba' />
+                <UserButton image={`${img}`} name={`${user}`} email={`${email}`} />
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Label>Application</Menu.Label>
