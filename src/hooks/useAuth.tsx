@@ -7,7 +7,7 @@ export const useAuth = () => {
   const [id, setId] = useState<string | null>(null)
 
   const [isMounted, setIsMounted] = useState(false)
-  const [error, setError] = useState<string | null>(null) // Estado para capturar el error
+  const [error, setError] = useState<string | null>(null)
   const { goTo } = useNavigation()
 
   useEffect(() => {
@@ -21,11 +21,11 @@ export const useAuth = () => {
     }
   }, [])
 
-  useEffect(() => {
-    console.log('isAuthenticated changed:', Boolean(token))
-    // console.log('Current localStorage:', localStorage.getItem('jwtToken'))
-    console.log('Current id:', localStorage.getItem('jwtID'))
-  }, [token])
+  // useEffect(() => {
+  //   console.log('isAuthenticated changed:', Boolean(token))
+  //   // console.log('Current localStorage:', localStorage.getItem('jwtToken'))
+  //   console.log('Current id:', localStorage.getItem('jwtID'))
+  // }, [token])
 
   const login = useCallback(
     async (email: string, password: string) => {
@@ -43,7 +43,7 @@ export const useAuth = () => {
         )
 
         const result = await response.json()
-        console.log('API Response JSON:', result)
+        // console.log('API Response JSON:', result)
 
         if (response.ok) {
           console.log('User authenticated successfully:', result)
@@ -54,11 +54,11 @@ export const useAuth = () => {
           setId(result.id)
           goTo('/', true)
         } else {
-          console.error('Error from API:', result)
+          // console.error('Error from API:', result)
           return { error: result.error || 'Authentication failed' }
         }
       } catch (error) {
-        console.error('Error connecting to the API:', error)
+        // console.error('Error connecting to the API:', error)
         return { error: 'Error connecting to the API' }
       }
     },
@@ -66,11 +66,11 @@ export const useAuth = () => {
   )
 
   const logout = useCallback(() => {
-    console.log('Before logout. Current localStorage:', localStorage.getItem('jwtToken'))
+    // console.log('Before logout. Current localStorage:', localStorage.getItem('jwtToken'))
 
     localStorage.clear()
 
-    console.log('After removing jwtToken. Current localStorage:', localStorage.getItem('jwtToken'))
+    // console.log('After removing jwtToken. Current localStorage:', localStorage.getItem('jwtToken'))
 
     setToken(null)
     goTo('/login')
@@ -78,5 +78,5 @@ export const useAuth = () => {
 
   const isAuthenticated = Boolean(token)
 
-  return { token, login, logout, isAuthenticated, isMounted, error } // Devolvemos el estado de error
+  return { token, login, logout, isAuthenticated, isMounted, error, id }
 }

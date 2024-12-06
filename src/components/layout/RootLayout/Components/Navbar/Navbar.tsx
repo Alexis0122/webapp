@@ -1,21 +1,12 @@
-import React, { FC } from 'react'
-import {
-  ActionIcon,
-  Avatar,
-  Button,
-  Group,
-  Input,
-  Menu,
-  rem,
-  Space,
-  UnstyledButton
-} from '@mantine/core'
+import React from 'react'
+import { ActionIcon, Button, Group, Input, Menu, rem, Space } from '@mantine/core'
 import { LogoCrowDev } from '@/components/icons'
 import { Gear, MagnifyingGlass } from '@phosphor-icons/react'
 import useNavigation from '@/hooks/useNavigation'
 import { useAuth } from '@/hooks/useAuth'
 import './styles.css'
 import { UserButton } from './UserButton'
+import { SearchInput } from '../SearchInput/SearchInput'
 
 export const Navbar = () => {
   const { goTo } = useNavigation()
@@ -28,15 +19,6 @@ export const Navbar = () => {
         <LogoCrowDev />
       </ActionIcon>
       <Space w={{ xs: 'xs', md: 'md' }} />
-      {/* Barra de búsqueda */}
-      <Input
-        placeholder='SocialPet, GetYourTrack, MC And Cheese....'
-        radius='lg'
-        w='50%'
-        size='md'
-        rightSection={<MagnifyingGlass />}
-      />
-
       {/* Botones dinámicos */}
       <Group>
         {isMounted ? (
@@ -48,7 +30,7 @@ export const Navbar = () => {
               </Menu.Target>
               <Menu.Dropdown>
                 <Menu.Label>Application</Menu.Label>
-                <Menu.Item onClick={() => goTo('/Perfil-[id]')}>Perfil</Menu.Item>
+                <Menu.Item onClick={() => goTo(`/Perfil/${'id'}`)}>Perfil</Menu.Item>
                 <Menu.Label>Danger Zone</Menu.Label>
                 <Menu.Item
                   onClick={logout}

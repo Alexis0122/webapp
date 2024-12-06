@@ -34,7 +34,6 @@ export type RegisterForm = {
 
 export interface NPasswordForm {
   newPassword: string
-
   confirmPassword: string
 }
 
@@ -51,4 +50,12 @@ export type CreateProjectForm = {
   endDate?: DateValue
   status?: ProjectStatus
   gratification?: ProjectGratificationForm[]
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  imageUrl: string;
+  amountCollected: number;
+  financialTarget: number;
 }

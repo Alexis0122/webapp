@@ -3,12 +3,14 @@ import { Loader, Center, Group } from '@mantine/core'
 import { ProjectCard } from '@/components/common'
 import axios from 'axios'
 import { ProjectData } from '@/types/Project'
+import useNavigation from '@/hooks/useNavigation'
 
 import './ProjectData.css'
 
 export const ProjectList: FC = () => {
   const [projects, setProjects] = useState<ProjectData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const { goTo } = useNavigation()
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -53,6 +55,7 @@ export const ProjectList: FC = () => {
               amountCollectedValue={project.amountCollected}
               financialTarget={`${project.financialTarget.toLocaleString()}`}
               donationPercentage={`${donationPercentage}%`}
+              buttonURL={() => goTo(`/Project/${project.id}`)}
             />
           </div>
         )
