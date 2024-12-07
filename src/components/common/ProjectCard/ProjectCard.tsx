@@ -25,17 +25,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         <Image src={imageUrl} alt={title} height={250} />
       </Card.Section>
       <Stack gap='md' className={styles.cardContent}>
-        <Text fw={700} size='md'>
+        <Text className={styles.cardTitle} title={title}>
           {title}
         </Text>
-        <Text size='xs' color='black'>
+        <Text size='xs' color='black' className={styles.cardText}>
           INITIATING AT $100
         </Text>
-        <Text size='md' color='black'>
+        <Text size='md' color='black' className={styles.cardText}>
           ${amountCollected}
         </Text>
-        <Progress value={amountCollectedValue} />
-        <Text size='xs' color='gray'>
+        <Progress value={amountCollectedValue} className={styles.cardProgress} />
+        <Text size='xs' color='gray' className={styles.cardDescription}>
           {financialTarget} raised | {donationPercentage} donated
         </Text>
       </Stack>
@@ -45,7 +45,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         className={styles.cardButton}
         fullWidth
       >
-        NINO MMG
+        APOYAR
       </Button>
     </Card>
   )
