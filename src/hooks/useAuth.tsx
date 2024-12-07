@@ -5,6 +5,9 @@ import { AUTH_ENDPOINT } from '@/constants'
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(null)
   const [id, setId] = useState<string | null>(null)
+  const [user, setUser] = useState<string | null>(null)
+  const [email, setEmail] = useState<string | null>(null)
+  const [img, setImg] = useState<string | null>(null)
 
   const [isMounted, setIsMounted] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -14,7 +17,13 @@ export const useAuth = () => {
     if (typeof window !== 'undefined') {
       const savedToken = localStorage.getItem('jwtToken')
       const savedId = localStorage.getItem('jwtID')
+      const saveUser = localStorage.getItem('jwtUserName')
+      const saveEmail = localStorage.getItem('jwtEmail')
+      const saveImg = localStorage.getItem('jwtImageUrl')
 
+      setImg(saveImg)
+      setEmail(saveEmail)
+      setUser(saveUser)
       setToken(savedToken)
       setId(savedId)
       setIsMounted(true)
@@ -49,9 +58,15 @@ export const useAuth = () => {
           console.log('User authenticated successfully:', result)
           localStorage.setItem('jwtToken', result.jwtToken)
           localStorage.setItem('jwtID', result.id)
+          localStorage.setItem('jwtUserName', result.userName)
+          localStorage.setItem('jwtEmail', result.email)
+          localStorage.setItem('jwtImageUrl', result.imageUrl)
 
           setToken(result.jwtToken)
           setId(result.id)
+          setUser(result.userName)
+          setEmail(result.email)
+          setImg(result.imageUrl)
           goTo('/', true)
         } else {
           // console.error('Error from API:', result)
@@ -78,5 +93,7 @@ export const useAuth = () => {
 
   const isAuthenticated = Boolean(token)
 
-  return { token, login, logout, isAuthenticated, isMounted, error, id }
+  console.log(user, email, img)
+
+  return { token, login, logout, isAuthenticated, isMounted, error, id, user, email, img }
 }
