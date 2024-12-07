@@ -1,0 +1,38 @@
+.project-buttonreward {
+    display: flex;
+    width: calc(100% - 32px);
+    /* Deja 16px de espacio a cada lado */
+    height: 32px;
+    padding: 0 var(--Padding-padding-sm, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing-spacing-sm, 8px);
+    border-radius: var(--Radius-radius-sm, 4px);
+    border: 1px solid #C00E38;
+    background: var(--Background-transparent, rgba(255, 255, 255, 0.00));
+    color: #C00E38;
+
+    /* Text/sm */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    /* 114.286% */
+
+    margin: 0 16px;
+    /* Espacio a la izquierda y derecha */
+    box-sizing: border-box;
+    /* Asegura que el padding y border no afecten el ancho total */
+}
+
+.projec-subtitle {
+    align-self: stretch;
+    color: #363535;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    /* 106.667% */
+}

@@ -31,7 +31,7 @@ export const ImportGratificationImage: FC<ImportGratificationImageProps> = ({ co
       </Stack>
     ))
   ) : (
-    <Text ta='center'>No se han agregado archivos</Text>
+    <Text ta='center'>No files have been added</Text>
   )
 
   return (
