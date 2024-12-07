@@ -3,7 +3,7 @@ import { CreateProjectForm, Project } from '@/types/Project'
 export function mapProjectToForm(project: Project): CreateProjectForm {
   return {
     title: project.title,
-    description: '', // Valor predeterminado (puedes reemplazarlo si tienes más información)
+    description: project.description, // Valor predeterminado (puedes reemplazarlo si tienes más información)
     startDate: new Date(), // Valor predeterminado
     endDate: new Date(), // Valor predeterminado
     status: undefined, // Valor predeterminado

@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react'
-import { Modal, Button, Group, Stack, Grid } from '@mantine/core'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { CreateProjectForm } from '@/types/Project'
+import { Modal, Button, Grid, Group, Stack, Title } from '@mantine/core'
 import {
-  TextInputController,
-  TextareaController,
   DatePickerInputController,
   SelectController,
-  NumberInputController
+  TextareaController,
+  TextInputController
 } from '@/components/form/controllers'
-import { CreateProjectSchema } from '../CreateProject/CreateProject.utils'
+import { EditProjectSchema } from './ProjectModal.utils'
+import { CreateProjectForm, EditProjectForm } from '@/types/Project'
 
 interface EditProjectModalProps {
   opened: boolean
   onClose: () => void
   defaultValues?: CreateProjectForm
-  onSave: (data: CreateProjectForm, projectId: string) => Promise<void>
+  onSave: (data: EditProjectForm, projectId: string) => Promise<void>
   projectId: string
   onDelete: () => void
 }
@@ -29,39 +28,56 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
   projectId,
   onDelete
 }) => {
-  const { control, handleSubmit, reset } = useForm<CreateProjectForm>({
-    defaultValues: defaultValues,
-    resolver: yupResolver(CreateProjectSchema)
+  const methods = useForm<EditProjectForm>({
+    resolver: yupResolver(EditProjectSchema),
+    defaultValues,
+    shouldFocusError: true,
+    mode: 'onChange'
   })
+  const { control, handleSubmit, reset } = methods
 
   useEffect(() => {
     if (defaultValues) {
-      reset(defaultValues)
+      reset(defaultValues) // Set the form data when defaultValues change
     }
   }, [defaultValues, reset])
 
-  const handleFormSubmit = async (data: CreateProjectForm) => {
-    console.log('Datos enviados:', data)
-    await onSave(data, projectId)
-    onClose()
+  const handleFormSubmit = async (data: EditProjectForm) => {
+    try {
+      await onSave(data, projectId)
+      onClose()
+    } catch (error) {
+      console.error('Error al guardar el proyecto:', error)
+    }
   }
 
   return (
     <Modal opened={opened} onClose={onClose} title='Editar Proyecto'>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <Stack>
-          <TextInputController
-            control={control}
-            name='title'
-            textInputProps={{ label: 'Título', placeholder: 'CrowdevTest' }}
-          />
-          <TextareaController
-            control={control}
-            name='description'
-            textareaProps={{ label: 'Descripción', placeholder: 'Descripción...' }}
-          />
+          <Title>Editar Proyecto</Title>
           <Grid>
-            <Grid.Col span={6}>
+            <Grid.Col>
+              <TextInputController
+                control={control}
+                name='title'
+                textInputProps={{
+                  label: 'Título',
+                  placeholder: 'CrowdevTest'
+                }}
+              />
+            </Grid.Col>
+            <Grid.Col>
+              <TextareaController
+                control={control}
+                name='description'
+                textareaProps={{
+                  label: 'Descripción',
+                  placeholder: 'Descripción...'
+                }}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
               <DatePickerInputController
                 control={control}
                 name='startDate'
@@ -71,7 +87,7 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
                 }}
               />
             </Grid.Col>
-            <Grid.Col span={6}>
+            <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
               <DatePickerInputController
                 control={control}
                 name='endDate'
@@ -81,35 +97,34 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
                 }}
               />
             </Grid.Col>
+            <Grid.Col>
+              <SelectController
+                control={control}
+                name='status'
+                options={[
+                  { label: 'Concepto', value: 'Concept' },
+                  { label: 'Prototipo', value: 'Prototype' },
+                  { label: 'Producción', value: 'Production' },
+                  { label: 'Enviado', value: 'Shipping' },
+                  { label: 'Entregado', value: 'Delivered' },
+                  { label: 'Finalizado', value: 'Ended' }
+                ]}
+                selectProps={{
+                  label: 'Estado',
+                  placeholder: 'Selecciona un estado'
+                }}
+              />
+            </Grid.Col>
           </Grid>
-          <SelectController
-            control={control}
-            name='status'
-            options={[
-              { label: 'Concepto', value: 'Concept' },
-              { label: 'Prototipo', value: 'Prototype' },
-              { label: 'Producción', value: 'Production' },
-              { label: 'Enviado', value: 'Shipping' },
-              { label: 'Entregado', value: 'Delivered' },
-              { label: 'Finalizado', value: 'Ended' }
-            ]}
-            selectProps={{
-              label: 'Estado',
-              placeholder: 'Selecciona un estado'
-            }}
-          />
-          <NumberInputController
-            control={control}
-            name='financialTarget'
-            numberInputProps={{ label: 'Meta Financiera' }}
-          />
         </Stack>
         <Group mt='md'>
           <Button variant='outline' onClick={onClose}>
             Cancelar
           </Button>
           <Button type='submit'>Guardar</Button>
-          <Button onClick={onDelete}> Borrar</Button>
+          <Button color='red' onClick={onDelete}>
+            Borrar
+          </Button>
         </Group>
       </form>
     </Modal>

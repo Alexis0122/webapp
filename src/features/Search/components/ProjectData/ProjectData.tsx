@@ -50,6 +50,7 @@ export const ProjectList: FC = () => {
             <ProjectCard
               key={project.id}
               title={project.title}
+              description={project.description}
               imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
               amountCollected={`${project.amountCollected.toLocaleString()}`}
               amountCollectedValue={project.amountCollected}
