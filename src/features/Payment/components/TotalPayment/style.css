@@ -5,6 +5,11 @@
   width: 100%;
   overflow: hidden !important;
 }
+.totalpayment-input {
+  top: 174px;
+  margin: 50px;
+  position: absolute;
+}
 
 .totalpayment-card .totalpayment-totalamountlabel {
   left: 8% !important;
