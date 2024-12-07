@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://crowdevsserviceapi.azurewebsites.net",
-
   "scripts": {
     "test": "echo \"No tests available\"",
     "dev": "next dev",
@@ -49,6 +48,8 @@
     "postcss-preset-mantine": "^1.17.0",
     "prettier": "^3.3.3",
     "react": "^18",
+    "react-credit-cards": "^0.8.3",
+    "react-credit-cards-2": "^1.0.3",
     "react-dom": "^18",
     "react-hook-form": "^7.53.2",
     "react-router-dom": "^7.0.1",
@@ -58,9 +59,11 @@
   },
   "devDependencies": {
     "@svgr/webpack": "8.1.0",
+    "@types/card-validator": "^4.1.0",
     "@types/lodash": "4.17.13",
     "@types/node": "22.9.3",
     "@types/react": "18",
+    "@types/react-credit-cards": "^0.8.4",
     "@types/react-dom": "18",
     "@typescript-eslint/eslint-plugin": "8.15.0",
     "@typescript-eslint/parser": "8.15.0",
@@ -71,10 +74,10 @@
     "eslint-import-resolver-typescript": "3.6.3",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "jsdom": "25.0.1",
+    "msw": "2.6.6",
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "7.0.1",
-    "msw": "2.6.6",
-    "jsdom": "25.0.1",
     "prettier": "3.3.3",
     "typescript": "5.7.2"
   },

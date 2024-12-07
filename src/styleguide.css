@@ -229,6 +229,8 @@
   --tokens-text-success-default: var(--primitives-teal-teal-6);
   --tokens-text-title: var(--primitives-color-black);
   --tokens-text-warning-default: var(--primitives-yellow-yellow-6);
+
+  --input-bd: var(--official-colors-light-mode-secondary-red-secondary-2) !important;
 }
 
 /*

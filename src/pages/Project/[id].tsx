@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Loader, Center, Group, Tabs, Stack } from '@mantine/core'
 import useNavigation from '@/hooks/useNavigation'
 import { Star } from '@phosphor-icons/react'
+import { PaymentFormComponent } from '@/features/Payment/payment'
 
 export default function ProjectDetailPage() {
   const router = useRouter()
@@ -108,6 +109,7 @@ export default function ProjectDetailPage() {
           text: project.description
         }}
       />
+      <PaymentFormComponent projectId={parseInt(id as string, 10)} />
     </Stack>
   )
 }

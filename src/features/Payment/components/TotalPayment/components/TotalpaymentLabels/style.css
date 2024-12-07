@@ -1,0 +1,181 @@
+.totalpayment-labels {
+  height: 30%;
+  position: relative;
+  width: 100%;
+}
+
+.totalpayment-labels .overlap-2 {
+  height: 17px;
+  left: 0;
+  position: absolute;
+  top: -1px;
+  width: 253px;
+}
+
+.totalpayment-labels .text-wrapper-8 {
+  color: var(--pedro-frame-colors-tertiary-c-50);
+  font-family: 'Roboto', Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  width: 159px;
+}
+
+.totalpayment-labels .arrow-2 {
+  height: 15px;
+  left: 39px;
+  position: absolute;
+  top: 2px;
+  width: 213px;
+}
+
+.totalpayment-labels .text-wrapper-9 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  left: 254px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 1px;
+  white-space: nowrap;
+  width: 60px;
+}
+
+.totalpayment-labels .overlap-3 {
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 24px;
+  width: 253px;
+}
+.totalpayment-labels .overlap-31 {
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 56px;
+  width: 253px;
+}
+
+.totalpayment-labels .arrow-3 {
+  height: 15px;
+  left: 39px;
+  position: absolute;
+  top: 3px;
+  width: 213px;
+}
+
+.totalpayment-labels .text-wrapper-10 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  left: 254px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 24px;
+  white-space: nowrap;
+  width: 60px;
+}
+
+.totalpayment-labels .text-wrapper-11 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  left: 245px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 49px;
+  white-space: nowrap;
+  width: 69px;
+}
+
+.totalpayment-labels .overlap-4 {
+  height: 17px;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  width: 237px;
+}
+
+.totalpayment-labels .arrow-4 {
+  height: 15px;
+  left: 91px;
+  position: absolute;
+  top: 2px;
+  width: 146px;
+}
+
+.totalpayment-labels .overlap-group-2 {
+  height: 17px;
+  left: 0;
+  position: absolute;
+  top: 75px;
+  width: 224px;
+}
+
+.totalpayment-labels .arrow-5 {
+  height: 15px;
+  left: 122px;
+  position: absolute;
+  top: 2px;
+  width: 102px;
+}
+
+.totalpayment-labels .text-wrapper-12 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  left: 226px;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  text-align: right;
+  top: 78px;
+  white-space: nowrap;
+  width: 88px;
+}
+
+.totalpayment-labels .overlap-5 {
+  height: 17px;
+  left: 0;
+  position: absolute;
+  top: 100px;
+  width: 314px;
+}
+
+.totalpayment-labels .text-wrapper-13 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  left: 155px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  white-space: nowrap;
+  width: 159px;
+}
+
+.totalpayment-labels .arrow-6 {
+  height: 15px;
+  left: 122px;
+  position: absolute;
+  top: 1px;
+  width: 102px;
+}
