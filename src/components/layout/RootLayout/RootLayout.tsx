@@ -8,6 +8,7 @@ import bgPatternARight from '@/assets/svg/imgBgHexagonPatternARight.svg';
 import bgPatternBLeft from '@/assets/svg/imgBgHexagonPatternBLeft.svg';
 import bgPatternBRight from '@/assets/svg/imgBgHexagonPatternBRight.svg';
 import './style.css'
+import { GoUpButton } from '@/components/common/GoUpButton';
 
 export const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   const { isAuthenticated, isMounted } = useAuth()
@@ -41,6 +42,7 @@ export const RootLayout: FC<PropsWithChildren> = ({ children }) => {
           {children}
         </Stack>
       </Paper>
+      <GoUpButton />
     </>
   )
 }

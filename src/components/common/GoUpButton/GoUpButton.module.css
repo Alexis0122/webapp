@@ -1,0 +1,54 @@
+.goUpButton {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #C00E38;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0);
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.goUpButton:hover {
+  background-color: #8B0A28;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.goUpButton:hover .icon {
+  filter: drop-shadow(0 0 1px black);
+}
+
+/* Ajustado el tamaño para móviles */
+@media (max-width: 768px) {
+  .goUpButton {
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+} 

@@ -1,12 +1,15 @@
 import React from 'react';
-import { Footer } from '../Footer';
 import { AboutUsInfoDiv } from './Components/AboutUsInfoDiv';
 import { HexagonFilled } from '@/components/icons/HexagonFilled';
 import { HexagonOutlined } from '@/components/icons/HexagonOutlined';
 import crowdevIllustration from '@/assets/svg/imgAboutDraw.svg';
-import { CheckCircle, Rocket, Target } from 'phosphor-react';
+import { CheckCircle, Rocket, Star, Target } from 'phosphor-react';
 import { AboutUsDivDevCard } from './Components/AboutUsDivDevCard';
 import './style.css';
+import useNavigation from '@/hooks/useNavigation';
+import { Group, Stack, Tabs } from '@mantine/core';
+import { House, ChartLine, Info } from '@phosphor-icons/react';
+
 
 interface InfoDivData {
   variant: 'red' | 'white';
@@ -108,59 +111,79 @@ const groupDevelopersByRole = (developers: typeof developersData) => {
 };
 
 export const AboutUs = () => {
+  const { goTo } = useNavigation()
   const groupedDevelopers = groupDevelopersByRole(developersData);
-
   return (
-    <div className="about-us-container">
-      <div className="main-title">
-        <HexagonOutlined className="title-icon left" />
-        <span className="empowering-text">Empowering </span>
-        <span className="innovators-text">Innovators</span>
-        <HexagonFilled className="title-icon right" />
-      </div>
-      <div className="subtitle">Discover the story behind Crowdevs</div>
-      <div className="crowdev-svg-container">
-        <img src={crowdevIllustration} className="crowdev-svg" alt="Crowdev illustration" />
-      </div>
-      {aboutUsInfoData.map((infoDiv, index) => (
-        <AboutUsInfoDiv
-          key={index}
-          variant={infoDiv.variant}
-          title={infoDiv.title}
-          description={infoDiv.description}
-          card={infoDiv.card}
-        />
-      ))}
-
-      <div className="team-section">
-        <div className="team-title-container">
+    <>
+      <Group justify='center' mt={16}>
+        <Tabs defaultValue='About' variant='pills' radius='md'>
+          <Tabs.List>
+            <Tabs.Tab leftSection={<House size={16} />} value='Home' onClick={() => goTo('/')}>
+              Home
+            </Tabs.Tab>
+            <Tabs.Tab
+              leftSection={<ChartLine size={16} />}
+              value='Crowdfunding'
+              onClick={() => goTo('/Search/AllProjects')}
+            >
+              Crowdfunding
+            </Tabs.Tab>
+            <Tabs.Tab leftSection={<Info size={16} />} value='About' onClick={() => goTo('/About')}>
+              About
+            </Tabs.Tab>
+          </Tabs.List>
+        </Tabs>
+      </Group>
+      <div className="about-us-container">
+        <div className="main-title">
           <HexagonOutlined className="title-icon left" />
-          <span className="team-title">Meet Our Team</span>
-          <HexagonOutlined className="title-icon right" />
+          <span className="empowering-text">Empowering </span>
+          <span className="innovators-text">Innovators</span>
+          <HexagonFilled className="title-icon right" />
         </div>
-        <p className="team-description">Meet the developers behind Crowdevs</p>
-        
-        <div className="dev-roles-container">
-          {groupedDevelopers.map(([role, devs]) => (
-            <div key={role} className="dev-role-section">
-              <h3 className="dev-role-title">{role}s</h3>
-              <div className="dev-cards-container">
-                {devs.map((dev, index) => (
-                  <AboutUsDivDevCard
-                    key={index}
-                    image={dev.image}
-                    name={dev.name}
-                    role={dev.role}
-                    linkedinUrl={dev.linkedinUrl}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="subtitle">Discover the story behind Crowdevs</div>
+        <div className="crowdev-svg-container">
+          <img src={crowdevIllustration} className="crowdev-svg" alt="Crowdev illustration" />
         </div>
-      </div>
+        {aboutUsInfoData.map((infoDiv, index) => (
+          <AboutUsInfoDiv
+            key={index}
+            variant={infoDiv.variant}
+            title={infoDiv.title}
+            description={infoDiv.description}
+            card={infoDiv.card}
+          />
+        ))}
 
-      <Footer />
-    </div>
+        <div className="team-section">
+          <div className="team-title-container">
+            <HexagonOutlined className="title-icon left" />
+            <span className="team-title">Meet Our Team</span>
+            <HexagonOutlined className="title-icon right" />
+          </div>
+          <p className="team-description">Meet the developers behind Crowdevs</p>
+          
+          <div className="dev-roles-container">
+            {groupedDevelopers.map(([role, devs]) => (
+              <div key={role} className="dev-role-section">
+                <h3 className="dev-role-title">{role}s</h3>
+                <div className="dev-cards-container">
+                  {devs.map((dev, index) => (
+                    <AboutUsDivDevCard
+                      key={index}
+                      image={dev.image}
+                      name={dev.name}
+                      role={dev.role}
+                      linkedinUrl={dev.linkedinUrl}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </>
   );
 }; 
