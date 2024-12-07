@@ -33,7 +33,7 @@ export const CampaignLanding = () => {
             >
               Crowdfunding
             </Tabs.Tab>
-            <Tabs.Tab leftSection={<Star size={12} />} value='About' onClick={() => goTo('/about')}>
+            <Tabs.Tab leftSection={<Star size={12} />} value='About' onClick={() => goTo('/About')}>
               About
             </Tabs.Tab>
           </Tabs.List>
