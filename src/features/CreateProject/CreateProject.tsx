@@ -18,6 +18,7 @@ import useNavigation from '@/hooks/useNavigation'
 import { useAuth } from '@/hooks/useAuth'
 import { FormProvider } from '@/context/FormContext'
 import './CreateProject.modules.css'
+import { toast } from 'react-toastify'
 
 export const CreateProject = () => {
   const { goTo } = useNavigation()
@@ -125,7 +126,11 @@ export const CreateProject = () => {
     const updatedGratifications = [...gratifications, data]
     setGratifications(updatedGratifications)
     setValue('gratifications', updatedGratifications)
-    console.log('Gratificaciones actualizadas:', updatedGratifications)
+    setTimeout(() => {
+      toast.success('Proyecto Creado')
+      goTo('/')
+    }, 1000)
+
   }
 
   return (

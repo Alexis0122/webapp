@@ -42,7 +42,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           {financialTarget} raised | {donationPercentage} donated
         </Text>
       </Stack>
-      <Button variant='filled' color='primary' className={styles.cardButton} fullWidth>
+      <Button variant='filled' color='primary' className={styles.cardButton} fullWidth onClick={buttonURL}>
         APOYAR
       </Button>
     </Card>
