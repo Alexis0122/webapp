@@ -1,1 +1,1 @@
-export { Totalpayment } from "./Totalpayment";
+export { Totalpayment } from './Totalpayment'

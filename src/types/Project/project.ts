@@ -6,13 +6,13 @@ export interface AnyPresentValue {
   size: number
 }
 export interface PaymentCardForm {
-  cardName: string;          // Cardholder's name
-  cardNumber: string;        // Credit card number (16 digits)
-  cardExpiration: string;    // Expiration date (MM/YY)
-  cardSecurityCode: string;  // 3-digit security code (CVC)
-  cardPostalCode: string;    // Postal code
-  cardType: string;          // Card type (e.g., Visa, MasterCard)
-  focus?: 'name' | 'number' | 'expiry' | 'cvc';  // Focused input field
+  cardName: string // Cardholder's name
+  cardNumber: string // Credit card number (16 digits)
+  cardExpiration: string // Expiration date (MM/YY)
+  cardSecurityCode: string // 3-digit security code (CVC)
+  cardPostalCode: string // Postal code
+  cardType: string // Card type (e.g., Visa, MasterCard)
+  focus?: 'name' | 'number' | 'expiry' | 'cvc' // Focused input field
 }
 
 export interface ValidateInfoValues {
@@ -43,12 +43,12 @@ export interface ProjectFormAttachment {
 }
 
 export type ProjectGratificationForm = {
-  title: string;
-  description: string;
-  category: string;
-  amount: number;
-  include: string;
-  images?: { name: string; format: string; size: number; }[];
+  title: string
+  description: string
+  category: string
+  amount: number
+  include: string
+  images?: { name: string; format: string; size: number }[]
 }
 
 export interface ProjectData {
@@ -79,7 +79,7 @@ export type LoginForm = {
   password?: string
 }
 
-export interface CreateProjectForm  {
+export interface CreateProjectForm {
   title: string
   description: string
   startDate: Date
@@ -88,8 +88,7 @@ export interface CreateProjectForm  {
   financialTarget?: number | null // Permitir null
   equity?: number | null // Permitir null
   // images: { name: string; format: string; size: number; }[] ; // Array de objetos con nombre y tamaño de la imagen
-  images: File[]; // Array de objetos con nombre y tamaño de la imagen
-  
-  gratifications?: ProjectGratificationForm[] | undefined;
+  images: File[] // Array de objetos con nombre y tamaño de la imagen
 
+  gratifications?: ProjectGratificationForm[] | undefined
 }

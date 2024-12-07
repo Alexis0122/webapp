@@ -19,9 +19,9 @@ const theme = createTheme({
   components: {
     Anchor: Anchor.extend({
       defaultProps: {
-        underline: 'always',
-      },
-    }),
+        underline: 'always'
+      }
+    })
   },
   defaultRadius: 'md',
 

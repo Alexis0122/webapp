@@ -1,1 +1,1 @@
-export { TotalpaymentLabelorderid } from "./TotalpaymentLabelorderid";
+export { TotalpaymentLabelorderid } from './TotalpaymentLabelorderid'

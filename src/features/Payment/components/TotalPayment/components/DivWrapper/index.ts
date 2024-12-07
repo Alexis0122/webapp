@@ -1,1 +1,1 @@
-export { DivWrapper } from "./DivWrapper";
+export { DivWrapper } from './DivWrapper'

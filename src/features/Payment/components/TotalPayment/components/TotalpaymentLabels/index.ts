@@ -1,1 +1,1 @@
-export { TotalpaymentLabels } from "./TotalpaymentLabels";
+export { TotalpaymentLabels } from './TotalpaymentLabels'

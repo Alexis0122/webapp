@@ -1,1 +1,1 @@
-export { TotalpaymentWrapper } from "./TotalpaymentWrapper";
+export { TotalpaymentWrapper } from './TotalpaymentWrapper'
