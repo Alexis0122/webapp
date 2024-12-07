@@ -1,4 +1,4 @@
-import { createTheme } from '@mantine/core'
+import { Anchor, createTheme } from '@mantine/core'
 
 const customColors = {
   //this section is for add customs colors
@@ -16,7 +16,13 @@ const theme = createTheme({
     lg: '1200px',
     xl: '1440px'
   },
-
+  components: {
+    Anchor: Anchor.extend({
+      defaultProps: {
+        underline: 'always',
+      },
+    }),
+  },
   defaultRadius: 'md',
 
   //Colors

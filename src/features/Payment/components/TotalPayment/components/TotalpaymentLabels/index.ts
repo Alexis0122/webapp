@@ -1,0 +1,1 @@
+export { TotalpaymentLabels } from "./TotalpaymentLabels";

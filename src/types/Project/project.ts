@@ -5,6 +5,36 @@ export interface AnyPresentValue {
   name: string
   size: number
 }
+export interface PaymentCardForm {
+  cardName: string;          // Cardholder's name
+  cardNumber: string;        // Credit card number (16 digits)
+  cardExpiration: string;    // Expiration date (MM/YY)
+  cardSecurityCode: string;  // 3-digit security code (CVC)
+  cardPostalCode: string;    // Postal code
+  cardType: string;          // Card type (e.g., Visa, MasterCard)
+  focus?: 'name' | 'number' | 'expiry' | 'cvc';  // Focused input field
+}
+
+export interface ValidateInfoValues {
+  cardNumber: string
+  cardExpiration: string
+  cardSecurityCode: string
+  cardName: string
+  cardPostalCode: string
+  cardType: string
+}
+
+export interface ValidationErrors {
+  show: boolean
+  variant: string
+  message: string
+  cname: boolean
+  cnumber: boolean
+  ctype: boolean
+  cexp: boolean
+  ccvv: boolean
+  cpostal: boolean
+}
 
 export interface ProjectFormAttachment {
   name: string

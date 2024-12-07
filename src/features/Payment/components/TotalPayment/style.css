@@ -1,0 +1,40 @@
+.totalpayment-card {
+  border-radius: 12px;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden !important;
+}
+
+.totalpayment-card .totalpayment-totalamountlabel {
+  left: 8% !important;
+  position: absolute !important;
+  top: 70% !important;
+}
+
+.totalpayment-card .totalpayment-grandtotallabel {
+  left: 13.5% !important;
+  position: absolute !important;
+  top: 84% !important;
+}
+
+.totalpayment-card .totalpayment-couponlabel {
+  left: 8% !important;
+  position: absolute !important;
+  top: 56% !important;
+}
+
+.totalpayment-card .totalpayment-labels-instance {
+  left: 10% !important;
+  position: absolute !important;
+  top: 23% !important;
+}
+
+.totalpayment-card .totalpayment-instance {
+  display: flex !important;
+  height: 51px !important;
+  left: 5% !important;
+  position: absolute !important;
+  top: 5% !important;
+  width: 90% !important;
+}

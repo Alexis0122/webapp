@@ -1,0 +1,52 @@
+.totalpayment-wrapper {
+  height: 37px;
+  position: relative;
+  width: 80%;
+}
+
+.totalpayment-wrapper .text-wrapper-4 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  left: 3px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 20px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.totalpayment-wrapper .text-wrapper-5 {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  left: 210px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 20px;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.totalpayment-wrapper .line {
+  height: 1px;
+  left: -31px;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 340px;
+}
+
+.totalpayment-wrapper .line-2 {
+  height: 1px;
+  left: -31px;
+  object-fit: cover;
+  position: absolute;
+  top: 45px;
+  width: 340px;
+}

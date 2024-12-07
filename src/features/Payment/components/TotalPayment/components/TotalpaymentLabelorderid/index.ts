@@ -1,0 +1,1 @@
+export { TotalpaymentLabelorderid } from "./TotalpaymentLabelorderid";

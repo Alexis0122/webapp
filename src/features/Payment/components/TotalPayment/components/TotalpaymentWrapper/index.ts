@@ -1,0 +1,1 @@
+export { TotalpaymentWrapper } from "./TotalpaymentWrapper";

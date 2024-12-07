@@ -1,0 +1,26 @@
+.totalpayment-labelorderid {
+  align-items: flex-start;
+  display: inline-flex;
+  position: relative;
+}
+
+.totalpayment-labelorderid .button-instance {
+  background-color: var(--primitives-gray-gray-6);
+  border: unset !important;
+  border-color: unset !important;
+  height: 100% !important;
+  padding: 0px 30px !important;
+  width: 800px !important;
+}
+
+.totalpayment-labelorderid .design-component-instance-node {
+  color: var(--pedro-frame-colors-tertiary-c-75) !important;
+  font-family: 'Roboto', Helvetica !important;
+  font-size: 20px !important;
+  font-style: unset !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  line-height: 18px !important;
+  margin-left: -5px !important;
+  margin-right: -5px !important;
+}
