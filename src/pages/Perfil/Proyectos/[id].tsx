@@ -125,9 +125,9 @@ export default function PerfilPage() {
       }
 
       // Opcionalmente, puedes recargar la página después de un breve tiempo si es necesario
-      // setTimeout(() => {
-      //   router.reload()
-      // }, 1000)
+      setTimeout(() => {
+        router.reload()
+      }, 1000)
     } catch (error) {
       console.error('Error al realizar la solicitud PUT:', error)
       toast.error('Hubo un error al actualizar el proyecto.') // Mensaje en caso de error en la solicitud
