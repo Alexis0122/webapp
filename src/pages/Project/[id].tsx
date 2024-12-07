@@ -15,7 +15,8 @@ export default function ProjectDetailPage() {
 
   useEffect(() => {
     const fetchProject = async () => {
-      if (!id) return // Si no hay un ID, no hacer nada
+      if (!router.isReady || !id) return // Esperar hasta que el router esté listo y haya un ID
+
       try {
         const response = await axios.get(
           `https://crowdevsserviceapi.azurewebsites.net/api/v1/Project/${id}`
@@ -29,7 +30,7 @@ export default function ProjectDetailPage() {
     }
 
     fetchProject()
-  }, [id])
+  }, [id, router.isReady])
 
   if (loading) {
     return (
@@ -40,7 +41,11 @@ export default function ProjectDetailPage() {
   }
 
   if (!project) {
-    return <div>Proyecto no encontrado</div>
+    return (
+      <Center>
+        <div>Proyecto no encontrado</div>
+      </Center>
+    )
   }
 
   const { goTo } = useNavigation()
@@ -67,40 +72,44 @@ export default function ProjectDetailPage() {
         </Tabs>
       </Group>
       <ProjectDetails
-        images={project.imagesUrls.map((img: string) => ({
-          url: `https://crowdevsserviceapi.azurewebsites.net${img}`
-        }))}
+        images={
+          project.imagesUrls?.map((img: string) => ({
+            url: `https://crowdevsserviceapi.azurewebsites.net${img}`
+          })) || []
+        }
         campaignInfo={{
           campaingState: project.status,
           titleCampaing: project.title,
-          usernameCampaing: project.tenant.userName,
+          usernameCampaing: project.tenant?.userName || 'Usuario desconocido',
           descriptionCampaing: project.description,
-          aboutUsercampaing: `${project.tenant.firstName} ${project.tenant.lastname}`,
+          aboutUsercampaing: `${project.tenant?.firstName || ''} ${project.tenant?.lastName || ''}`,
           price: project.financialTarget,
           priceDescription: `Meta de financiamiento: $${project.financialTarget}`,
-          informacionSupport: `Patronajes: ${project.patronageCount}`,
-          userImageUrl: project.tenant.imageUrl || '',
-          buttonPago: () => goTo(`/Payment/${id}`)
+          informacionSupport: `Patronajes: ${project.patronageCount || 0}`,
+          userImageUrl: project.tenant?.imageUrl || '',
+          buttonPago: () => goTo('/')
         }}
         timelineInfo={{
           titleTimeline: 'Project Timeline', // Ejemplo estático, puedes modificar según tu lógica
           descriptionTimeline: 'Descripción del timeline', // Lo mismo aquí
           activeBar: 3 // Esta es una barra activa de ejemplo, puedes obtenerlo de otro lugar si lo necesitas
         }}
-        perkSections={project.gratifications.map((perk: any) => ({
-          title: perk.title,
-          text: perk.include,
-          image: `${perk.imageUrl}`, // Asegúrate de que este campo sea una URL válida
-          number: perk.amount,
-          category: 'Gratificación'
-        }))}
+        perkSections={
+          project.gratifications?.map((perk: any) => ({
+            title: perk.title,
+            text: perk.include,
+            image: `${perk.imageUrl}`, // Asegúrate de que este campo sea una URL válida
+            number: perk.amount,
+            category: 'Gratificación'
+          })) || []
+        }
         description={{
           title: 'Descripción del Proyecto',
-          image: `https://crowdevsserviceapi.azurewebsites.net${project.imagesUrls[0]}`, // Usar la primera imagen como portada
+          image: `https://crowdevsserviceapi.azurewebsites.net${project.imagesUrls?.[0] || ''}`, // Usar la primera imagen como portada
           text: project.description
         }}
       />
-      <PaymentFormComponent projectId={parseInt(id as string, 10)}/>
+      <PaymentFormComponent projectId={parseInt(id as string, 10)} />
     </Stack>
   )
 }

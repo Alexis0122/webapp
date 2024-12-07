@@ -3,6 +3,7 @@ import { CreateProjectForm, ProjectGratificationForm } from '@/types/Project'
 import { Box, Group, Text } from '@mantine/core'
 import React, { FC } from 'react'
 import { Control, useWatch } from 'react-hook-form'
+import './GratificationProjectForm.modules.css'
 
 type GratificationProjectProps = {
   control: Control<CreateProjectForm>
@@ -34,7 +35,7 @@ export const GratificationProject: FC<GratificationProjectProps> = ({ control })
       </Box>
     ))
   ) : (
-    <Text ta='center'>No se han agregado Recompensas</Text>
+    <Text ta='center'className='projec-subtitle'>Aún no se han agregado Recompensas</Text>
   )
 
   return <Group>{content}</Group>

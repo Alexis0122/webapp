@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { CreateProjectSchema } from './CreateProject.utils'
 import { CreateProjectForm, ProjectGratificationForm } from '@/types/Project'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Button, Grid, Group, Stack, Title } from '@mantine/core'
+import { Button, Grid, Group, Stack, Title, Text, Space } from '@mantine/core'
 import {
   DatePickerInputController,
   SelectController,
@@ -17,6 +17,8 @@ import { GratificationProject } from './Components/Gratification/GratificationPr
 import useNavigation from '@/hooks/useNavigation'
 import { useAuth } from '@/hooks/useAuth'
 import { FormProvider } from '@/context/FormContext'
+import './CreateProject.modules.css'
+import { toast } from 'react-toastify'
 
 export const CreateProject = () => {
   const { goTo } = useNavigation()
@@ -124,36 +126,60 @@ export const CreateProject = () => {
     const updatedGratifications = [...gratifications, data]
     setGratifications(updatedGratifications)
     setValue('gratifications', updatedGratifications)
-    console.log('Gratificaciones actualizadas:', updatedGratifications)
+    setTimeout(() => {
+      toast.success('Proyecto Creado')
+      goTo('/')
+    }, 1000)
+
   }
 
   return (
     <>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(handleFormSubmit)}>
-          <Stack mt={20} justify='center'>
-            <Title>Crea tu propio proyecto</Title>
+          <Stack mt='20px' m='150px' justify='center'>
+            <Title className='project-title'>Create your own project</Title>
+            <Text className='project-subtitle'>Make your project easy to see and know.</Text>
+            <Space h='xs' />
             <Grid>
               <Grid.Col>
+                <Text className='project-sectiontitle'>Project title</Text>
+                <Space h='md' />
+                <Text className='project-sectionsubtitle'>
+                  This is the first impression that potential sponsors will have. Make sure it is
+                  brief, clear and attractive.
+                </Text>
+                <Space h='xs' />
                 <TextInputController
                   control={control}
                   name='title'
                   textInputProps={{
-                    label: 'Título',
                     placeholder: 'CrowdevTest'
                   }}
                 />
+                <Space h='md' />
               </Grid.Col>
 
               <Grid.Col>
+                <Text className='project-sectiontitle'>Description</Text>
+                <Space h='md' />
+                <Text className='project-sectionsubtitle'>
+                  Explain why your project is important, what makes it unique and how it will impact
+                  the community or the world. Be sincere and passionate, and use language that
+                  resonates with your audience.
+                  <Space h='sm' />
+                  Don't forget to include details about the objectives and how the funds raised will
+                  be used.
+                </Text>
+                <Space h='xs' />
                 <TextareaController
                   control={control}
                   name='description'
                   textareaProps={{
-                    label: 'Descripción',
-                    placeholder: 'Descripción...'
+                    placeholder: 'Description...'
                   }}
                 />
+                <Space h='md' />
               </Grid.Col>
 
               <Grid.Col>
@@ -161,28 +187,50 @@ export const CreateProject = () => {
               </Grid.Col>
 
               <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
+                <Text className='project-sectiontitle'>Project Start</Text>
+                <Space h='md' />
+                <Text className='project-sectionsubtitle'>
+                  Specify when your project will start. Make sure this date is realistic and gives
+                  you enough time to prepare before launch.
+                </Text>
+                <Space h='sm' />
                 <DatePickerInputController
                   control={control}
                   name='startDate'
                   datePickerProps={{
-                    label: 'Fecha de inicio',
                     placeholder: 'DD/MM/YY'
                   }}
                 />
+                <Space h='md' />
               </Grid.Col>
 
               <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
+                <Text className='project-sectiontitle'>End Project</Text>
+                <Space h='md' />
+                <Text className='project-sectionsubtitle'>
+                  Indicate when you plan to complete your project. This will help your sponsors
+                  understand the timeline and manage their expectations.
+                </Text>
+                <Space h='sm' />
                 <DatePickerInputController
                   control={control}
                   name='endDate'
                   datePickerProps={{
-                    label: 'Fecha de finalización',
                     placeholder: 'DD/MM/YY'
                   }}
                 />
+                <Space h='md' />
               </Grid.Col>
 
               <Grid.Col>
+                <Text className='project-sectiontitle'>State</Text>
+                <Space h='md' />
+                <Text className='project-sectionsubtitle'>
+                  Describe what stage your project is currently in (planning, development, launch,
+                  etc.). This will give sponsors a clear idea of how far you have come and what
+                  remains to be done.
+                </Text>
+                <Space h='sm' />
                 <SelectController
                   control={control}
                   name='status'
@@ -195,21 +243,34 @@ export const CreateProject = () => {
                     { label: 'Finalizado', value: ProjectStatus.Ended }
                   ]}
                   selectProps={{
-                    label: 'Estado',
-                    placeholder: 'Estado'
+                    placeholder: 'State'
                   }}
                 />
+                <Space h='md' />
               </Grid.Col>
 
               <Grid.Col>
+                <Text className='project-sectionsubtitle'>
+                  Rewards are an excellent way to incentivize sponsors to contribute. contribute.
+                  Offer different levels of rewards depending on the amount of the donation.
+                  donation. Make sure they are attractive and valuable. The more creative they are,
+                  the better.
+                </Text>
+                <Space h='md' />
                 <GratificationProject control={control} />
+                <Space h='md' />
                 <GratificationForm onGratificationSubmit={handleGratificationSubmit} />
+                <Space h='lg' />
               </Grid.Col>
             </Grid>
           </Stack>
-          <Group grow mb={20}>
-            <Button onClick={() => goTo('/')}>Cancelar</Button>
-            <Button type='submit'>Crear Proyecto</Button>
+          <Group grow mb={20} mt='-130px' m='150px' justify='center'>
+            <Button className='project-cancelbutton' onClick={() => goTo('/')}>
+              CANCEL
+            </Button>
+            <Button className='project-createbutton' type='submit'>
+              CREATE PROJECT
+            </Button>
           </Group>
         </form>
       </FormProvider>

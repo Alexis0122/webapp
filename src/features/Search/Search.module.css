@@ -1,0 +1,106 @@
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerContent {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 56px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--mantine-color-dark-9);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--mantine-color-gray-7);
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectsContainer {
+  width: 100%;
+  max-width: 1400px;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.projectList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.projectList > * {
+  flex: 1 1 calc(33.333% - 24px);
+  min-width: 300px;
+  max-width: calc(33.333% - 24px);
+}
+
+/* Estilos para los botones dentro de las cards */
+.projectList :global(.mantine-Button-root) {
+  height: 40px !important; /* Altura fija */
+  font-size: 14px;
+}
+
+/* Asegurar que el contenedor del botón tenga el mismo ancho */
+.projectList :global(.mantine-Card-section) {
+  width: 100%;
+}
+
+/* Media queries para ajustar el número de elementos por fila */
+@media (max-width: 1400px) {
+  .projectList > * {
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+}
+
+@media (max-width: 900px) {
+  .projectList > * {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .projectList {
+    gap: 24px;
+  }
+} 

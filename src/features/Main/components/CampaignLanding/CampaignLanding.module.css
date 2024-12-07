@@ -4,5 +4,115 @@
 }
 
 .content {
+  padding: 40px 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
+}
+
+.imageContainer {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.imageContainer img {
+  animation: gentleRotate 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 72px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.titlePrimary {
+  composes: title;
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards,
+             colorPulse 2s ease-in-out infinite;
+  animation-delay: 0.3s, 1s;
+}
+
+.titleSecondary {
+  composes: title;
+  animation-delay: 0.4s;
+}
+
+.titleTertiary {
+  composes: title;
+  animation-delay: 0.5s;
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 32px 0;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+.button {
+  margin-top: 32px;
+  width: 192px;
+  align-self: flex-end;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorPulse {
+  0% {
+    color: #C00E38;
+  }
+  50% {
+    color: #FF4D6D;
+  }
+  100% {
+    color: #C00E38;
+  }
+}
+
+@keyframes gentleRotate {
+  0% {
+    transform: rotate(-2deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(-2deg) scale(1.2);
+  }
+}
+
+.titleGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-bottom: 8px;
 }

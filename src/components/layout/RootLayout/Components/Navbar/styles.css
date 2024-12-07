@@ -2,4 +2,15 @@
 .navbar {
   z-index: 2 !important;
   position: relative !important; /* Asegura que el z-index funcione como se espera */
+  background-color: rgba(27, 8, 8, 0.9) !important; /* #272727 con 95% de opacidad */
+  backdrop-filter: blur(4px); /* Opcional: añade un efecto de desenfoque para mejor legibilidad */
+}
+
+/* Nuevo estilo para el hover del logo */
+.navbar svg path {
+  transition: fill 0.25s ease;
+}
+
+.navbar svg:hover path {
+  fill: #C00E38;
 }
