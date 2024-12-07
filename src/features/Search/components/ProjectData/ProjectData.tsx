@@ -1,14 +1,17 @@
 import React, { FC, useEffect, useState } from 'react'
-import { Loader, Center, Group } from '@mantine/core'
+import { Loader, Center, Space } from '@mantine/core'
 import { ProjectCard } from '@/components/common'
 import axios from 'axios'
 import { ProjectData } from '@/types/Project'
+import useNavigation from '@/hooks/useNavigation'
 
 import './ProjectData.css'
+
 
 export const ProjectList: FC = () => {
   const [projects, setProjects] = useState<ProjectData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const { goTo } = useNavigation()
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -37,26 +40,29 @@ export const ProjectList: FC = () => {
   }
 
   return (
-    <Group>
-      {projects.map((project) => {
-        const donationPercentage = (
-          (project.amountCollected / project.financialTarget) *
-          100
-        ).toFixed(2)
-        return (
-          <div className='projectDetails'>
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
-              amountCollected={`${project.amountCollected.toLocaleString()}`}
-              amountCollectedValue={project.amountCollected}
-              financialTarget={`${project.financialTarget.toLocaleString()}`}
-              donationPercentage={`${donationPercentage}%`}
-            />
-          </div>
-        )
-      })}
-    </Group>
+    <div className="projectContainer">
+      <div className="projectGrid">
+        {projects.map((project) => {
+          const donationPercentage = (
+            (project.amountCollected / project.financialTarget) *
+            100
+          ).toFixed(2)
+          return (
+            <div className="projectDetails" key={project.id}>
+              <ProjectCard
+                title={project.title}
+                imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
+                amountCollected={`${project.amountCollected.toLocaleString()}`}
+                amountCollectedValue={project.amountCollected}
+                financialTarget={`${project.financialTarget.toLocaleString()}`}
+                donationPercentage={`${donationPercentage}%`}
+                buttonURL={() => goTo(`/Project/${project.id}`)}
+              />
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
+

@@ -1,6 +1,7 @@
 import { Card, Image, Text, Badge, Button, Group, Avatar } from '@mantine/core'
 import { ShareNetwork, BookmarkSimple } from '@phosphor-icons/react'
 import React, { FC } from 'react'
+import { toast } from 'react-toastify'
 import './CampaignInfo.css'
 
 interface CampaignInfoprops {
@@ -13,6 +14,7 @@ interface CampaignInfoprops {
   informacionSupport: string
   userImageUrl: string
   campaingState: string
+  buttonPago: () => void
 }
 
 export const CampaignInfo: FC<CampaignInfoprops> = ({
@@ -24,7 +26,8 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
   priceDescription,
   informacionSupport,
   userImageUrl,
-  campaingState
+  campaingState,
+  buttonPago
 }) => {
   return (
     <div className='campaigninfo-backgroud'>
@@ -49,13 +52,16 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
       <Text className='campaigninfo-supportinfo'>{informacionSupport}</Text>
 
       <Group justify='center' align='center'>
-        <Button className='campaigninfo-bigbutton'>PICK YOUR PERK</Button>
+        <Button className='campaigninfo-bigbutton' onClick={buttonPago}>
+          PICK YOUR PERK
+        </Button>
       </Group>
 
       <Group justify='center' align='center'>
         <Button
           leftSection={<BookmarkSimple size={20} color='#ffffff' weight='fill' />}
           className='campaigninfo-saveforlater'
+          onClick={() => toast.success('Proyecto guardado para despues correctamente.')}
         >
           SAVE FOR LATER
         </Button>
@@ -69,5 +75,3 @@ export const CampaignInfo: FC<CampaignInfoprops> = ({
     </div>
   )
 }
-
-export default CampaignInfo

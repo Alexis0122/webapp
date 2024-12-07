@@ -1,6 +1,5 @@
 import React from 'react'
-import { Grid, Title, Text, Button, Stack, Tabs, Group } from '@mantine/core'
-import { Star } from '@phosphor-icons/react'
+import { Grid, Title, Text, Button, Stack, Group } from '@mantine/core'
 import useNavigation from '@/hooks/useNavigation' // Importa tu hook de navegación personalizado
 import { useAuth } from '@/hooks/useAuth' // Importa el hook para manejar la autenticación
 import styles from './CampaignLanding.module.css'
@@ -20,25 +19,6 @@ export const CampaignLanding = () => {
 
   return (
     <Stack align='center'>
-      <Group justify='center'>
-        <Tabs defaultValue='Home' variant='pills' radius='md'>
-          <Tabs.List>
-            <Tabs.Tab leftSection={<Star size={12} />} value='Home' onClick={() => goTo('/')}>
-              Home
-            </Tabs.Tab>
-            <Tabs.Tab
-              leftSection={<Star size={12} />}
-              value='Crowdfunding'
-              onClick={() => goTo('/Search')}
-            >
-              Crowdfunding
-            </Tabs.Tab>
-            <Tabs.Tab leftSection={<Star size={12} />} value='About' onClick={() => goTo('/about')}>
-              About
-            </Tabs.Tab>
-          </Tabs.List>
-        </Tabs>
-      </Group>
       <Grid p='lg' grow>
         <Grid.Col span={{ xs: 8, sm: 6, md: 4 }}>
           <Title>PEDRO E UN MMG (Aquí va la foto)</Title>

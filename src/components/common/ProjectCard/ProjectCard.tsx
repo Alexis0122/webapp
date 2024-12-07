@@ -9,6 +9,7 @@ interface ProjectCardProps {
   donationPercentage: string
   amountCollected: string
   amountCollectedValue: number
+  buttonURL: () => void
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({
@@ -17,14 +18,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   financialTarget,
   donationPercentage,
   amountCollected,
-  amountCollectedValue
+  amountCollectedValue,
+  buttonURL
 }) => {
   return (
     <div className='card-background'>
       <Card withBorder>
         <Card.Section className='card-section'>
           <Image className='card-image' src={imageUrl} alt={title} />
-          <button className='card-button'>Ver Campaña</button>
+          <button className='card-button' onClick={buttonURL}>
+            Ver Campaña
+          </button>
         </Card.Section>
         <Stack gap='xs' mt='sm'>
           <Text className='card-title'>{title}</Text>
