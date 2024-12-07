@@ -1,0 +1,74 @@
+.project-title {
+    color: #C00E38;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+.project-subtitle {
+    color: var(--Text-title, #000);
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.project-sectiontitle {
+    flex: 1 0 0;
+    color: #5C0C1F;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.project-sectionsubtitle {
+    align-self: stretch;
+    color: #716A6A;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.project-createbutton {
+    color: var(--Neutral-white, #FFF);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    display: flex;
+    width: 200px;
+    height: 32px;
+    padding: 0px var(--Padding-padding-sm, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing-spacing-sm, 8px);
+    border-radius: var(--Radius-radius-sm, 4px);
+    background: #C00E38;
+}
+
+.project-cancelbutton {
+    color: #C00E38;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    display: flex;
+    width: 200px;
+    height: 32px;
+    padding: 0px var(--Padding-padding-sm, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing-spacing-sm, 8px);
+    border-radius: var(--Radius-radius-sm, 4px);
+    border: 1px solid #C00E38;
+    background: var(--Background-transparent, rgba(255, 255, 255, 0.00));
+}

@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
-import { Card, Image, Text, Badge, Group, Stack, Progress, Button } from '@mantine/core'
+import { Card, Image, Text, Stack, Progress, Button } from '@mantine/core'
+import './ProjectCard.css'
 import styles from './ProjectCard.module.css'
 
 interface ProjectCardProps {
@@ -9,6 +10,7 @@ interface ProjectCardProps {
   donationPercentage: string
   amountCollected: string
   amountCollectedValue: number
+  buttonURL: () => void
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({
@@ -17,7 +19,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   financialTarget,
   donationPercentage,
   amountCollected,
-  amountCollectedValue
+  amountCollectedValue,
+  buttonURL
 }) => {
   return (
     <Card shadow='sm' radius='md' withBorder className={styles.card}>
@@ -39,12 +42,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           {financialTarget} raised | {donationPercentage} donated
         </Text>
       </Stack>
-      <Button
-        variant="filled"
-        color="primary"
-        className={styles.cardButton}
-        fullWidth
-      >
+      <Button variant='filled' color='primary' className={styles.cardButton} fullWidth>
         APOYAR
       </Button>
     </Card>

@@ -14,39 +14,37 @@ export const SearchProject = () => {
       <Group justify='center' mt={16}>
         <Tabs defaultValue='Crowdfunding' variant='pills' radius='md'>
           <Tabs.List>
-        <Tabs.Tab leftSection={<House size={16} />} value='Home' onClick={() => goTo('/')}>
-          Home
-        </Tabs.Tab>
-        <Tabs.Tab
-          leftSection={<ChartLine size={16} />}
-          value='Crowdfunding'
-          onClick={() => goTo('/Search/AllProjects')}
-        >
-          Crowdfunding
-        </Tabs.Tab>
-        <Tabs.Tab leftSection={<Info size={16} />} value='About' onClick={() => goTo('/About')}>
-          About
-        </Tabs.Tab>
-      </Tabs.List>
-    </Tabs>
-  </Group>
+            <Tabs.Tab leftSection={<House size={16} />} value='Home' onClick={() => goTo('/')}>
+              Home
+            </Tabs.Tab>
+            <Tabs.Tab
+              leftSection={<ChartLine size={16} />}
+              value='Crowdfunding'
+              onClick={() => goTo('/Search/AllProjects')}
+            >
+              Crowdfunding
+            </Tabs.Tab>
+            <Tabs.Tab leftSection={<Info size={16} />} value='About' onClick={() => goTo('/About')}>
+              About
+            </Tabs.Tab>
+          </Tabs.List>
+        </Tabs>
+      </Group>
 
-    <Stack className={styles.container}>
-      <div className={styles.headerContent}>
-        <Title className={styles.title}>
-          Choose the Next Big Project
-        </Title>
-        <Text className={styles.description}>
-          This is where ideas that shape the future are born. Join as a collaborator or sponsor!
-        </Text>
-      </div>
+      <Stack className={styles.container}>
+        <div className={styles.headerContent}>
+          <Title className={styles.title}>Choose the Next Big Project</Title>
+          <Text className={styles.description}>
+            This is where ideas that shape the future are born. Join as a collaborator or sponsor!
+          </Text>
+        </div>
 
-      <div className={styles.projectsContainer}>
-        <ProjectList className={styles.projectList} />
-      </div>
-    </Stack>
+        <div className={styles.projectsContainer}>
+          <ProjectList className={styles.projectList} />
+        </div>
+      </Stack>
 
-    <Footer />
+      <Footer />
     </>
   )
 }

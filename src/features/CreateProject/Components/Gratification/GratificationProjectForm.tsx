@@ -11,7 +11,7 @@ import { useForm } from 'react-hook-form'
 import { GratificationProjectSchema } from './GratificationProject.utils'
 import { ImportGratificationImage } from './ImportGratificationImage'
 import { useDisclosure } from '@mantine/hooks'
-
+import './GratificationProjectForm.modules.css'
 type GratificationFormProps = {
   onGratificationSubmit: (data: ProjectGratificationForm) => void
 }
@@ -25,7 +25,7 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
   } = useForm<ProjectGratificationForm>({
     resolver: yupResolver(GratificationProjectSchema),
     shouldFocusError: true,
-    mode: 'onBlur'
+    mode: 'onChange'
   })
 
   const [isModalShown, { open, close }] = useDisclosure(false)
@@ -37,8 +37,8 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
 
   return (
     <>
-      <Button mt={18} fullWidth variant='outline' onClick={open}>
-        Crear Recompensas
+      <Button className='project-buttonreward' onClick={open}>
+        CREATE REWARD
       </Button>
       <Modal
         opened={isModalShown}
@@ -59,8 +59,8 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
                   control={control}
                   name={'title'}
                   textInputProps={{
-                    label: 'Titulo',
-                    placeholder: 'recompensa'
+                    label: 'Title',
+                    placeholder: 'Reward'
                   }}
                 />
               </Grid.Col>
@@ -69,7 +69,7 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
                   control={control}
                   name={'description'}
                   textareaProps={{
-                    label: 'Descripcion',
+                    label: 'Description',
                     placeholder: '...'
                   }}
                 />
@@ -79,7 +79,7 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
                   control={control}
                   name={'amount'}
                   numberInputProps={{
-                    label: 'Precio',
+                    label: 'Price',
                     placeholder: '00.00'
                   }}
                 />
@@ -89,8 +89,18 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
                   control={control}
                   name={'category'}
                   textInputProps={{
-                    label: 'Categoria',
-                    placeholder: 'premio'
+                    label: 'Category',
+                    placeholder: 'Award'
+                  }}
+                />
+              </Grid.Col>
+              <Grid.Col>
+                <TextInputController
+                  control={control}
+                  name={'include'}
+                  textInputProps={{
+                    label: 'Include',
+                    placeholder: 'Details of what is included'
                   }}
                 />
               </Grid.Col>
@@ -98,18 +108,23 @@ export const GratificationForm: FC<GratificationFormProps> = ({ onGratificationS
                 <ImportGratificationImage control={control} />
               </Grid.Col>
             </Grid>
-            <Group grow>
+            <Group>
               <Button
-                fullWidth
+                className='project-cancelbutton'
                 onClick={() => {
                   close()
                   reset()
                 }}
               >
-                Cancelar
+                Cancel
               </Button>
-              <Button fullWidth type='submit' form='createGratification' disabled={!isValid}>
-                Crear Recompensa
+              <Button
+                className='project-createbutton'
+                type='submit'
+                form='createGratification'
+                disabled={!isValid}
+              >
+                Create Reward
               </Button>
             </Group>
           </Stack>

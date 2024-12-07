@@ -21,6 +21,7 @@ interface ProjectDetailsProps {
     priceDescription: string
     informacionSupport: string
     userImageUrl: string
+    buttonPago: () => void
   }
   timelineInfo: {
     titleTimeline: string
@@ -62,6 +63,7 @@ export const ProjectDetails: FC<ProjectDetailsProps> = ({
           priceDescription={campaignInfo.priceDescription}
           informacionSupport={campaignInfo.informacionSupport}
           userImageUrl={campaignInfo.userImageUrl}
+          buttonPago={campaignInfo.buttonPago}
         />
       </div>
       <div className='timeline-and-perk'>

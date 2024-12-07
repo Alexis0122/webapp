@@ -5,7 +5,6 @@ import { House, ChartLine, Info } from '@phosphor-icons/react'
 import useNavigation from '@/hooks/useNavigation'
 import { Footer } from '../Footer'
 
-
 export const HomePage = () => {
   const { goTo } = useNavigation()
 

@@ -3,6 +3,7 @@ import { CreateProjectForm, ProjectGratificationForm } from '@/types/Project'
 import { Box, Group, Text } from '@mantine/core'
 import React, { FC } from 'react'
 import { Control, useWatch } from 'react-hook-form'
+import './GratificationProjectForm.modules.css'
 
 type GratificationProjectProps = {
   control: Control<CreateProjectForm>
@@ -11,7 +12,7 @@ type GratificationProjectProps = {
 export const GratificationProject: FC<GratificationProjectProps> = ({ control }) => {
   const gratifications = useWatch({
     control,
-    name: 'gratification',
+    name: 'gratifications',
     defaultValue: []
   })
 
@@ -24,16 +25,17 @@ export const GratificationProject: FC<GratificationProjectProps> = ({ control })
       <Box key={index}>
         <Gratification
           title={gratification.title}
-          image={gratification.imageUrl}
+          image={Array.isArray(gratification.images) ? '' : gratification.images || ''}
           category={gratification.category}
           price={gratification.amount || 0}
           onClose={() => onGratificationDelete(index)}
           description={gratification.description}
+          include={gratification.include}
         />
       </Box>
     ))
   ) : (
-    <Text ta='center'>No se han agregado Recompensas</Text>
+    <Text ta='center'className='projec-subtitle'>Aún no se han agregado Recompensas</Text>
   )
 
   return <Group>{content}</Group>

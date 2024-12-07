@@ -1,0 +1,107 @@
+.card {
+  width: 280px;
+  height: auto;
+}
+
+.card-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.card-section {
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+  border-radius: 15px;
+}
+
+.card-button{
+  display: flex;
+  width: 250px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: var(--Neutral-white, #fff);
+  color: var(--Background-Gray-filled, #868e96);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-button:hover {
+  cursor: pointer;
+  color: #fff;
+  background: var(--Background-Gray-filled, #8e8e8e);
+}
+
+.card-title {
+  align-self: stretch;
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 12px;
+  letter-spacing: -0.28px;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  margin: 0px 0 10px 0;
+  margin-bottom: 20px;
+}
+
+.card-initiating {
+  color: #3f3f3f;
+  flex: 1;
+  font-family: "Roboto", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.20px;
+  line-height: normal;
+  position: relative;
+}
+
+.card-amountCollected {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 14px;
+  left: 0;
+  letter-spacing: -0.24px;
+  line-height: normal;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.card-subtitle {
+  color: #595959;
+  font-family: "Roboto", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 17px;
+  letter-spacing: -0.16px;
+  line-height: normal;
+  position: relative;
+  width: 234px;
+}

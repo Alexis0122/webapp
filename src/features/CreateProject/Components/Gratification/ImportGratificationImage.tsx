@@ -12,7 +12,7 @@ type ImportGratificationImageProps = {
 export const ImportGratificationImage: FC<ImportGratificationImageProps> = ({ control }) => {
   const images = useWatch({
     control,
-    name: 'imageUrl'
+    name: 'images'
   })
 
   const onImageDelete = (id: string) => {
@@ -31,13 +31,13 @@ export const ImportGratificationImage: FC<ImportGratificationImageProps> = ({ co
       </Stack>
     ))
   ) : (
-    <Text ta='center'>No se han agregado archivos</Text>
+    <Text ta='center'>No files have been added</Text>
   )
 
   return (
     <Grid>
       <Grid.Col span={{ xs: 12, sm: 12, md: 6 }}>
-        <FileUploaderController control={control} name='imageUrl' />
+        <FileUploaderController control={control} name='images' />
       </Grid.Col>
       <Grid.Col span={{ xs: 12, sm: 12, md: 6 }}>{content}</Grid.Col>
     </Grid>

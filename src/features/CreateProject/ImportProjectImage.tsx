@@ -1,37 +1,48 @@
 import { FileCard } from '@/components/common/FileCard'
 import { FileUploaderController } from '@/components/form/controllers'
-import { CreateProjectForm } from '@/types/Project'
+import { CreateProjectForm, ProjectFormAttachment } from '@/types/Project'
 import { Grid, Stack, Text } from '@mantine/core'
 import React, { FC } from 'react'
-import { Control, useWatch } from 'react-hook-form'
+import { Control, useWatch, useController } from 'react-hook-form'
 
 type ImportProjectImageProps = {
   control: Control<CreateProjectForm>
 }
 
 export const ImportProjectImage: FC<ImportProjectImageProps> = ({ control }) => {
-  const images = useWatch({
+  const images = useWatch({ control, name: 'images', defaultValue: [] }) as File[]
+
+  // Usar useController para interactuar con el estado del formulario
+  const { field } = useController({
     control,
-    name: 'image',
+    name: 'images',
     defaultValue: []
   })
 
-  const onImageDelete = (id: string) => {
-    // todo: implement file deletion logic
+  // Convertir archivos a ProjectFormAttachment para mostrar
+  const attachments: ProjectFormAttachment[] = images.map((file) => ({
+    name: file.name,
+    format: file.type,
+    size: file.size
+  }))
+
+  const onImageDelete = (fileName: string) => {
+    const updatedImages = images.filter((image) => image.name !== fileName)
+    field.onChange(updatedImages) // Actualizar imágenes directamente
   }
 
-  // const onFileDownload = (id: string) => {
-  //   // todo: implement file download logic
-  // }
+  const handleFilesAdded = (files: File[]) => {
+    const updatedImages = [...images, ...files]
+    field.onChange(updatedImages)
+  }
 
-  const content = images?.length ? (
-    images?.map((image, index) => (
-      <Stack>
+  const content = attachments.length ? (
+    attachments.map((attachment, index) => (
+      <Stack key={index}>
         <FileCard
-          key={index}
-          fileName={image.name}
-          fileSize={image.size}
-          onDelete={() => onImageDelete(image.name)}
+          fileName={attachment.name}
+          fileSize={attachment.size}
+          onDelete={() => onImageDelete(attachment.name)}
         />
       </Stack>
     ))
@@ -42,7 +53,11 @@ export const ImportProjectImage: FC<ImportProjectImageProps> = ({ control }) => 
   return (
     <Grid>
       <Grid.Col span={{ xs: 12, sm: 12, md: 6 }}>
-        <FileUploaderController control={control} name='image' />
+        <FileUploaderController
+          control={control}
+          name='images'
+          onChange={(value) => handleFilesAdded(value as File[])} // Manejar los archivos directamente
+        />
       </Grid.Col>
       <Grid.Col span={{ xs: 12, sm: 12, md: 6 }}>{content}</Grid.Col>
     </Grid>

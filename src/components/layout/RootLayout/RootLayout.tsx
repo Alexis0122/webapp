@@ -1,4 +1,4 @@
-import { Paper, Stack } from '@mantine/core'
+import { Box, Paper, Stack } from '@mantine/core'
 import React, { FC, PropsWithChildren } from 'react'
 import classes from './RootLayout.module.css'
 import { Navbar } from './Components'

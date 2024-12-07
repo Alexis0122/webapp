@@ -2,6 +2,8 @@
   "name": "webapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://crowdevsserviceapi.azurewebsites.net",
+
   "scripts": {
     "test": "echo \"No tests available\"",
     "dev": "next dev",
