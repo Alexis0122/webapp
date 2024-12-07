@@ -132,7 +132,7 @@ export const CreateProject = () => {
     <>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(handleFormSubmit)}>
-          <Stack mt={20} justify='center'>
+          <Stack mt='20px' m='150px' justify='center'>
             <Title className='project-title'>Create your own project</Title>
             <Text className='project-subtitle'>Make your project easy to see and know.</Text>
             <Space h='xs' />
@@ -259,12 +259,12 @@ export const CreateProject = () => {
               </Grid.Col>
             </Grid>
           </Stack>
-          <Group grow mb={20}>
+          <Group grow mb={20} mt='-130px' m='150px' justify='center'>
             <Button className='project-cancelbutton' onClick={() => goTo('/')}>
               CANCEL
             </Button>
             <Button className='project-createbutton' type='submit'>
-            CREATE PROJECT
+              CREATE PROJECT
             </Button>
           </Group>
         </form>

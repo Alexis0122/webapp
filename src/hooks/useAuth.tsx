@@ -32,7 +32,7 @@ export const useAuth = () => {
 
   // useEffect(() => {
   //   console.log('isAuthenticated changed:', Boolean(token))
-  //   // console.log('Current localStorage:', localStorage.getItem('jwtToken'))
+  //   console.log('Current localStorage:', localStorage.getItem('jwtToken'))
   //   console.log('Current id:', localStorage.getItem('jwtID'))
   // }, [token])
 

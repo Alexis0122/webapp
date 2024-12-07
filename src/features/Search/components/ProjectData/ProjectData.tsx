@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { Loader, Center, Space } from '@mantine/core'
+import { Loader, Center, Space, Group } from '@mantine/core'
 import { ProjectCard } from '@/components/common'
 import axios from 'axios'
 import { ProjectData } from '@/types/Project'
@@ -18,15 +18,19 @@ export const ProjectList: React.FC<ProjectListProps> = ({ className }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(
-          'https://crowdevsserviceapi.azurewebsites.net/api/v1/Project',
-          {}
-        )
-        setProjects(response.data)
+        const response = await fetch('https://crowdevsserviceapi.azurewebsites.net/api/v1/Project')
+
+        if (!response.ok) {
+          // Manejo de errores basado en el código de estado
+          throw new Error(`Error fetching projects: ${response.status} ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        setProjects(data) // Guardar los datos obtenidos en el estado
       } catch (error) {
         console.error('Error fetching projects:', error)
       } finally {
-        setLoading(false)
+        setLoading(false) // Asegurarse de que el loader se detenga
       }
     }
 
@@ -35,35 +39,35 @@ export const ProjectList: React.FC<ProjectListProps> = ({ className }) => {
 
   if (loading) {
     return (
-      <Center>
+      <Center p='md'>
         <Loader />
       </Center>
     )
   }
 
   return (
-    <div className='projectContainer'>
-      <div className='projectGrid'>
-        {projects.map((project) => {
-          const donationPercentage = (
-            (project.amountCollected / project.financialTarget) *
-            100
-          ).toFixed(2)
-          return (
-            <div className='projectDetails' key={project.id}>
-              <ProjectCard
-                title={project.title}
-                imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
-                amountCollected={`${project.amountCollected.toLocaleString()}`}
-                amountCollectedValue={project.amountCollected}
-                financialTarget={`${project.financialTarget.toLocaleString()}`}
-                donationPercentage={`${donationPercentage}%`}
-                buttonURL={() => goTo(`/Project/${project.id}`)}
-              />
-            </div>
-          )
-        })}
-      </div>
-    </div>
+    <Group>
+      {projects.map((project) => {
+        const donationPercentage = (
+          (project.amountCollected / project.financialTarget) *
+          100
+        ).toFixed(2)
+        return (
+          <div className='projectDetails'>
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
+              amountCollected={`${project.amountCollected.toLocaleString()}`}
+              amountCollectedValue={project.amountCollected}
+              financialTarget={`${project.financialTarget.toLocaleString()}`}
+              donationPercentage={`${donationPercentage}%`}
+              buttonURL={() => goTo(`/Project/${project.id}`)}
+            />
+          </div>
+        )
+      })}
+    </Group>
   )
 }

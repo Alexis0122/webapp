@@ -3,8 +3,10 @@ import { Card, Image, Text, Stack, Progress, Button } from '@mantine/core'
 import './ProjectCard.css'
 import styles from './ProjectCard.module.css'
 
+// Definición del tipo de propiedades
 interface ProjectCardProps {
   title: string
+  description: string
   imageUrl: string
   financialTarget: string
   donationPercentage: string
@@ -15,6 +17,7 @@ interface ProjectCardProps {
 
 export const ProjectCard: FC<ProjectCardProps> = ({
   title,
+  description,
   imageUrl,
   financialTarget,
   donationPercentage,
@@ -22,6 +25,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   amountCollectedValue,
   buttonURL
 }) => {
+  // Imprime las propiedades en la consola
+
   return (
     <Card shadow='sm' radius='md' withBorder className={styles.card}>
       <Card.Section>
