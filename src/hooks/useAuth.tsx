@@ -95,5 +95,5 @@ export const useAuth = () => {
 
   console.log(user, email, img)
 
-  return { token, login, logout, isAuthenticated, isMounted, error, id, user, email, img  }
+  return { token, login, logout, isAuthenticated, isMounted, error, id, user, email, img }
 }
