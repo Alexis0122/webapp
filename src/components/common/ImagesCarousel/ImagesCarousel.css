@@ -1,0 +1,76 @@
+/*! Fondo del carrusel */
+.carousel-background {
+  position: relative;
+  width: 90%;
+  max-width: 640px;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden !important;
+  margin: 0 auto;
+}
+
+/*! Capa de superposición */
+.carousel-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/*! Contenedor de la imagen principal */
+.main-image-container {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #d9d9d9;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/*! Miniaturas */
+.thumbnail {
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden !important;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/*! Miniatura seleccionada */
+.thumbnail.selected {
+  transform: scale(1.1);
+  border: 2px solid #5b6773;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}

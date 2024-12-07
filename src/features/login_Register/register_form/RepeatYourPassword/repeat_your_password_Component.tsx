@@ -1,0 +1,114 @@
+// NewPasswordForm.tsx
+import React, { useEffect } from 'react'
+import * as yup from 'yup'
+import { NewPasswordSchema } from './repeat_your_password.utils'
+import { useForm, FormProvider } from 'react-hook-form'
+import { Button } from '@mantine/core'
+import { PasswordInputController } from '@/components/form/controllers/PasswordInputController'
+import './style.css'
+import { yupResolver } from '@hookform/resolvers/yup'
+// import { NPasswordForm } from '@/types/Project'
+import useNavigation from '@/hooks/useNavigation' // Importamos el hook personalizado
+import { useFormContext } from '@/context/FormContext' // Importar el contexto
+
+interface NewPasswordFormProps {
+  onSubmit: (data: any) => void
+  onGoBack: () => void
+}
+
+export const NewPasswordForm = ({ onSubmit, onGoBack }: NewPasswordFormProps): JSX.Element => {
+  const formMethods = useForm({
+    resolver: yupResolver(NewPasswordSchema),
+    defaultValues: {
+      newPassword: '',
+      confirmPassword: ''
+    }
+  })
+
+  const { goTo } = useNavigation() // Usamos el hook personalizado
+  const { handleSubmit, control, formState } = formMethods
+  const { errors } = formState
+  const { formData } = useFormContext() // Obtener datos del contexto
+
+  const handleFormSubmit = (data: any) => {
+    console.log(data)
+    onSubmit(data) // Envía los datos al padre
+  }
+
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      document.documentElement.classList.add('yup-error')
+    } else {
+      document.documentElement.classList.remove('yup-error')
+    }
+  }, [errors])
+
+  return (
+    <FormProvider {...formMethods}>
+      <form onSubmit={handleSubmit(handleFormSubmit)} className='newPasswordForm-section'>
+        <p className='newPasswordForm-to-continue-with-the'>
+          <span>Almost finished, </span>
+          <span className='text-wrapper-3'>{formData.name}!</span>
+          <span> Set your password, and you’ll be all set to go.</span>
+        </p>
+        <div className={`newPasswordForm-header-newPasswordForm-text`}>Register</div>
+
+        <PasswordInputController
+          control={control}
+          name='newPassword'
+          PasswordInputProps={{
+            label: 'Password',
+            placeholder: 'Set Your Password',
+            size: 'xl',
+            className: `newPasswordForm-input-newPassword ${errors.newPassword ? 'newPasswordForm-input-error-newPassword' : ''}`
+          }}
+        />
+        <PasswordInputController
+          control={control}
+          name='confirmPassword'
+          PasswordInputProps={{
+            label: 'Confirm Password',
+            placeholder: 'Repeat your Password...',
+            size: 'xl',
+            className: `newPasswordForm-input-confirmPassword ${errors.confirmPassword ? 'newPasswordForm-input-error-confirmPassword' : ''}`
+          }}
+        />
+
+        <p
+          className={`newPasswordForm-to-continue-with-the-2 ${errors.confirmPassword ? 'newPasswordForm-input-error-confirmPassword-label' : ''}`}
+        >
+          <span>Create a strong password for your account, associated with </span>
+          <span className='text-wrapper-3-2'>{formData.email}</span>
+          <span>, and re-enter it below to confirm your choice.</span>
+        </p>
+        {/* <Button
+          type='submit'
+          className={`button-newPasswordForm`}
+          size='xl'
+          variant='filled'
+          // onClick={() => goTo('/')}
+        >
+          Update & Proceed
+        </Button> */}
+        <Button
+          type='submit'
+          className={`button-newPasswordForm`}
+          size='xl'
+          variant='filled'
+          // onClick={() => goTo('/')}
+        >
+          Proceed
+        </Button>
+        <Button
+          type='button'
+          className={`button-newPasswordForm-go-back`}
+          size='xl'
+          variant='filled'
+          onClick={onGoBack}
+        >
+          Go Back
+        </Button>
+      </form>
+    </FormProvider>
+  )
+}

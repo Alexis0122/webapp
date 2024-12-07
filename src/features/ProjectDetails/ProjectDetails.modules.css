@@ -1,0 +1,73 @@
+/*! Definiendo el estilo del container */
+.project-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+}
+
+/*! Los estilos del Carousel e información */
+.carousel-and-info {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/*! TimeLine y PerkSection */
+.timeline-and-perk {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.perk-section {
+  grid-row: span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*! Carousel e Info */
+.carousel-and-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/*! Responsividad */
+@media (min-width: 768px) {
+  .project-details-container {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .perk-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .carousel-and-info {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.timeline-and-perk {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .timeline-and-perk {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+  }
+}

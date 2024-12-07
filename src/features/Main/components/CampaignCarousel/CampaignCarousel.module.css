@@ -1,0 +1,193 @@
+/* CampaignCard.module.css */
+
+.container {
+  width: 100%;
+  max-width: 1400px; /* Aumentado de 1200px a 1400px */
+  margin: 0 auto;
+  padding: 0; /* Quitamos completamente el padding horizontal */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 1s; /* Delay más largo para que aparezca después del landing */
+}
+
+/* Estilos del Carousel */
+.carousel {
+  width: 100%;
+  margin: 24px 0; /* Reducido de 40px a 24px */
+  padding-bottom: 60px; /* Espacio para los indicadores */
+  position: relative;
+}
+
+/* Estilos para diferentes tamaños de pantalla */
+@media (max-width: 600px) {
+  .carousel {
+    width: 75%;
+  }
+}
+
+/* Estilos del card */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Estilos para diferentes tamaños de pantalla */
+@media (max-width: 600px) {
+  .card {
+    margin-left: 15%;
+    width: 300px;
+    height: auto;
+  }
+}
+
+/* Estilos del texto alineado a la izquierda */
+.leftText {
+  text-align: left;
+  width: 100%;
+  padding-left: 170px; /* Valor por defecto */
+}
+
+/* Responsividad para el .leftText */
+@media (max-width: 599px) {
+  .leftText {
+    padding-left: 209px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .leftText {
+    padding-left: 170px;
+  }
+}
+
+/* Estilos del título centrado */
+.centeredTitle {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 40px; /* Default font size */
+}
+
+/* Estilo para el título activo */
+.activeTitle {
+  font-size: 45px; /* Larger font size when active */
+}
+
+/* Responsividad para el .centeredTitle */
+@media (max-width: 599px) {
+  .centeredTitle {
+    font-size: 20px;
+  }
+
+  .activeTitle {
+    font-size: 30px; /* Adjusted size for mobile when active */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .centeredTitle {
+    font-size: 40px;
+  }
+
+  .activeTitle {
+    font-size: 50px; /* Adjusted size for medium screens when active */
+  }
+}
+
+/* Estilos del grupo de botones */
+.group {
+  width: 100%;
+}
+
+/* Estilos del botón */
+.button {
+  margin-top: 240px; /* Margen superior por defecto */
+  width: 550px;
+  height: 60px;
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 30px; /* Tamaño de fuente por defecto */
+}
+
+/* Responsividad para el .button */
+@media (max-width: 599px) {
+  .button {
+    height: 40px;
+    font-size: 20px; /* Tamaño de fuente para pantallas pequeñas */
+    margin-top: 140px; /* Margen superior para pantallas pequeñas */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .button {
+    height: 60px;
+    font-size: 30px;
+    margin-top: 240px;
+  }
+}
+
+/* Divider personalizado */
+.customDivider {
+  border-color: black !important;
+  border-width: 1.5px !important;
+}
+
+/* Estilos del texto de fees */
+.feesText {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Estilos para la tarjeta activa */
+.activeSlide {
+  opacity: 1; /* Opacidad completa */
+}
+
+/* Estilos para las tarjetas inactivas */
+.inactiveSlide {
+  opacity: 0.7; /* Reducir opacidad de slides inactivos */
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Añadir estilos para los indicadores del carousel */
+.carousel {
+  width: 100%;
+  margin: 24px 0;
+  padding-bottom: 60px; /* Espacio para los indicadores */
+  position: relative;
+}
+
+/* Estilo para el contenedor de los indicadores */
+.carousel :global(.mantine-Carousel-indicators) {
+  bottom: 0; /* Posiciona los indicadores en la parte inferior */
+  margin-bottom: 0px; /* Mueve los indicadores más abajo */
+}
+
+/* Opcional: Estilizar los puntos indicadores */
+.carousel :global(.mantine-Carousel-indicator) {
+  width: 8px;
+  height: 8px;
+  transition: width 250ms ease;
+  background-color: rgba(192, 14, 56, 0.5); /* Color rojo semi-transparente */
+}
+
+.carousel :global(.mantine-Carousel-indicator[data-active]) {
+  width: 16px;
+  background-color: #C00E38; /* Color rojo sólido para el indicador activo */
+}

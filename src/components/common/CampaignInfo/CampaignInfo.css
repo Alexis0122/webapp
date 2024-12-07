@@ -1,0 +1,181 @@
+.campaigninfo-backgroud {
+  /*! Eto e el Background del Campaign*/
+  width: 700px;
+  height: 480px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #d9d9d9;
+  gap: 20px;
+}
+
+.campainginfo-state {
+  color: #000;
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.campainginfo-title {
+  /*! Estilo del Titulo */
+  color: var(--Tertiary-C-75, #404040);
+  font-family: Roboto;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.9px;
+  margin-left: 30px;
+}
+
+.campainginfo-description {
+  /*! Estilo de la descripción */
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--Tertiary-C-75, #404040);
+  font-family: Roboto;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.52px;
+  margin-left: 25px;
+}
+
+.campaigninfo-userimage {
+  width: 46px;
+  height: 48px;
+  flex-shrink: 0;
+  background: lightgray 50% / cover no-repeat;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.campaigninfo-username {
+  /*! Estilo del nombre de usuario */
+  color: var(--Tertiary-C-75, #404040);
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  margin-top: 20px;
+}
+
+.campaigninfo-aboutusername {
+  /*!Pequeña descripcion del usuario */
+  color: var(--Tertiary-C-75, #404040);
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: var(--Tertiary-C-75, #404040);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.campaigninfo-price {
+  color: #000;
+  font-family: Roboto;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.campaigninfo-stateCampaing {
+  color: var(--Tertiary-C-75, #404040);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  margin-top: 30px;
+}
+.campaigninfo-supportinfo {
+  color: var(--Tertiary-C-75, #404040);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.campaigninfo-bigbutton {
+  /*! Estilo del boton Grande*/
+  color: var(--Tertiary-C-0, #f8f9fa);
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+  width: 549px;
+  height: 45px;
+  padding: 0px var(--Padding-padding-xl, 32px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Spacing-spacing-sm, 8px);
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--Gradients-G-red-buttons, linear-gradient(0deg, #c00e38 12.5%, #e21243 100%));
+  margin-top: 20px;
+}
+
+.campaigninfo-saveforlater {
+  /*! Estilo del boton de guardar para despues */
+  color: var(--Tertiary-C-0, #f8f9fa);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  width: 218px;
+  height: 39px;
+  padding: 0px 30px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--Spacing-spacing-sm, 8px);
+  flex-shrink: 0;
+  border-radius: var(--Radius-radius-sm, 4px);
+  background: var(--dark-mode-secondary-red-secondary-2, #890d2a);
+  margin-top: 20px;
+}
+
+.campaigninfo-share {
+  /*! Estilo del boton de compartir */
+  color: var(--Primary-A-75, #0b0b0b);
+  text-align: right;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  width: 218px;
+  height: 39px;
+  padding: 0px 35px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 3.5px solid var(--Secundary-B-50, #890d2a);
+  background: rgba(255, 255, 255, 0);
+  margin-top: 20px;
+}
