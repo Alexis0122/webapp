@@ -1,8 +1,27 @@
+.projectContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  margin-top: 60px;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 100px;
+}
+
 .projectDetails {
-  width: 300px;
+  width: 100%;
   height: auto;
-  margin: 8px auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
