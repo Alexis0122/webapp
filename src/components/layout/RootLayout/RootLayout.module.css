@@ -1,0 +1,45 @@
+.paper {
+  width: 100%;
+  min-width: 0;
+  height: calc(100vh - 64px);
+  --paper-radius: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  flex: 1;
+}
+
+/* Ocultar scrollbar para Chrome, Safari y Opera */
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.paperAbout {
+  max-width: none;
+  padding: 0;
+}
+
+.contentAbout {
+  max-width: none;
+  padding: 0;
+}

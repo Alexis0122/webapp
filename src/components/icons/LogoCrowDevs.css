@@ -1,0 +1,7 @@
+.logo-path {
+  transition: fill 0.25s ease;
+}
+
+.logo-crowdev:hover .logo-path {
+  fill: #C00E38;
+}

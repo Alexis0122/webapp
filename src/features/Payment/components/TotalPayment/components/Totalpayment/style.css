@@ -1,0 +1,92 @@
+.totalpayment {
+  height: 51px;
+  position: relative;
+  width: 320px;
+}
+
+.totalpayment .overlap-group {
+  height: 22px;
+  left: 18px;
+  position: absolute;
+  top: -1px;
+  width: 287px;
+}
+
+.totalpayment .text-wrapper {
+  color: var(--pedro-frame-colors-tertiary-c-50);
+  font-family: 'Roboto', Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 0;
+  width: 106px;
+}
+
+.totalpayment .div {
+  color: var(--pedro-frame-colors-tertiary-c-75);
+  font-family: 'Roboto', Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 226px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  width: 61px;
+}
+
+.totalpayment .arrow {
+  height: 15px;
+  left: 90px;
+  position: absolute;
+  top: 4px;
+  width: 145px;
+}
+
+.totalpayment .overlap {
+  height: 22px;
+  left: 18px;
+  position: absolute;
+  top: 28px;
+  width: 289px;
+}
+
+.totalpayment .text-wrapper-2 {
+  color: var(--pedro-frame-colors-secundary-b-25);
+  font-family: 'Roboto', Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 228px;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  width: 61px;
+}
+
+.totalpayment .text-wrapper-3 {
+  color: var(--pedro-frame-colors-tertiary-c-50);
+  font-family: 'Roboto', Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+  width: 114px;
+}
+
+.totalpayment .img {
+  height: 15px;
+  left: 103px;
+  position: absolute;
+  top: 5px;
+  width: 132px;
+}

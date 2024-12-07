@@ -1,0 +1,63 @@
+/* :root {
+  --top-login-form-section: 0;
+  --top-input-2: 164px;
+  --top-input-2-password: 284px; 
+  --top-remember-me-group: 425px; 
+  --top-overlap: 430px;
+  --top-overlap-group: 0;
+  --top-p: 80px; 
+  --top-button-instance: 35px; 
+  --top-signUp-wrapper: 107px; 
+  --top-text-wrapper-5: 0;
+  --top-forgot-password-group: 426px; 
+  --top-forgot-password-text: -3px;
+  --top-signUp-text: -3px;
+  --top-overlap-group-2: 40px;
+  --top-text-wrapper-7: 58px;
+  --top-text-wrapper-8: 0;
+} */
+:root {
+  /* Variables estándar */
+  --top-login-form-section: 0;
+  --top-input-instance: 305px;
+  --top-input-2: 184px;
+  --top-input-2-password: 284px;
+  --top-remember-me-group: 375px;
+  --top-overlap: 430px;
+  --top-overlap-group: 0;
+  --top-p: 59px;
+  --top-button-instance: 0;
+  --top-signUp-wrapper: 85px;
+  --top-text-wrapper-5: 0;
+  --top-forgot-password-group: 376px;
+  --top-forgot-password-text: -3px;
+  --top-signUp-text: -55%;
+  --top-overlap-group-2: 40px;
+  --top-text-wrapper-7: 58px;
+  --top-text-wrapper-8: 0;
+  --p-top: 50%;
+}
+/* 
+:root.yup-error {
+  --top-login-form-section: 0;
+  --top-input-2: 164px;
+  --top-input-2-password: 284px;
+  --top-remember-me-group: 405px;
+  --top-overlap: 430px;
+  --top-overlap-group: 0;
+  --top-p: 80px;
+  --top-button-instance: 35px;
+  --top-signUp-wrapper: 107px;
+  --top-text-wrapper-5: 0;
+  --top-forgot-password-group: 406px;
+  --top-forgot-password-text: -3px;
+  --top-signUp-text: -3px;
+  --top-overlap-group-2: 40px;
+  --top-text-wrapper-7: 58px;
+  --top-text-wrapper-8: 0;
+} */
+.m_dee7bd2f {
+  flex-wrap: unset !important;
+}
+validate-button {
+}
