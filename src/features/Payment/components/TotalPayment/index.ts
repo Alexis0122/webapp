@@ -1,1 +1,1 @@
-export { TotalpaymentCard } from './TotalPaymentCard'
+export * from './TotalPaymentCard'

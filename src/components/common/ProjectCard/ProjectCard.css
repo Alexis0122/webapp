@@ -22,7 +22,7 @@
   border-radius: 15px;
 }
 
-.card-button{
+.card-button {
   display: flex;
   width: 250px;
   height: 40px;
@@ -58,13 +58,13 @@
 .card-title {
   align-self: stretch;
   color: #000000;
-  font-family: "Roboto", Helvetica;
+  font-family: 'Roboto', Helvetica;
   font-size: 16px;
   font-weight: 400;
   height: 12px;
   letter-spacing: -0.28px;
   line-height: normal;
-  margin-top: -1.00px;
+  margin-top: -1px;
   position: relative;
   margin: 0px 0 10px 0;
   margin-bottom: 20px;
@@ -73,17 +73,17 @@
 .card-initiating {
   color: #3f3f3f;
   flex: 1;
-  font-family: "Roboto", Helvetica;
+  font-family: 'Roboto', Helvetica;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: -0.20px;
+  letter-spacing: -0.2px;
   line-height: normal;
   position: relative;
 }
 
 .card-amountCollected {
   color: #000000;
-  font-family: "Roboto", Helvetica;
+  font-family: 'Roboto', Helvetica;
   font-size: 14px;
   font-weight: 700;
   height: 14px;
@@ -96,7 +96,7 @@
 
 .card-subtitle {
   color: #595959;
-  font-family: "Roboto", Helvetica;
+  font-family: 'Roboto', Helvetica;
   font-size: 12px;
   font-weight: 400;
   height: 17px;

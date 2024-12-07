@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 import { Grid, Box, Button, createTheme, Text, Image, Anchor, MantineProvider } from '@mantine/core'
 import { Headlights } from '@phosphor-icons/react'
 import { unset } from 'lodash'
 import { relative } from 'path'
 import { CreditCardForm } from '@/features/Payment/components/CreditCard'
-import { TotalpaymentCard } from '../components/TotalPayment/TotalPaymentCard'
 import Logo from '@/assets/CrowdevLogo.svg'
 import ThankYouMessage from '../components/ThankYouMessage/ThankYouMessage'
 import { CarouselPerk } from '../components/CarouselPerk/CarouselPerk'
+import { TotalPaymentCard } from '../components/TotalPayment'
+import axios from 'axios'
+import { useAuth } from '@/hooks/useAuth'
+import { toast } from 'react-toastify'
 
 const theme = createTheme({
   components: {
@@ -18,7 +21,40 @@ const theme = createTheme({
     })
   }
 })
-export const PaymentFormComponent = () => {
+
+interface PaymentFormComponentProps {
+  projectId: number;
+}
+
+export const PaymentFormComponent: FC<PaymentFormComponentProps> = ({projectId}) => {
+  const [grandTotalPayment, setGrandTotalPayment] = useState(0);
+
+  const { token } = useAuth();
+
+  const handleSubmitToAPI = async (paymentMethod: string) => {
+    const data = {
+      projectId,
+      amount: grandTotalPayment,
+      paymentMethod,
+    };
+
+    try {
+      const response = await axios.post(
+        'https://crowdevsserviceapi.azurewebsites.net/api/v1/Patronage',
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      toast.success('Gracias por contribuir')
+    } catch (error) {
+      console.error('Error al enviar los datos al API:', error);
+    }
+  };
+
   return (
     <MantineProvider theme={theme}>
       <div style={{ padding: '20px' }}>
@@ -102,20 +138,6 @@ export const PaymentFormComponent = () => {
                         }}
                       >
                         <ThankYouMessage />
-                        {/* <Button
-                          style={{
-                            position: 'absolute',
-                            bottom: '10px',
-                            right: '10px',
-
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: '20px'
-                          }}
-                          size='xl'
-                        >
-                          Hola
-                        </Button> */}
                       </Box>
                     </Grid.Col>
                   </Grid>
@@ -137,7 +159,7 @@ export const PaymentFormComponent = () => {
                     borderRadius: '16px'
                   }}
                 >
-                  <TotalpaymentCard />
+                  <TotalPaymentCard grandTotalPayment={grandTotalPayment} onGrandTotalChange={setGrandTotalPayment}/>
                 </Box>
               </Grid.Col>
             </Box>
@@ -159,7 +181,7 @@ export const PaymentFormComponent = () => {
                 marginTop: '40px'
               }}
             >
-              <CreditCardForm />
+              <CreditCardForm action={(paymentMethod) => handleSubmitToAPI(paymentMethod)} />
               <Text fw={800} fz='lg' c='gray.7'>
                 Learn More About Our{' '}
                 <Anchor
@@ -194,72 +216,6 @@ export const PaymentFormComponent = () => {
               <CarouselPerk />
             </Box>
           </Grid.Col>
-          {/* <Grid.Col span={{ base: 12, sm: 3 }}>
-            <Box
-              style={{
-                height: '100px',
-                backgroundColor: '#FFD43B',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '20px'
-              }}
-            >
-              Tercio 2
-            </Box>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, sm: 3 }}>
-            <Box
-              style={{
-                height: '100px',
-                backgroundColor: '#4C6EF5',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '20px'
-              }}
-            >
-              Tercio 3
-            </Box>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, sm: 3 }}>
-            <Box
-              style={{
-                height: '100px',
-                backgroundColor: '#1C9EF5',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '20px'
-              }}
-            >
-              Tercio 4
-            </Box>
-          </Grid.Col> */}
-
-          {/* Última fila: un contenedor grande
-          <Grid.Col span={{ base: 12 }}>
-            <Box
-              style={{
-                height: '300px',
-                backgroundColor: '#F783AC',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '20px'
-              }}
-            >
-              Grande Final
-            </Box>
-          </Grid.Col> */}
         </Grid>
       </div>
     </MantineProvider>

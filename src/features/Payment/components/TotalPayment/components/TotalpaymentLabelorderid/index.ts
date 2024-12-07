@@ -1,1 +1,0 @@
-export { TotalpaymentLabelorderid } from './TotalpaymentLabelorderid'

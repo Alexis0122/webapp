@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import Cards from 'react-credit-cards-2'
 import { Button, Grid, Group, TextInput } from '@mantine/core'
 import 'react-credit-cards-2/dist/es/styles-compiled.css'
@@ -6,7 +6,11 @@ import './creditCardForm.css'
 
 type Focused = 'name' | 'number' | 'expiry' | 'cvc' | undefined
 
-export const CreditCardForm = () => {
+interface CreditCardFormProps {
+  action: (paymentMethod: string) => void
+}
+
+export const CreditCardForm: FC<CreditCardFormProps> = ({ action }) => {
   // Estado para manejar los valores y el foco de la tarjeta
   const [state, setState] = useState<{
     number: string
@@ -36,7 +40,8 @@ export const CreditCardForm = () => {
   // Manejador para envío del formulario
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault()
-    // Aquí puedes validar la información o enviarla a un backend
+    const paymentMethod = `${state.number.substring(0, 4)}-****`; // Ejemplo: toma solo los primeros dígitos
+    action(paymentMethod);
     console.log('Submitted data:', state)
   }
 

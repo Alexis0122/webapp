@@ -1,33 +1,57 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
-
-import React from 'react'
-import { DivWrapper } from './components/DivWrapper'
-import { Totalpayment } from './components/Totalpayment'
-import { TotalpaymentLabelorderid } from './components/TotalpaymentLabelorderid'
-import { TotalpaymentLabels } from './components/TotalpaymentLabels'
-import { TotalpaymentWrapper } from './components/TotalpaymentWrapper'
+import React, { FC, useEffect, useState } from 'react'
 import './style.css'
+import { TotalPayment, TotalPaymentLabelOrderId, TotalPaymentLabels, TotalPaymentWrapper } from './components'
 
-export const TotalpaymentCard = (): JSX.Element => {
+const ITBIS_PERCENTAGE = 0.18;
+
+interface TotalPaymentCardProps {
+  grandTotalPayment: number;
+  onGrandTotalChange?: (newGrandTotal: number) => void
+}
+
+
+export const TotalPaymentCard: FC<TotalPaymentCardProps> = ({grandTotalPayment, onGrandTotalChange}) => {
+
+  const [amount, setAmount] = useState(0);
+  const billingDate = new Date().toLocaleDateString(); // Fecha actual en formato local
+  const itbis = amount * ITBIS_PERCENTAGE;
+  const calculatedGrandTotal = amount + itbis;
+
+  const generateInvoiceId = () => {
+    return `OrderID-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+  };
+  const [invoiceId] = useState<string>(generateInvoiceId())
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value) || 0;
+    setAmount(value);
+  };
+
+  useEffect(() => {
+    if (onGrandTotalChange) {
+      onGrandTotalChange(calculatedGrandTotal);
+    }
+  }, [calculatedGrandTotal, onGrandTotalChange]);
+
   return (
     <div className='totalpayment-card'>
-      <Totalpayment className='totalpayment-totalamountlabel' />
-      <TotalpaymentWrapper
+      <TotalPayment className='totalpayment-totalamountlabel'  total={amount}/>
+      <TotalPaymentWrapper
         className='totalpayment-grandtotallabel'
         hasImg={false}
         hasLine={false}
+        grandTotal={calculatedGrandTotal}
       />
-      <DivWrapper className='totalpayment-couponlabel' />
-      <TotalpaymentLabels
-        arrow='https://c.animaapp.com/F8PWP7iM/img/arrow-9-2.svg'
-        arrow1='https://c.animaapp.com/F8PWP7iM/img/arrow-11-2.svg'
-        className='totalpayment-labels-instance'
-        img='https://c.animaapp.com/F8PWP7iM/img/arrow-10-2.svg'
+      <TotalPaymentLabels className='totalpayment-labels-instance' price={amount} billingDate={billingDate} itbis={itbis} />
+      <input
+        id="amount"
+        type="number"
+        className="totalpayment-input"
+        value={amount}
+        onChange={handleInputChange}
+        placeholder="Ingresa el monto"
       />
-      <TotalpaymentLabelorderid className='totalpayment-instance' />
+      <TotalPaymentLabelOrderId className='totalpayment-instance' summary={invoiceId} />
     </div>
   )
 }

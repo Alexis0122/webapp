@@ -7,7 +7,6 @@ import useNavigation from '@/hooks/useNavigation'
 
 import './ProjectData.css'
 
-
 export const ProjectList: FC = () => {
   const [projects, setProjects] = useState<ProjectData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -40,15 +39,15 @@ export const ProjectList: FC = () => {
   }
 
   return (
-    <div className="projectContainer">
-      <div className="projectGrid">
+    <div className='projectContainer'>
+      <div className='projectGrid'>
         {projects.map((project) => {
           const donationPercentage = (
             (project.amountCollected / project.financialTarget) *
             100
           ).toFixed(2)
           return (
-            <div className="projectDetails" key={project.id}>
+            <div className='projectDetails' key={project.id}>
               <ProjectCard
                 title={project.title}
                 imageUrl={`https://crowdevsserviceapi.azurewebsites.net${project.imageUrl}`}
@@ -65,4 +64,3 @@ export const ProjectList: FC = () => {
     </div>
   )
 }
-
