@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import { Card, Image, Text, Stack, Progress } from '@mantine/core'
+import { Card, Image, Text, Stack, Progress, Button } from '@mantine/core'
 import './ProjectCard.css'
+import styles from './ProjectCard.module.css'
 
 interface ProjectCardProps {
   title: string
@@ -22,24 +23,28 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   buttonURL
 }) => {
   return (
-    <div className='card-background'>
-      <Card withBorder>
-        <Card.Section className='card-section'>
-          <Image className='card-image' src={imageUrl} alt={title} />
-          <button className='card-button' onClick={buttonURL}>
-            Ver Campaña
-          </button>
-        </Card.Section>
-        <Stack gap='xs' mt='sm'>
-          <Text className='card-title'>{title}</Text>
-          <Text className='card-initiating'>INICIA DESDE RD$100</Text>
-          <Text className='card-amountCollected'>${amountCollected}</Text>
-          <Progress style={{ backgroundColor: 'black' }} value={amountCollectedValue} />
-          <Text className='card-subtitle'>
-            {financialTarget} raised | {donationPercentage} donated
-          </Text>
-        </Stack>
-      </Card>
-    </div>
+    <Card shadow='sm' radius='md' withBorder className={styles.card}>
+      <Card.Section>
+        <Image src={imageUrl} alt={title} height={250} />
+      </Card.Section>
+      <Stack gap='md' className={styles.cardContent}>
+        <Text className={styles.cardTitle} title={title}>
+          {title}
+        </Text>
+        <Text size='xs' color='black' className={styles.cardText}>
+          INITIATING AT $100
+        </Text>
+        <Text size='md' color='black' className={styles.cardText}>
+          ${amountCollected}
+        </Text>
+        <Progress value={amountCollectedValue} className={styles.cardProgress} />
+        <Text size='xs' color='gray' className={styles.cardDescription}>
+          {financialTarget} raised | {donationPercentage} donated
+        </Text>
+      </Stack>
+      <Button variant='filled' color='primary' className={styles.cardButton} fullWidth>
+        APOYAR
+      </Button>
+    </Card>
   )
 }

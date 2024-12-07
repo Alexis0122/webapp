@@ -1,16 +1,22 @@
 /* CampaignCard.module.css */
 
 .container {
-  width: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 12%;
+  width: 100%;
+  max-width: 1400px; /* Aumentado de 1200px a 1400px */
+  margin: 0 auto;
+  padding: 0; /* Quitamos completamente el padding horizontal */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInDown 0.65s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: 1s; /* Delay más largo para que aparezca después del landing */
 }
 
 /* Estilos del Carousel */
 .carousel {
   width: 100%;
+  margin: 24px 0; /* Reducido de 40px a 24px */
+  padding-bottom: 60px; /* Espacio para los indicadores */
+  position: relative;
 }
 
 /* Estilos para diferentes tamaños de pantalla */
@@ -146,4 +152,42 @@
 /* Estilos para las tarjetas inactivas */
 .inactiveSlide {
   opacity: 0.7; /* Reducir opacidad de slides inactivos */
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Añadir estilos para los indicadores del carousel */
+.carousel {
+  width: 100%;
+  margin: 24px 0;
+  padding-bottom: 60px; /* Espacio para los indicadores */
+  position: relative;
+}
+
+/* Estilo para el contenedor de los indicadores */
+.carousel :global(.mantine-Carousel-indicators) {
+  bottom: 0; /* Posiciona los indicadores en la parte inferior */
+  margin-bottom: 0px; /* Mueve los indicadores más abajo */
+}
+
+/* Opcional: Estilizar los puntos indicadores */
+.carousel :global(.mantine-Carousel-indicator) {
+  width: 8px;
+  height: 8px;
+  transition: width 250ms ease;
+  background-color: rgba(192, 14, 56, 0.5); /* Color rojo semi-transparente */
+}
+
+.carousel :global(.mantine-Carousel-indicator[data-active]) {
+  width: 16px;
+  background-color: #C00E38; /* Color rojo sólido para el indicador activo */
 }
