@@ -374,7 +374,8 @@
 /* Parte del "Meet Our Team" */
 .team-section {
   text-align: center;
-  margin: 80px 0;
+  margin: 120px 0;
+  padding: 0 20px;
 }
 
 /* Nuevo contenedor para título y hexágonos */
@@ -392,7 +393,7 @@
   position: relative;
   padding: 0 100px;
   margin: 0 auto;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .team-title {
@@ -415,13 +416,16 @@
 
 .team-description {
   font-size: var(--font-size-small);
-  margin-bottom: 48px;
+  margin-bottom: 64px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dev-roles-container {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 64px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -430,31 +434,41 @@
 .dev-role-section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  gap: 32px;
 }
 
 .dev-role-title {
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 24px;
+  font-size: 28px;
   color: var(--color-primary);
   margin: 0;
+  text-align: center;
+  position: relative;
+  padding-bottom: 16px;
 }
 
 .dev-cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 32px;
   justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .dev-card {
   background: white;
   border: 2px solid var(--color-border);
   border-radius: 30px;
-  padding: 20px;
+  padding: 24px;
   transition: transform 0.3s ease;
   width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dev-card:hover {

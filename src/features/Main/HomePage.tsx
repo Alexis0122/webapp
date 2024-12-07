@@ -3,6 +3,8 @@ import React from 'react'
 import { CampaignCarousel, CampagneCard, CampaignLanding } from '@/features/Main/components'
 import { Star } from '@phosphor-icons/react'
 import useNavigation from '@/hooks/useNavigation'
+import { Footer } from '../Footer'
+
 
 export const HomePage = () => {
   const { goTo } = useNavigation()
@@ -31,6 +33,8 @@ export const HomePage = () => {
       <CampaignLanding />
       {/* <CampagneCard /> */}
       <CampaignCarousel />
+
+      <Footer />
     </Stack>
   )
 }

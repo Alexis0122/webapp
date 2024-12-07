@@ -1,66 +1,73 @@
 import React from 'react'
-import { Grid, Title, Text, Button, Stack, Tabs, Group } from '@mantine/core'
-import { Star } from '@phosphor-icons/react'
-import useNavigation from '@/hooks/useNavigation' // Importa tu hook de navegación personalizado
-import { useAuth } from '@/hooks/useAuth' // Importa el hook para manejar la autenticación
+import { Grid, Title, Text, Button, Stack } from '@mantine/core'
+import Image from 'next/image'
+import useNavigation from '@/hooks/useNavigation'
+import { useAuth } from '@/hooks/useAuth'
 import styles from './CampaignLanding.module.css'
+import imgLandingPageBombillo from '@/assets/png/imgLandingPageBombillo.png'
 
 export const CampaignLanding = () => {
-  const { isAuthenticated } = useAuth() // Obtén el estado de autenticación
-  const { goTo } = useNavigation() // Maneja la navegación
+  const { isAuthenticated } = useAuth()
+  const { goTo } = useNavigation()
 
-  // Maneja el clic del botón de "Start A Campaign"
   const handleStartCampaign = () => {
     if (isAuthenticated) {
-      goTo('/createProject') // Redirige a la página de crear campaña si está autenticado
+      goTo('/createProject')
     } else {
-      goTo('/login') // Redirige al login si no está autenticado
+      goTo('/login')
     }
   }
 
   return (
-    <Stack align='center'>
-      <Group justify='center'>
-        <Tabs defaultValue='Home' variant='pills' radius='md'>
-          <Tabs.List>
-            <Tabs.Tab leftSection={<Star size={12} />} value='Home' onClick={() => goTo('/')}>
-              Home
-            </Tabs.Tab>
-            <Tabs.Tab
-              leftSection={<Star size={12} />}
-              value='Crowdfunding'
-              onClick={() => goTo('/Search')}
-            >
-              Crowdfunding
-            </Tabs.Tab>
-            <Tabs.Tab leftSection={<Star size={12} />} value='About' onClick={() => goTo('/About')}>
-              About
-            </Tabs.Tab>
-          </Tabs.List>
-        </Tabs>
-      </Group>
+    <Stack align='center' style={{ width: '100%', maxWidth: '1400px', margin: '0 auto', padding: '0' }}>
       <Grid p='lg' grow>
-        <Grid.Col span={{ xs: 8, sm: 6, md: 4 }}>
-          <Title>PEDRO E UN MMG (Aquí va la foto)</Title>
+        <Grid.Col 
+          span={{ xs: 8, sm: 6, md: 4 }} 
+          style={{ 
+            position: 'relative', 
+            minHeight: '600px',
+            filter: 'drop-shadow(0 40px 2px rgba(192, 14, 56, 0.6))',
+            marginTop: '-40px'
+          }}
+          className={styles.imageContainer}
+        >
+          <Image
+            src={imgLandingPageBombillo}
+            alt="Landing Page Illustration"
+            fill
+            style={{ 
+              objectFit: 'contain',
+            }}
+            className={styles.rotatingImage}
+            priority
+            unoptimized
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </Grid.Col>
         <Grid.Col span={{ xs: 8, sm: 6, md: 6 }}>
           <Stack m='md' className={styles.content}>
-            <Group>
-              <Title size={56} c='primary'>
-                You{' '}
+            <div className={styles.titleGroup}>
+              <Title className={styles.titlePrimary} c='primary'>
+                You
               </Title>
-              <Title size={56}>Dream It</Title>
-            </Group>
-            <Title size={56}>They Bring It To Life</Title>
-            <Text fz={16} ta='right'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta in tellus non
-              scelerisque. Suspendisse ac dolor rhoncus, ornare purus nec, molestie risus.
-              Pellentesque vitae dui at enim congue ultricies. Nullam in orci quis mauris
-              scelerisque volutpat sit amet vel sapien. Phasellus facilisis neque vitae aliquet
-              ornare. In vel dapibus neque, sit amet lacinia sapien. Praesent elementum eros dolor.
-              Vivamus sed mauris odio. Vivamus eu tortor neque. In ut aliquet diam.
+              <Title className={styles.titleSecondary}>
+                Dream It
+              </Title>
+            </div>
+            <Title className={styles.titleTertiary} mb={16}>
+              They Bring It To Life
+            </Title>
+            <Text className={styles.description}>
+              Turn your vision into reality with a community-driven platform that connects dreamers and doers.
+              Whether you have a groundbreaking idea or the skills to bring one to life, this is the space
+              where collaboration thrives. Share your projects, find support from a network of passionate
+              creators, and access the tools you need to succeed. Together, we'll make your dreams a reality.
             </Text>
-            <Button size='xl' onClick={handleStartCampaign}>
+            <Button 
+              size='xl' 
+              onClick={handleStartCampaign}
+              className={styles.button}
+            >
               Start A Campaign
             </Button>
           </Stack>
