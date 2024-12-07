@@ -24,7 +24,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
       <Card.Section>
         <Image src={imageUrl} alt={title} height={250} />
       </Card.Section>
-      <Stack gap='xs' mt='sm'>
+      <Stack gap='md' className={styles.cardContent}>
         <Text fw={700} size='md'>
           {title}
         </Text>
@@ -39,7 +39,14 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           {financialTarget} raised | {donationPercentage} donated
         </Text>
       </Stack>
-      <Button>NINO MMG</Button>
+      <Button
+        variant="filled"
+        color="primary"
+        className={styles.cardButton}
+        fullWidth
+      >
+        NINO MMG
+      </Button>
     </Card>
   )
 }
