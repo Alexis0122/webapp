@@ -25,6 +25,7 @@ export default function PerfilPage() {
   const handleOpenModal = async (project: Project) => {
     setLoadingModalData(true)
     setSelectedProjectId(project.id)
+    setSelectedProject(null) // Limpia cualquier dato anterior del proyecto
 
     try {
       const url = `https://crowdevsserviceapi.azurewebsites.net/api/v1/Project/${project.id}`
@@ -92,14 +93,10 @@ export default function PerfilPage() {
       }
 
       // Verificar si startDate ha cambiado
-      if (data.startDate && data.startDate !== projectData.startDate) {
-        formData.append('StartDate', data.startDate.toISOString())
-      }
+      formData.append('StartDate', data.startDate.toISOString())
 
       // Verificar si endDate ha cambiado
-      if (data.endDate && data.endDate !== projectData.endDate) {
-        formData.append('EndDate', data.endDate.toISOString())
-      }
+      formData.append('EndDate', data.endDate.toISOString())
 
       // Verificar si status ha cambiado
       if (data.status && data.status !== projectData.status) {
@@ -118,15 +115,22 @@ export default function PerfilPage() {
         },
         body: formData // Enviar el FormData con los campos añadidos
       })
-      setTimeout(() => {
-        router.reload()
-      }, 1)
-      // const responseData = await response.json()
 
-      // Ver la respuesta del servidor después de la solicitud PUT
+      // Verificar el código de respuesta
+      if (response.ok) {
+        toast.success('Proyecto actualizado con éxito.') // Mensaje de éxito
+      } else {
+        const errorData = await response.json()
+        toast.error(`Error al actualizar el proyecto: ${errorData.message || 'Error desconocido'}`) // Mensaje de error
+      }
+
+      // Opcionalmente, puedes recargar la página después de un breve tiempo si es necesario
+      // setTimeout(() => {
+      //   router.reload()
+      // }, 1000)
     } catch (error) {
       console.error('Error al realizar la solicitud PUT:', error)
-      toast.error('Hubo un error al actualizar el proyecto.')
+      toast.error('Hubo un error al actualizar el proyecto.') // Mensaje en caso de error en la solicitud
     }
   }
 

@@ -10,6 +10,8 @@ import {
 } from '@/components/form/controllers'
 import { EditProjectSchema } from './ProjectModal.utils'
 import { CreateProjectForm, EditProjectForm } from '@/types/Project'
+import { ProjectStatus } from '@/constants'
+import { ImportProjectImage } from '../CreateProject/ImportProjectImage'
 
 interface EditProjectModalProps {
   opened: boolean
@@ -38,7 +40,7 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
 
   useEffect(() => {
     if (defaultValues) {
-      reset(defaultValues) // Set the form data when defaultValues change
+      reset(defaultValues)
     }
   }, [defaultValues, reset])
 
@@ -54,8 +56,8 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
   return (
     <Modal opened={opened} onClose={onClose} title='Editar Proyecto'>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <Stack>
-          <Title>Editar Proyecto</Title>
+        <Stack mt={20} justify='center'>
+          <Title>Crea tu propio proyecto</Title>
           <Grid>
             <Grid.Col>
               <TextInputController
@@ -67,6 +69,7 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
                 }}
               />
             </Grid.Col>
+
             <Grid.Col>
               <TextareaController
                 control={control}
@@ -77,6 +80,9 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
                 }}
               />
             </Grid.Col>
+
+            <Grid.Col>{/* <ImportProjectImage control={control} /> */}</Grid.Col>
+
             <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
               <DatePickerInputController
                 control={control}
@@ -87,6 +93,7 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
                 }}
               />
             </Grid.Col>
+
             <Grid.Col span={{ xs: 12, sm: 6, md: 6 }}>
               <DatePickerInputController
                 control={control}
@@ -97,26 +104,28 @@ export const ProjectModal: React.FC<EditProjectModalProps> = ({
                 }}
               />
             </Grid.Col>
+
             <Grid.Col>
               <SelectController
                 control={control}
                 name='status'
                 options={[
-                  { label: 'Concepto', value: 'Concept' },
-                  { label: 'Prototipo', value: 'Prototype' },
-                  { label: 'Producción', value: 'Production' },
-                  { label: 'Enviado', value: 'Shipping' },
-                  { label: 'Entregado', value: 'Delivered' },
-                  { label: 'Finalizado', value: 'Ended' }
+                  { label: 'Concepto', value: ProjectStatus.Concept },
+                  { label: 'Prototipo', value: ProjectStatus.Prototype },
+                  { label: 'Producción', value: ProjectStatus.Production },
+                  { label: 'Enviado', value: ProjectStatus.Shipping },
+                  { label: 'Entregado', value: ProjectStatus.Delivered },
+                  { label: 'Finalizado', value: ProjectStatus.Ended }
                 ]}
                 selectProps={{
                   label: 'Estado',
-                  placeholder: 'Selecciona un estado'
+                  placeholder: 'Estado'
                 }}
               />
             </Grid.Col>
           </Grid>
         </Stack>
+
         <Group mt='md'>
           <Button variant='outline' onClick={onClose}>
             Cancelar
