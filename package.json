@@ -42,7 +42,7 @@
     "icons-react": "^3.7.1",
     "jsdoc": "^4.0.4",
     "lodash": "^4.17.21",
-    "next": "15.0.3",
+    "next": "15.0.7",
     "next-auth": "^4.24.10",
     "phosphor-react": "^1.4.1",
     "postcss-preset-mantine": "^1.17.0",
